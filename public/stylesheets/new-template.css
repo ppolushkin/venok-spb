@@ -1,0 +1,205 @@
+body {
+    height: 100%;
+    text-align: center;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 9pt;
+    line-height: 10pt;
+    min-width: 968px;
+    background: url(../images/bg-page.jpg) no-repeat #FFF top center fixed !important;
+    margin-top: 0;
+}
+
+#header {
+    background: url("../images/bg-header.jpg") no-repeat scroll 0 0 transparent;
+    height: 135px;
+    margin-top: 10px;
+    position: relative;
+    width: 940px;
+}
+
+#body-container {
+    margin: 0 auto;
+    width: 960px;
+    min-height: 600px;
+}
+
+#footer-container {
+    background: url("../images/bg-footer.png") no-repeat scroll 50% 0 transparent;
+    clear: both;
+    color: #B3B3B3;
+    line-height: 1.6em;
+    padding: 140px 0 0;
+    text-align: center;
+}
+
+#footer {
+    margin-top: 15px;
+}
+
+#main {
+
+    float: left;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+.cleaner {
+    clear: both;
+    height: 0;
+    font-size: 0;
+    visibility: hidden;
+    content: ' ';
+}
+
+/*Menu*/
+
+#menu {
+    bottom: 0;
+    height: 36px;
+    left: 620px;
+    position: absolute;
+}
+
+ul#menu li {
+    background: url("../images/nav-off-right.gif") no-repeat scroll right top transparent;
+    float: left;
+    height: 36px;
+    margin: 0 2px 0 0;
+}
+
+ul#menu li.on {
+    background: url("../images/nav-on-right.gif") no-repeat scroll right top transparent;
+}
+
+ul#menu li a {
+    background: url("../images/nav-off-left.gif") no-repeat scroll left top transparent;
+    color: #DDDDDD;
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    height: 36px;
+    line-height: 30px;
+    padding: 0 11px;
+}
+
+ul#menu li.on a {
+    background: url("../images/nav-on-left.gif") no-repeat scroll left top transparent;
+    color: #555555;
+}
+
+ul#menu li.on a:hover {
+    color: #555;
+}
+
+ul#menu li a:hover {
+    color: #ffffff;
+}
+
+/*Admin menu*/
+
+#admin {
+    position: absolute;
+    right: 20px;
+    top: 12px;
+}
+
+#admin ul {
+    padding-left: -3px;
+}
+
+#admin ul li {
+    float: left;
+    height: 20px;
+    padding-left: 10px;
+}
+
+#admin ul li a {
+    color: #B6B6B6;
+}
+
+#admin ul li.on a {
+    color: #ffffff;
+}
+
+#login {
+    background: url("../images/icon-padlock.gif") no-repeat scroll left center transparent;
+    width: 70px;
+}
+
+#navigation {
+    float: left;
+    margin-right: 11px;
+    margin-top: 11px;
+    width: 190px;
+}
+
+#delivery {
+    background: url("../images/sidebar-clockface.png") no-repeat scroll left top transparent;
+    height: 195px;
+}
+
+#content {
+    float: left;
+    margin-top: 11px;
+    width: 739px;
+}
+
+
+/*Text formatting */
+
+a {
+    text-decoration: none;
+}
+
+p {
+    margin: 0 0 1em;
+}
+
+#content h3 {
+    color: #666666;
+    font-size: 1.2em;
+    margin: 0 0 0.4em;
+}
+
+.text-block {
+    clear: both;
+    margin: 10px 20px 10px 10px;
+    overflow: auto;
+    text-align: left;
+    font-size: 1.1em;
+    line-height: 1.5em;
+}
+
+.text-block strong {
+    color: #666666;
+}
+
+.text-block p:first-letter {
+    color: #ff0000;
+}
+
+.text-block img {
+    float: left;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+}
+
+#delivery {
+    color: #ffffff;
+    font-size: 1.5em;
+    letter-spacing: -0.8px;
+}
+
+#delivery h3 {
+    font-size: 1.1em;
+    padding-top: 45px;
+    padding-bottom: 40px;
+}
+
+#delivery h3:first-letter {
+    color: yellow;
+}
