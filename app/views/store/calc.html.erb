@@ -1,0 +1,28 @@
+<div class="whole-content">
+
+  <!--Table 1-->
+  <div class="whole-table-left">
+    <h3>Венки</h3>
+    <% @whole_products = @venki %>
+    <%= render 'wholesaler_table' %>
+    <div id="venok-sub-summary" class="sub-summary">
+      <%= raw @basket.print_sub_statistic(:venok) %>
+    </div>
+  </div>
+
+  <!--Table 2-->
+  <div class="whole-table-right">
+    <h3>Корзины</h3>
+    <% @whole_products = @korsinu %>
+    <%= render 'wholesaler_table' %>
+    <div id="korsina-sub-summary" class="sub-summary">
+      <%= raw @basket.print_sub_statistic(:korsina) %>
+    </div>
+  </div>
+
+  <div id="whole-summary-price">
+    ИТОГО: <%= sprintf("%u р", @basket.get_summary_price) %>
+  </div>
+
+</div>
+

@@ -1,0 +1,39 @@
+<h3>Результаты поиска</h3>
+
+<% if(@products.empty?) %>
+    Ничего не найдено по запросу <%= @phrase  %> <br/>
+    Поиск осуществляется только по артиклю и по имени
+<% end %>
+
+
+<% @products.each do |product| %>
+    <div class="product-block">
+      <div class="product-name">
+        <a href="<%= product.big_image_name %>" rel="lightbox[v1]"><%= product.name + ' (' + product.article + ')' %></a>
+      </div>
+      <div class="product-description">
+        <%= raw product.notes %>
+      </div>
+      <div class="product-image">
+        <a href="<%= product.big_image_name %>" rel="lightbox[v2]"><img src="<%= product.small_image_name %>" alt="Траурный венок <%= product.name %>"/></a>
+      </div>
+      <div class="product-extra-foto">
+        <%= raw show_extra_image_ref product %>
+      </div>
+      <div class="product-size">
+        Размер:<%= product.width %>x<%= product.height %>см.
+      </div>
+      <div class="product-cost">
+        Цена: <%= sprintf("%u р", product.price) %>
+      </div>
+    </div>
+<% end %>
+
+<br class="clear" />
+
+<%= will_paginate @products, :previous_label=>"Назад", :next_label => "Вперед" %>
+
+
+
+
+

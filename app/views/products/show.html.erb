@@ -1,0 +1,49 @@
+<p>
+  <b>Артикль:</b>
+  <%= @product.article %>
+</p>
+
+<p>
+  <b>Имя:</b>
+  <%= @product.name %>
+</p>
+
+<p>
+  <b>Высота:</b>
+  <%= @product.height %>
+</p>
+
+<p>
+  <b>Ширина:</b>
+  <%= @product.width %>
+</p>
+
+<p>
+  <b>Описание:</b>
+  <%= @product.notes %>
+</p>
+
+<p>
+  <b>Маленькое фото:</b> <br />
+  <img src="<%= @product.small_image_name %>" alt="Не загружено" class="show-product-image"/>
+</p>
+
+<p>
+  <b>Большое фото:</b> <br />
+  <img src="<%= @product.big_image_name %>" alt="Не загружено" class="show-product-image"/>
+</p>
+
+<p>
+  <b>Фото без обработки:</b> <br />
+  <img src="<%= @product.extra_image_name %>" alt="Не загружено" class="show-product-image"/>
+</p>
+
+<p>
+  <b>Цена:</b>
+  <%= @product.price %>
+</p>
+
+<br/>
+
+<%= link_to 'Редактировать', edit_product_path(@product) %> |
+<%= link_to 'Назад', products_path %>
