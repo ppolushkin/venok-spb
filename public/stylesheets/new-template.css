@@ -119,6 +119,10 @@ ul#menu li a:hover {
     color: #B6B6B6;
 }
 
+#admin ul li a:hover {
+    color: #DDDDDD;
+}
+
 #admin ul li.on a {
     color: #ffffff;
 }
@@ -135,19 +139,59 @@ ul#menu li a:hover {
     width: 190px;
 }
 
+#navigation h3 {
+    background: url("../images/sidebar-title-blank.gif") no-repeat scroll left top transparent;
+    height: 31px;
+    margin-top: 15px;
+    color: #DDDDDD;
+    font-size: 1.2em;
+    padding-top: 8px;
+    overflow: hidden;
+    letter-spacing: 0.8px;
+}
+
+#navigation h3:first-letter {
+    color: yellow;
+}
+
+#navigation li a {
+    background: url("../images/bullet-arrow.gif") no-repeat scroll 9px 7px transparent;
+    border-radius: 5px 5px 5px 5px;
+    color: #666666;
+    display: block;
+    height: 18px;
+    text-align: left;
+    padding-left: 30px;
+    padding-top: 4px;
+}
+
+#navigation li a:hover {
+    background: none repeat scroll 0 0 #EEEEEE;
+    color: #000000;
+}
+
+#navigation li.on a {
+    background: none repeat scroll 0 0 #DDDDDD;
+    color: #000000;
+}
+
 #delivery {
     background: url("../images/sidebar-clockface.png") no-repeat scroll left top transparent;
     height: 195px;
 }
+
+#delivery h3 {
+    background: none;
+    margin: 0;
+}
+
+/*Text formatting */
 
 #content {
     float: left;
     margin-top: 11px;
     width: 739px;
 }
-
-
-/*Text formatting */
 
 a {
     text-decoration: none;
@@ -198,8 +242,4 @@ p {
     font-size: 1.1em;
     padding-top: 45px;
     padding-bottom: 40px;
-}
-
-#delivery h3:first-letter {
-    color: yellow;
 }
