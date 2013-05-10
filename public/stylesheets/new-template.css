@@ -37,7 +37,6 @@ body {
 }
 
 #main {
-
     float: left;
     width: 100%;
     margin-left: 10px;
@@ -101,8 +100,8 @@ ul#menu li a:hover {
 
 #admin {
     position: absolute;
-    right: 20px;
-    top: 12px;
+    right: 0;
+    top: 8px;
 }
 
 #admin ul {
@@ -190,7 +189,7 @@ ul#menu li a:hover {
 #content {
     float: left;
     margin-top: 11px;
-    width: 739px;
+    width: 749px;
 }
 
 a {
@@ -220,6 +219,11 @@ p {
     color: #666666;
 }
 
+.text-block a {
+    color: #666666;
+    text-decoration: underline;
+}
+
 .text-block p:first-letter {
     color: #ff0000;
 }
@@ -242,4 +246,74 @@ p {
     font-size: 1.1em;
     padding-top: 45px;
     padding-bottom: 40px;
+}
+
+.product-grid {
+    width: 100%;
+    margin: 10px 20px 10px 10px;
+}
+
+.product-item {
+    float: left;
+    height: 262px;
+    margin: 0 11px 11px 0;
+    width: 175px;
+}
+
+.product-item .thumb {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border: 1px solid #000000;
+    border-bottom: medium none -moz-use-text-color;
+    border-image: none;
+    display: block;
+    height: 180px;
+    width: 135px;
+}
+
+.product-item .details {
+    background: url("../images/bg-buynow.gif") no-repeat scroll left top transparent;
+    height: 57px;
+    width: 137px;
+}
+
+.product-item .details a {
+    background: url("../images/button-buynow.gif") no-repeat scroll 0 0 transparent;
+    display: block;
+    float: left;
+    height: 26px;
+    margin: 7px 0 0 6px;
+    overflow: hidden;
+    text-indent: -550px;
+    width: 63px;
+}
+
+.product-item .description, .product-item .size {
+    color: #FFFFFF;
+    font-size: 0.7em;
+    line-height: 9pt;
+    padding: 1px 6px 0 3px;
+    text-align: right;
+}
+
+.product-item .price {
+    color: #FFFFFF;
+    font-size: 1.2em;
+    padding: 6px 6px 0 0;
+    text-align: right;
+    letter-spacing: -0.8px;
+}
+
+.product-item .price span {
+    color: #FFFB02;
+    font-weight: bold;
+}
+
+.product-item .details a:hover {
+    background: url("../images/button-buynow.gif") no-repeat scroll 0 -52px transparent;
+}
+.product-item .details a:active {
+    background: url("../images/button-buynow.gif") no-repeat scroll 0 -26px transparent;
 }
