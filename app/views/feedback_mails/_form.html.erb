@@ -1,13 +1,5 @@
 <div class="maincontent">
 
-  <script src="/javascripts/jquery/jquery-1.6.1.min.js" type="text/javascript"></script>
-  <script src="/javascripts/jquery/obelisk.js" type="text/javascript"></script>
-
-  <script type='text/javascript'>
-      jQuery.noConflict();
-      hover_button("#back-link", "/images/back.png", "/images/go-back.png")
-  </script>
-
   <h3>Отправить сообщение</h3>
 
   <%= form_for(@feedback_mail) do |f| %>
@@ -46,7 +38,5 @@
         <%= f.submit 'Отправить' %>
       </div>
   <% end %>
-
-  <a id="back-link" href="javascript: history.go(-1)"><img src="/images/back.png" alt="Назад"/> Назад</a>
 
 </div>

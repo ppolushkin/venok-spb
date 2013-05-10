@@ -55,10 +55,9 @@ body {
 /*Menu*/
 
 #menu {
-    bottom: 0;
-    height: 36px;
-    left: 620px;
-    position: absolute;
+    float: right;
+    margin-top: 99px;
+    margin-right: 10px;
 }
 
 ul#menu li {
@@ -100,7 +99,7 @@ ul#menu li a:hover {
 
 #admin {
     position: absolute;
-    right: 0;
+    right: 15px;
     top: 8px;
 }
 
@@ -124,11 +123,6 @@ ul#menu li a:hover {
 
 #admin ul li.on a {
     color: #ffffff;
-}
-
-#login {
-    background: url("../images/icon-padlock.gif") no-repeat scroll left center transparent;
-    width: 70px;
 }
 
 #navigation {
@@ -314,6 +308,7 @@ p {
 .product-item .details a:hover {
     background: url("../images/button-buynow.gif") no-repeat scroll 0 -52px transparent;
 }
+
 .product-item .details a:active {
     background: url("../images/button-buynow.gif") no-repeat scroll 0 -26px transparent;
 }
