@@ -27,17 +27,15 @@
           <% if session[:admin] %>
               <li><a href="/pages">Страницы</a></li>
               <li><a href="/products">Товары</a></li>
-              <li><a href="/feedback_mails">Товары</a></li>
               <li><a href="/logout">Выйти</a></li>
           <% else %>
               <li><a href="/login">Войти</a></li>
           <% end %>
-
         </ul>
       </div>
 
       <ul id="menu">
-        <li class="root"><a href="/">О нас</a></li>
+        <li><a href="/">О нас</a></li>
         <li><a href="/ritual_venki">Венки</a></li>
         <li><a href="/ritual_korsinu">Корзины</a></li>
         <li><a href="/ritual_lentu">Ленточки</a></li>
@@ -47,34 +45,35 @@
     <div id="navigation">
       <div id="delivery">
         <h3>Доставка по Спб</h3>
+
         <p>На следующий день</p>
+
         <p>400 руб</p>
       </div>
 
       <h3>Венки</h3>
       <ul>
-        <li class="on"><a href="/about_us">от 5000р</a></li>
-        <li><a href="/about_us">от 2500р</a></li>
-        <li><a href="/about_us">от 1000р</a></li>
-        <li><a href="/about_us">от 500р</a></li>
+        <li><a href="/ritual_venki?price=5000">от 5000р</a></li>
+        <li><a href="/ritual_venki?price=2500">от 2500р</a></li>
+        <li><a href="/ritual_venki?price=1000">от 1000р</a></li>
+        <li><a href="/ritual_venki?price=500">от 500р</a></li>
       </ul>
 
       <h3>Корзины</h3>
       <ul>
-        <li><a href="/about_us">от 5000р</a></li>
-        <li><a href="/about_us">от 2500р</a></li>
-        <li><a href="/about_us">от 1000р</a></li>
-        <li><a href="/about_us">от 500р</a></li>
+        <li><a href="/ritual_korsinu?price=5000">от 5000р</a></li>
+        <li><a href="/ritual_korsinu?price=2500">от 2500р</a></li>
+        <li><a href="/ritual_korsinu?price=1000">от 1000р</a></li>
+        <li><a href="/ritual_korsinu?price=500">от 500р</a></li>
       </ul>
 
       <h3>Ленточки</h3>
       <ul>
-        <li><a href="/about_us">от 5000р</a></li>
-        <li><a href="/about_us">от 2500р</a></li>
-        <li><a href="/about_us">от 1000р</a></li>
-        <li><a href="/about_us">от 500р</a></li>
+        <li><a href="/lentu?price=5000">от 5000р</a></li>
+        <li><a href="/lentu?price=2500">от 2500р</a></li>
+        <li><a href="/lentu?price=1000">от 1000р</a></li>
+        <li><a href="/lentu?price=500">от 500р</a></li>
       </ul>
-
     </div>
 
     <div id="content">
