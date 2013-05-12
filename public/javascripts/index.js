@@ -52,11 +52,7 @@
         $('a[href="/logout"]').click(function (e) {
             e.preventDefault();
             $.ajax({url:'/logout', method:'DELETE', success:function (msg) {
-                notice('Logged out', 2000);
-                setTimeout(function() {
-                    location.pathname = '/';
-                }, 2000);
-
+                location.pathname = '/';
             }});
         });
     }

@@ -42,55 +42,56 @@
       </ul>
     </div>
 
-    <% if !session[:admin] %>
-    <div id="navigation">
-      <div id="delivery">
-        <h3>Доставка по Спб</h3>
+    <% unless session[:admin] %>
+        <div id="navigation">
+          <div id="delivery">
+            <h3>Доставка по Спб</h3>
 
-        <p>На следующий день</p>
+            <p>На следующий день</p>
 
-        <p>400 руб</p>
-      </div>
+            <p>400 руб</p>
+          </div>
 
-      <h3>Венки</h3>
-      <ul>
-        <li><a href="/ritual_venki?price=5000">от 5000р</a></li>
-        <li><a href="/ritual_venki?price=2500">от 2500р</a></li>
-        <li><a href="/ritual_venki?price=1000">от 1000р</a></li>
-        <li><a href="/ritual_venki?price=500">от 500р</a></li>
-      </ul>
+          <h3>Венки</h3>
+          <ul>
+            <li><a href="/ritual_venki?price=5000">от 5000р</a></li>
+            <li><a href="/ritual_venki?price=2500">от 2500р</a></li>
+            <li><a href="/ritual_venki?price=1000">от 1000р</a></li>
+            <li><a href="/ritual_venki?price=500">от 500р</a></li>
+          </ul>
 
-      <h3>Корзины</h3>
-      <ul>
-        <li><a href="/ritual_korsinu?price=5000">от 5000р</a></li>
-        <li><a href="/ritual_korsinu?price=2500">от 2500р</a></li>
-        <li><a href="/ritual_korsinu?price=1000">от 1000р</a></li>
-        <li><a href="/ritual_korsinu?price=500">от 500р</a></li>
-      </ul>
+          <h3>Корзины</h3>
+          <ul>
+            <li><a href="/ritual_korsinu?price=5000">от 5000р</a></li>
+            <li><a href="/ritual_korsinu?price=2500">от 2500р</a></li>
+            <li><a href="/ritual_korsinu?price=1000">от 1000р</a></li>
+            <li><a href="/ritual_korsinu?price=500">от 500р</a></li>
+          </ul>
 
-      <h3>Ленточки</h3>
-      <ul>
-        <li><a href="/lentu?price=5000">от 5000р</a></li>
-        <li><a href="/lentu?price=2500">от 2500р</a></li>
-        <li><a href="/lentu?price=1000">от 1000р</a></li>
-        <li><a href="/lentu?price=500">от 500р</a></li>
-      </ul>
-    </div>
+          <h3>Ленточки</h3>
+          <ul>
+            <li><a href="/lentu?price=5000">от 5000р</a></li>
+            <li><a href="/lentu?price=2500">от 2500р</a></li>
+            <li><a href="/lentu?price=1000">от 1000р</a></li>
+            <li><a href="/lentu?price=500">от 500р</a></li>
+          </ul>
+        </div>
     <% end %>
 
-    <div id="content">
-      <%= raw print_notice(notice) %>
-      <%= yield %>
-    </div>
-  </div>
-</div>
+
+        <div id="content">
+          <%= raw print_notice(notice) %>
+          <%= yield %>
+        </div>
+        </div>
+        </div>
 
 
-<div id="footer-container">
-  <div id="footer">
-    Производственная Компания &laquo;Венок&raquo; 2009&mdash;2013
-  </div>
-</div>
+        <div id="footer-container">
+          <div id="footer">
+            Производственная Компания &laquo;Венок&raquo; 2009&mdash;2013
+          </div>
+        </div>
 
-</body>
-</html>
+        </body>
+        </html>
