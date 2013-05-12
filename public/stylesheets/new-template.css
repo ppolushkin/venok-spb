@@ -336,13 +336,13 @@ p {
     -webkit-border-radius: 10px;
 }
 
-.field {
+.login-form .field {
     margin-left: 40px;
     margin-right: 40px;
     margin-bottom: 15px;
 }
 
-.field label {
+.login-form .field label {
     display: block;
     height: 20px;
 }
@@ -364,4 +364,23 @@ p {
 .big-table .right-button {
     padding-left: 850px;
 }
+
+.wide-form {
+    width: 940px;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.wide-form .field, .wide-form .actions {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+
+.wide-form .field label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
 

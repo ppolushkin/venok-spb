@@ -1,49 +1,22 @@
-<p>
-  <b>Артикль:</b>
-  <%= @product.article %>
-</p>
+<div class="product-item">
+  <a class="thumb" href="<%= @product.big_image_name %>">
+    <img src="<%= @product.small_image_name %>" alt="Траурный венок <%= @product.name %>" width="135" height="180">
+  </a>
 
-<p>
-  <b>Имя:</b>
-  <%= @product.name %>
-</p>
+  <div class="details">
+    <a href="<%= @product.big_image_name %>">Купить</a>
+    <div class="price"><span><%= sprintf("%u р", @product.price) %></span></div>
+    <div class="description"><%= @product.name %></div>
+    <div class="size"><%= product_size @product %></div>
+  </div>
+</div>
 
-<p>
-  <b>Высота:</b>
-  <%= @product.height %>
-</p>
+<div class="text-block">
+  <img src="<%= @product.big_image_name %>">
+  <p>
+    <%= @product.notes %>
+  </p>
+</div>
 
-<p>
-  <b>Ширина:</b>
-  <%= @product.width %>
-</p>
-
-<p>
-  <b>Описание:</b>
-  <%= @product.notes %>
-</p>
-
-<p>
-  <b>Маленькое фото:</b> <br />
-  <img src="<%= @product.small_image_name %>" alt="Не загружено" class="show-product-image"/>
-</p>
-
-<p>
-  <b>Большое фото:</b> <br />
-  <img src="<%= @product.big_image_name %>" alt="Не загружено" class="show-product-image"/>
-</p>
-
-<p>
-  <b>Фото без обработки:</b> <br />
-  <img src="<%= @product.extra_image_name %>" alt="Не загружено" class="show-product-image"/>
-</p>
-
-<p>
-  <b>Цена:</b>
-  <%= @product.price %>
-</p>
-
-<br/>
-
-<%= link_to 'Редактировать', edit_product_path(@product) %> |
-<%= link_to 'Назад', products_path %>
+  <%= link_to 'Редактировать', edit_product_path(@product) %> |
+  <%= link_to 'Назад', products_path %>

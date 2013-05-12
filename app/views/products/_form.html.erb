@@ -1,57 +1,61 @@
-<%= form_for(@product, :html => { :multipart => true }) do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+<div class="wide-form">
 
-      <ul>
-      <% @product.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+  <%= form_for(@product, :html => {:multipart => true}) do |f| %>
+      <% if @product.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+            <ul>
+              <% @product.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
       <% end %>
-      </ul>
-    </div>
+
+      <div class="field">
+        <%= f.label "Артикль" %>
+        <%= f.text_field :article, :size => 6, :maxlength => 6 %>
+      </div>
+      <div class="field">
+        <%= f.label "Название" %>
+        <%= f.text_field :name, :size => 50, :maxlength => 50 %>
+      </div>
+      <div class="field">
+        <%= f.label "Высота" %>
+        <%= f.text_field :height, :size => 10, :maxlength => 10 %>
+      </div>
+      <div class="field">
+        <%= f.label "Ширина" %>
+        <%= f.text_field :width, :size => 10, :maxlength => 10 %>
+      </div>
+      <div class="field">
+        <%= f.label "Описание" %>
+        <%= f.text_area :notes, :rows => 6, :size => 255, :maxlength => 255 %>
+      </div>
+      <div class="field">
+        <%= f.label "9 мая" %>
+        <%= f.text_field :may9, :size => 2, :maxlength => 2 %>
+      </div>
+      <div class="field">
+        <%= f.label "Маленькое фото" %>
+        <%= f.file_field :small_image_name %>
+      </div>
+      <div class="field">
+        <%= f.label "Болшое фото" %>
+        <%= f.file_field :big_image_name %>
+      </div>
+      <div class="field">
+        <%= f.label "Фото без обработки" %>
+        <%= f.file_field :extra_image_name %>
+      </div>
+      <div class="field">
+        <%= f.label "Цена" %>
+        <%= f.text_field :price, :size => 6, :maxlength => 6 %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label "Артикль" %><br />
-    <%= f.text_field :article, :size=>6, :maxlength=>6 %>
-  </div>
-  <div class="field">
-    <%= f.label "Название" %><br />
-    <%= f.text_field :name, :size=>50, :maxlength=>50 %>
-  </div>
-  <div class="field">
-    <%= f.label "Высота" %><br />
-    <%= f.text_field :height, :size=>10, :maxlength=>10 %>
-  </div>
-  <div class="field">
-    <%= f.label "Ширина" %><br />
-    <%= f.text_field :width, :size=>10, :maxlength=>10 %>
-  </div>
-  <div class="field">
-    <%= f.label "Описание" %><br />
-    <%= f.text_area :notes, :rows=>6, :size=>255, :maxlength=>255 %>
-  </div>
-    <div class="field">
-      <%= f.label "9 мая" %><br />
-      <%= f.text_field :may9, :size=>2, :maxlength=>2 %>
-    </div>
-  <div class="field">
-    <%= f.label "Маленькое фото" %><br />
-    <%= f.file_field :small_image_name%>
-  </div>
-  <div class="field">
-    <%= f.label "Болшое фото" %><br />
-    <%= f.file_field :big_image_name%>
-  </div>
-  <div class="field">
-    <%= f.label "Фото без обработки" %><br />
-    <%= f.file_field :extra_image_name%>
-  </div>
-  <div class="field">
-    <%= f.label "Цена" %><br />
-    <%= f.text_field :price, :size=>6, :maxlength=>6  %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
