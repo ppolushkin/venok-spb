@@ -325,7 +325,7 @@ p {
     padding-top: 15px;
 }
 
-.form {
+.login-form {
     clear: both;
     margin: 20px 210px 20px 200px;
     background: gray;
@@ -336,15 +336,32 @@ p {
     -webkit-border-radius: 10px;
 }
 
-.form .field {
+.field {
     margin-left: 40px;
     margin-right: 40px;
     margin-bottom: 15px;
 }
 
-.form .field label {
+.field label {
     display: block;
     height: 20px;
 }
 
+.big-table table {
+    table-layout: fixed;
+    width: 940px;
+}
+
+#content table td, th {
+    padding: 10px;
+}
+
+#content td {
+    text-align: left;
+    border: 1px solid #000000;
+}
+
+.big-table .right-button {
+    padding-left: 850px;
+}
 

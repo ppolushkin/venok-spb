@@ -42,6 +42,7 @@
       </ul>
     </div>
 
+    <% if !session[:admin] %>
     <div id="navigation">
       <div id="delivery">
         <h3>Доставка по Спб</h3>
@@ -75,6 +76,7 @@
         <li><a href="/lentu?price=500">от 500р</a></li>
       </ul>
     </div>
+    <% end %>
 
     <div id="content">
       <%= raw print_notice(notice) %>
