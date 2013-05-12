@@ -312,3 +312,15 @@ p {
 .product-item .details a:active {
     background: url("../images/button-buynow.gif") no-repeat scroll 0 -26px transparent;
 }
+
+#notice {
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    background: #DDDDDD;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    height: 30px;
+    margin: 0 250px;
+    padding-top: 15px;
+}

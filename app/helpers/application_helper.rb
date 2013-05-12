@@ -25,7 +25,7 @@ module ApplicationHelper
 
   def print_notice(notice)
     if(notice)
-      "<p id=\"notice\">" + notice + "</p>"
+      "<div id=\"notice\">" + notice + "</div>"
     else
       ''
     end
