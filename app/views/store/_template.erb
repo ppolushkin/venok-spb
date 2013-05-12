@@ -1,24 +1,16 @@
-<div class="productcontent">
+<div class="product-grid">
 
 <% @products.each do |product| %>
-    <div class="product-block">
-      <div class="product-name">
-        <a href="<%= product.big_image_name %>" rel="lightbox[v1]"><%= product_full_name product %></a>
-      </div>
-      <div class="product-description">
-        <%=raw product.notes %>
-      </div>
-      <div class="product-image">
-        <a href="<%= product.big_image_name %>" rel="lightbox[v2]"><img src="<%= product.small_image_name %>" alt="Траурный венок <%= product.name %>" /></a>
-      </div>
-      <div class="product-extra-foto">
-        <%=raw show_extra_image_ref product %>
-      </div>
-      <div class="product-size">
-        Размер:&nbsp;<%= product_size product %>
-      </div>
-      <div class="product-cost">
-        Цена: <%= sprintf("%u р", product.price) %>
+    <div class="product-item">
+      <a class="thumb" href="<%= product.big_image_name %>">
+        <img src="<%= product.small_image_name %>" alt="Траурный венок <%= product.name %>" width="135" height="180">
+      </a>
+
+      <div class="details">
+        <a href="<%= product.big_image_name %>">Купить</a>
+        <div class="price"><span><%= sprintf("%u р", product.price) %></span></div>
+        <div class="description"><%= product.name %></div>
+        <div class="size"><%= product_size product %></div>
       </div>
     </div>
 <% end %>
@@ -29,4 +21,3 @@
 
 <%= will_paginate @products, :previous_label=>"Назад", :next_label => "Вперед" %>
 
-<div class="cleaner">&nbsp;</div>
