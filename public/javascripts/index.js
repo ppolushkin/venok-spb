@@ -54,7 +54,7 @@
             $.ajax({url:'/logout', method:'DELETE', success:function (msg) {
                 notice('Logged out', 2000);
                 setTimeout(function() {
-                    location.reload();
+                    location.pathname = '/';
                 }, 2000);
 
             }});

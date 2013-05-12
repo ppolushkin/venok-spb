@@ -1,13 +1,12 @@
-<div>
+<div class="form">
   <%= form_tag do %>
 
-        <h3>Регистрация</h3>
         <div class="field">          
-          <label for="name">Имя:</label><br/>
+          <label for="name">Имя:</label>
           <%= text_field_tag :name, params[:name] %>
         </div>
         <div class="field">
-          <label for="password">Пароль:</label><br/>
+          <label for="password">Пароль:</label>
           <%= password_field_tag :password, params[:password] %>
         </div>
         <div>

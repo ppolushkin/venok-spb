@@ -324,3 +324,27 @@ p {
     margin: 0 250px;
     padding-top: 15px;
 }
+
+.form {
+    clear: both;
+    margin: 20px 210px 20px 200px;
+    background: gray;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+.form .field {
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 15px;
+}
+
+.form .field label {
+    display: block;
+    height: 20px;
+}
+
+
