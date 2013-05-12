@@ -14,7 +14,7 @@ include SessionsHelper
       session[:admin] = true
       redirect_to about_us_url, :notice => "Logged in"
     else
-      redirect_to login_url, :notice => "Invalid user/password combination"
+      redirect_to login_url, :notice => "Wrong credentials"
     end
   end
 

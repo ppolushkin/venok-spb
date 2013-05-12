@@ -313,7 +313,7 @@ p {
     background: url("../images/button-buynow.gif") no-repeat scroll 0 -26px transparent;
 }
 
-#notice {
+#notice, #ajax-notice {
     font-size: 1.2em;
     letter-spacing: 1px;
     background: #DDDDDD;

@@ -4,7 +4,7 @@
         highlightAdminMenu();
         highlightMenu();
         highlightNavigationMenu();
-        hideNotice();
+        hideHtmlNotice();
         logout();
     });
 
@@ -43,7 +43,7 @@
         });
     }
 
-    function hideNotice() {
+    function hideHtmlNotice() {
         var $notice = $('#notice');
         $notice.fadeOut(3000);
     }
@@ -52,9 +52,18 @@
         $('a[href="/logout"]').click(function (e) {
             e.preventDefault();
             $.ajax({url:'/logout', method:'DELETE', success:function (msg) {
-                location.reload();
+                notice('Logged out', 2000);
+                setTimeout(function() {
+                    location.reload();
+                }, 2000);
+
             }});
         });
+    }
+
+    function notice(text, interval) {
+        var $notice = $('<div id="ajax-notice">' + text + '</div>').prependTo($('#content'));
+        $notice.fadeOut(interval);
     }
 
 })();
