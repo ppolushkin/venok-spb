@@ -10,3 +10,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'unicode'
 
 gem 'will_paginate', '>= 3.0.pre'
+
+gem 'bcrypt-ruby'
+
+gem 'email_validator'

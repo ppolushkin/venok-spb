@@ -57,9 +57,9 @@
         });
     }
 
-    function notice(text, interval) {
-        var $notice = $('<div id="ajax-notice">' + text + '</div>').prependTo($('#content'));
-        $notice.fadeOut(interval);
-    }
-
 })();
+
+function showMessage(text, interval) {
+    var $notice = $('<div id="ajax-notice">' + text + '</div>').prependTo($('#content'));
+    $notice.fadeOut(interval);
+}

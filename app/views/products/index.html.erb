@@ -1,3 +1,4 @@
+<script src="/javascripts/admin.js"></script>
 
 <div class="big-table">
 
@@ -30,7 +31,7 @@
           <td><%= "+" if (product.extra_image_name != nil) %></td>
           <td class="manage"><%= link_to 'Показать', product %></td>
           <td class="manage"><%= link_to 'Изменить', edit_product_path(product) %></td>
-          <td class="manage"><%= link_to 'Удалить', product, :confirm => 'Вы уверны?', :method => :delete %></td>
+          <td class="manage"><%= link_to 'Удалить', product, :method => :delete %></td>
         </tr>
     <% end %>
   </table>

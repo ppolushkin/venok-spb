@@ -25,6 +25,8 @@ Obelisk::Application.routes.draw do
 
   resources :pages
 
+  resources :admins
+
   match ":page_ref", :controller => "pages", :action => "show_by_page_ref"
 
   root :controller => "pages", :action => "show_by_page_ref", :page_ref => 'about_us', :as => 'about_us'
