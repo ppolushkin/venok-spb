@@ -1,0 +1,28 @@
+
+<div class="wide-form">
+  <%= form_for(@admin) do |f| %>
+      <% if @admin.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@admin.errors.count, "error") %> prohibited this admin from being saved:</h2>
+
+            <ul>
+              <% @admin.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :email %>
+        <input type="text" value="<%= @admin.email %>" size="20" name="admin[email]" id="admin_email">
+      </div>
+      <div class="field">
+        <%= f.label :password %>
+        <input type="password" value="" size="20" name="admin[password]" id="admin_password">
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+  <% end %>
+</div>
