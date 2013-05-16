@@ -1,6 +1,4 @@
-<div class="maincontent">
-
-  <h3>Отправить сообщение</h3>
+<div class="wide-form">
 
   <%= form_for(@feedback_mail) do |f| %>
       <% if @feedback_mail.errors.any? %>
@@ -16,22 +14,18 @@
 
       <div class="field">
         <%= label_tag "Ваш почтовый ящик *" %>
-        <br/>
         <%= f.text_field :email %>
       </div>
       <div class="field">
         <%= label_tag "Ваше имя *" %>
-        <br/>
         <%= f.text_field :name %>
       </div>
       <div class="field">
         <%= label_tag "Телефон" %>
-        <br/>
         <%= f.text_field :phone %>
       </div>
       <div class="field">
         <%= label_tag "Сообщение" %>
-        <br/>
         <%= f.text_area :message, :rows=>20, :cols=>113 %>
       </div>
       <div class="actions">

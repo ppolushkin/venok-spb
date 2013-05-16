@@ -5,22 +5,10 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.xml
   def index
-    @pages = Page.all
+    @pages = Page.find_all_by_application_name(APPLICATION_NAME)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml { render :xml => @pages }
-    end
-  end
-
-  # GET /pages/1
-  # GET /pages/1.xml
-  def show
-    @page = Page.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml { render :xml => @page }
     end
   end
 
@@ -29,12 +17,11 @@ class PagesController < ApplicationController
   def show_by_page_ref
     @page = Page.find_by_reference(params[:page_ref])
 
-    if (@page == nil)
+    if @page == nil
       redirect_to :action => "new", :page_ref => params[:page_ref]
     else
       respond_to do |format|
         format.html # show.html.erb
-        format.xml { render :xml => @page }
       end
     end
   end
@@ -43,13 +30,12 @@ class PagesController < ApplicationController
   # GET /pages/new.xml
   def new
     @page = Page.new
-    if (params!=nil && params[:page_ref]!=nil)
+    if params!=nil && params[:page_ref]!=nil
       @page.reference=params[:page_ref]
     end
     @revision = Revision.new
     respond_to do |format|
       format.html # new.html.erb
-      format.xml { render :xml => @page }
     end
   end
 
@@ -68,11 +54,9 @@ class PagesController < ApplicationController
       page_saved = @page.save
       @revision.update_attribute('page_id', @page.id)
       if page_saved && @revision.save
-        format.html { redirect_to(@page, :notice => 'Page was successfully created.') }
-        format.xml { render :xml => @page, :status => :created, :location => @page }
+        format.html { redirect_to('/' + @page.reference, :notice => 'Page was successfully created.') }
       else
         format.html { render :action => "new" }
-        format.xml { render :xml => @page.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -85,11 +69,9 @@ class PagesController < ApplicationController
     @revision.update_attribute('page_id', @page.id)
     respond_to do |format|
       if @page.update_attributes(params[:page]) && @revision.save
-        format.html { redirect_to(@page, :notice => 'Page was successfully updated.') }
-        format.xml { head :ok }
+        format.html { redirect_to('/' + @page.reference, :notice => 'Page was successfully updated.') }
       else
         format.html { render :action => "edit" }
-        format.xml { render :xml => @page.errors, :status => :unprocessable_entity }
       end
     end
   end

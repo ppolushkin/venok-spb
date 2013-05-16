@@ -26,6 +26,7 @@
         <ul>
           <% if session[:admin] %>
               <li><a href="/admins">Администраторы</a></li>
+              <li><a href="/feedback_mails">Сообщения</a></li>
               <li><a href="/pages">Страницы</a></li>
               <li><a href="/products">Товары</a></li>
               <li><a href="/logout">Выйти</a></li>
@@ -80,19 +81,19 @@
     <% end %>
 
 
-        <div id="content">
-          <%= raw print_notice(notice) %>
-          <%= yield %>
-        </div>
-        </div>
-        </div>
+    <div id="content">
+      <%= raw print_notice(notice) %>
+      <%= yield %>
+    </div>
+  </div>
+</div>
 
 
-        <div id="footer-container">
-          <div id="footer">
-            Производственная Компания &laquo;Венок&raquo; 2009&mdash;2013
-          </div>
-        </div>
+<div id="footer-container">
+  <div id="footer">
+    Производственная Компания &laquo;Венок&raquo; 2009&mdash;2013
+  </div>
+</div>
 
-        </body>
-        </html>
+</body>
+</html>

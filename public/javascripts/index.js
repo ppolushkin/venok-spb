@@ -1,11 +1,13 @@
 (function () {
 
     $(document).ready(function () {
+        fixContentHeight();
         highlightAdminMenu();
         highlightMenu();
         highlightNavigationMenu();
         hideHtmlNotice();
         logout();
+        setupAjax();
     });
 
     function highlightAdminMenu() {
@@ -55,6 +57,19 @@
                 location.pathname = '/';
             }});
         });
+    }
+
+    function setupAjax() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    }
+
+    function fixContentHeight() {
+        var h =$(document).height() - 173;
+        $('#body-container').css('min-height', h);
     }
 
 })();

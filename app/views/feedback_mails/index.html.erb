@@ -1,27 +1,31 @@
-<h3>Listing feedback_mails</h3>
+<script src="/javascripts/admin.js"></script>
 
-<table>
-  <tr>
-    <th>Email</th>
-    <th>Name</th>
-    <th>Phone</th>
-    <th>Message</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="big-table">
 
-<% @feedback_mails.each do |feedback_mail| %>
-  <tr>
-    <td><%= feedback_mail.email %></td>
-    <td><%= feedback_mail.name %></td>
-    <td><%= feedback_mail.phone %></td>
-    <td><%= link_to 'Show', feedback_mail %></td>
-    <td><%= link_to 'Destroy', feedback_mail, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+  <div class="right-button">
+    <form class="button_to" action="/feedback_mails/new" method="get">
+      <input type="submit" value="Добавить">
+    </form>
+  </div>
 
-<br />
+  <table>
+    <tr>
+      <th>Почтовый адрес</th>
+      <th>Имя</th>
+      <th>Телефон</th>
+      <th colspan="2">Управление</th>
+    </tr>
 
-<%= link_to 'New Feedback mail', new_feedback_mail_path %>
+    <% @feedback_mails.each do |feedback_mail| %>
+        <tr>
+          <td><%= feedback_mail.email %></td>
+          <td><%= feedback_mail.name %></td>
+          <td><%= feedback_mail.phone %></td>
+          <td><%= link_to 'Показать', feedback_mail %></td>
+          <td><%= link_to 'Удалить', feedback_mail, :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+    <% end %>
+  </table>
+
+
+</div>

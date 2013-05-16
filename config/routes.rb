@@ -29,6 +29,6 @@ Obelisk::Application.routes.draw do
 
   match ":page_ref", :controller => "pages", :action => "show_by_page_ref"
 
-  root :controller => "pages", :action => "show_by_page_ref", :page_ref => 'about_us', :as => 'about_us'
+  root :controller => "pages", :action => "show_by_page_ref", :page_ref => 'venok_main', :as => 'venok_main'
 
 end
