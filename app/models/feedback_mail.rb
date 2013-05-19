@@ -7,10 +7,7 @@ class FeedbackMail < ActiveRecord::Base
       :message => "Ваш почтовый ящик не указан "
   }
 
-  validates :email, :format => {
-      :with => /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/,
-      :message => "Почтовый адрес введен неверно"
-  }
+  validates :email, :email => true
 
   validates :name, :format => {
       :with => /.+/,

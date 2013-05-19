@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515135934) do
+ActiveRecord::Schema.define(:version => 20130518203019) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -55,13 +55,16 @@ ActiveRecord::Schema.define(:version => 20130515135934) do
     t.string   "height",           :limit => 10
     t.string   "width",            :limit => 10
     t.string   "notes"
-    t.string   "small_image_name", :limit => 50,                  :null => false
-    t.string   "big_image_name",   :limit => 50,                  :null => false
+    t.string   "small_image_name", :limit => 50
+    t.string   "big_image_name",   :limit => 50
     t.string   "extra_image_name", :limit => 50
     t.decimal  "price",                                           :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "may9",                           :default => "0", :null => false
+    t.string   "small_img"
+    t.string   "medium_img"
+    t.string   "big_img"
   end
 
   create_table "revisions", :force => true do |t|

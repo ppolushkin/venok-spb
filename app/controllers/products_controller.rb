@@ -43,16 +43,13 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.xml
   def create
-    upload_tmp_images_from_hash_and_fix_hash(params[:product])
     @product = Product.new(params[:product])
 
     respond_to do |format|
       if @product.save
-        commit_tmp_uploaded_images(params[:product][:article].to_s)
         format.html { redirect_to(@product, :notice => 'Product was successfully created.') }
         format.xml  { render :xml => @product, :status => :created, :location => @product }
       else
-        delete_tmp_uploaded_images(params[:product][:article].to_s)
         format.html { render :action => "new" }
         format.xml  { render :xml => @product.errors, :status => :unprocessable_entity }
       end
@@ -62,16 +59,13 @@ class ProductsController < ApplicationController
   # PUT /products/1
   # PUT /products/1.xml
   def update
-    upload_tmp_images_from_hash_and_fix_hash(params[:product])
     @product = Product.find(params[:id])
 
     respond_to do |format|
       if @product.update_attributes(params[:product])
-        commit_tmp_uploaded_images(params[:product][:article].to_s)
         format.html { redirect_to(@product, :notice => 'Product was successfully updated.') }
         format.xml  { head :ok }
       else
-        delete_tmp_uploaded_images(params[:product][:article].to_s)
         format.html { render :action => "edit" }
         format.xml  { render :xml => @product.errors, :status => :unprocessable_entity }
       end

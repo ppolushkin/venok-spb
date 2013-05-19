@@ -2,12 +2,12 @@
 
 <% @products.each do |product| %>
     <div class="product-item">
-      <a class="thumb" href="<%= product.big_image_name %>">
-        <img src="<%= product.small_image_name %>" alt="Траурный венок <%= product.name %>" width="135" height="180">
+      <a class="thumb" href="<%= product.big_img.url %>">
+        <img src="<%= product.small_img.url %>" alt="Траурный венок <%= product.name %>" width="135" height="180">
       </a>
 
       <div class="details">
-        <a href="<%= product.big_image_name %>">Купить</a>
+        <a href="<%= product.medium_img %>">Купить</a>
         <div class="price"><span><%= sprintf("%u р", product.price) %></span></div>
         <div class="description"><%= product.name %></div>
         <div class="size"><%= product_size product %></div>

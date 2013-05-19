@@ -14,3 +14,7 @@ gem 'will_paginate', '>= 3.0.pre'
 gem 'bcrypt-ruby'
 
 gem 'email_validator'
+
+gem 'carrierwave', '~> 0.6.2'
+
+gem 'fog', '~> 1.6.0'

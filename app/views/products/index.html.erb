@@ -26,9 +26,10 @@
           <td class="article"><%= product.may9 %></td>
           <td class="name"><%= product.name %></td>
           <td class="price"><%= product.price.to_s + 'р.' %></td>
-          <td><%= "+" if (product.small_image_name != nil) %></td>
-          <td><%= "+" if (product.big_image_name != nil) %></td>
-          <td><%= "+" if (product.extra_image_name != nil) %></td>
+          <!-- TODO: check if file exist -->
+          <td><%= "+" if product.small_img.file  %></td>
+          <td><%= "+" if product.medium_img.file  %></td>
+          <td><%= "+" if product.big_img.file %></td>
           <td class="manage"><%= link_to 'Показать', product %></td>
           <td class="manage"><%= link_to 'Изменить', edit_product_path(product) %></td>
           <td class="manage"><%= link_to 'Удалить', product, :method => :delete %></td>
