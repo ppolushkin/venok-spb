@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
   def index
-    @products = Product.all
+    @products = Product.all(:order => :name)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -76,7 +76,6 @@ class ProductsController < ApplicationController
   # DELETE /products/1.xml
   def destroy
     @product = Product.find(params[:id])
-    delete_uploaded_images(@product.article)
     @product.destroy
 
     render json: {:ok => true}

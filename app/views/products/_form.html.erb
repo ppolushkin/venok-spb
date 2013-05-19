@@ -50,8 +50,12 @@
         <%= f.file_field :big_img %>
       </div>
       <div class="field">
-        <%= f.label "Цена" %>
+        <%= f.label "Оптовая Цена" %>
         <%= f.text_field :price, :size => 6, :maxlength => 6 %>
+      </div>
+      <div class="field">
+        <%= f.label "Розничная Цена" %>
+        <%= f.text_field :retail_price, :size => 6, :maxlength => 6 %>
       </div>
       <div class="actions">
         <%= f.submit %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130518203019) do
+ActiveRecord::Schema.define(:version => 20130519132340) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20130518203019) do
     t.string   "small_img"
     t.string   "medium_img"
     t.string   "big_img"
+    t.decimal  "retail_price",                   :default => 0.0, :null => false
   end
 
   create_table "revisions", :force => true do |t|
