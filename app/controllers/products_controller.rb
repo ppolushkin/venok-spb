@@ -14,24 +14,20 @@ class ProductsController < ApplicationController
   end
 
   # GET /products/1
-  # GET /products/1.xml
   def show
     @product = Product.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @product }
     end
   end
 
   # GET /products/new
-  # GET /products/new.xml
   def new
     @product = Product.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @product }
     end
   end
 

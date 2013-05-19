@@ -1,0 +1,33 @@
+<div class="text-block">
+
+  <img src="<%= @product.medium_img %>"  height="400" width="300">
+
+  <h3> <%= @product.name %></h3>
+
+  <p>
+    <% if @product.notes %>
+        <%= @product.notes %>
+    <% else %>
+        Описание отсутствует
+    <% end %>
+  </p>
+
+  <p>
+    Размер изделия: <%= product_size @product %>
+  </p>
+
+  <% if @product.big_img.file %>
+      <p>
+        <a href="<%= @product.big_img.url %>">Фото высокого разрешения без обработки</a>
+      </p>
+  <% end %>
+
+  <p>
+    Стоимость: <%= sprintf("%u р", @product.retail_price) %>
+  </p>
+
+  <p>
+    <a href="/template.html">Корзина пуста</a>
+  </p>
+
+</div>

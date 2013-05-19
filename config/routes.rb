@@ -17,9 +17,10 @@ Obelisk::Application.routes.draw do
   get "may_9", :controller => "store", :action => "show_may_9", :as=>"may_9"
   get "novinki", :controller => "store", :action => "show_novinki", :as=>"novinki"
   get "buy", :controller => "store", :action => "buy", :as=>"buy"
-  get "calc", :controller => "store", :action => "calc", :as=>"calc"
   get "goods", :controller => "store", :action => "show_goods", :as=>"goods"
-  post "set_number_of_product_in_basket", :controller => "store", :action => "set_number_of_product_in_basket", :as=>"set_number_of_product_in_basket"
+  get "venok/:id", :controller => "store", :action => "show_product"
+  get "korzina/:id", :controller => "store", :action => "show_product"
+  get "izdelie/:id", :controller => "store", :action => "show_product"
 
   resources :products
 
@@ -30,5 +31,7 @@ Obelisk::Application.routes.draw do
   match ":page_ref", :controller => "pages", :action => "show_by_page_ref"
 
   root :controller => "pages", :action => "show_by_page_ref", :page_ref => 'venok_main', :as => 'venok_main'
+
+  get 'api/v1/basket', :controller => 'api/v1/basket', :action => 'index'
 
 end

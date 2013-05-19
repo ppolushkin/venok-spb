@@ -12,6 +12,7 @@ include SessionsHelper
   def log_in
     if authenticate_user(params[:email], params[:password])
       session[:admin] = true
+      session[:admin_email] = params[:email]
       redirect_to pages_path, :notice => "Logged in"
     else
       redirect_to login_url, :notice => "Wrong credentials"

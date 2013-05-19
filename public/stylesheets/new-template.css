@@ -55,8 +55,9 @@ body {
 /*Menu*/
 
 #menu {
+    clear: both;
     float: right;
-    margin-top: 99px;
+    margin-top: 69px;
     margin-right: 10px;
 }
 
@@ -95,13 +96,22 @@ ul#menu li a:hover {
     color: #ffffff;
 }
 
-/*Admin menu*/
-
-#admin {
-    position: absolute;
-    right: 15px;
-    top: 8px;
+#basket {
+    background: url("../images/cart-icon.png") no-repeat scroll left center;
+    padding-left: 30px;
 }
+
+#basket, #admin {
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+#basket a {
+    font-size: 1.1em;
+}
+
+/*Admin menu*/
 
 #admin ul {
     padding-left: -3px;
@@ -113,11 +123,11 @@ ul#menu li a:hover {
     padding-left: 10px;
 }
 
-#admin ul li a {
+#admin ul li a, #basket a {
     color: #B6B6B6;
 }
 
-#admin ul li a:hover {
+#admin ul li a:hover, #basket a:hover {
     color: #DDDDDD;
 }
 
@@ -397,6 +407,15 @@ p {
     display: block;
     margin-bottom: 5px;
     font-size: 1.2em;
+}
+
+.show-form {
+    clear: both;
+    background-color: #9acd32;
+}
+
+.buy-form img {
+    float: left;
 }
 
 

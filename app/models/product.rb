@@ -15,21 +15,22 @@ class Product < ActiveRecord::Base
   }
   validates_numericality_of :height, :width, :price, :greater_than => 0
 
-  mount_uploader :small_img, FotoUploader
-  mount_uploader :medium_img, FotoUploader
+  mount_uploader :small_img, SmallFotoUploader
+  mount_uploader :medium_img, MediumFotoUploader
   mount_uploader :big_img, FotoUploader
 
-#  tmp
-#  has_many :basket_items, :dependent => :destroy
+  has_many :basket_items, :dependent => :destroy
 
-  def type?(type)
-    if(type == :venok)
-      return article.force_encoding('UTF-8').include?("В")
-    end
-    if(type == :korsina)
-      return article.force_encoding('UTF-8').include?("К")
-    end
-    false
+  def venok?
+    article.force_encoding('UTF-8').include?("В")
+  end
+
+  def korzina?
+    article.force_encoding('UTF-8').include?("К")
+  end
+
+  def izdelie?
+    article.force_encoding('UTF-8').include?("И")
   end
 
 end

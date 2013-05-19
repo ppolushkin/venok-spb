@@ -8,6 +8,7 @@
         hideHtmlNotice();
         logout();
         setupAjax();
+        showBasketState();
     });
 
     function highlightAdminMenu() {
@@ -71,6 +72,15 @@
         var h =$(document).height() - 173;
         $('#body-container').css('min-height', h);
     }
+
+    function showBasketState() {
+        $.ajax({url: 'api/v1/basket', method:'GET', success:function (msg) {
+            if(msg.count > 0) {
+                $('#basket a').text(msg.count + ' товара на ' + msg.price + ' ');
+            }
+        }});
+    }
+
 
 })();
 

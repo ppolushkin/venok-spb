@@ -27,21 +27,11 @@ class StoreController < ApplicationController
     @products = Product.paginate :page=>params[:page], :per_page => 500, :conditions => "created_at > '#{dt}'", :order => "created_at desc"
   end
 
-  def calc
-    @venki = show_all_products "В"
-    @korsinu = show_all_products "К"
-    @basket = current_basket
-  end
-
-  def set_number_of_product_in_basket
-    @venki = show_all_products "В"
-    @basket = current_basket
-    product = Product.find_by_article params[:article]
-    @basket.set_number_of_product(product, params[:selected_product_number].to_i)
+  def show_product
+    @product = Product.find(params[:id])
 
     respond_to do |format|
-      format.html { redirect_to :calc }
-      format.js
+      format.html
     end
   end
 
@@ -61,13 +51,6 @@ class StoreController < ApplicationController
     Product.all :conditions => "article like '#{key}%'", :order => "price desc"
   end
 
-  def current_basket
-    Basket.find(session[:basket_id])
-  rescue ActiveRecord::RecordNotFound
-    basket = Basket.create
-    session[:basket_id] = basket.id
-    basket
-  end
 
   private
 
