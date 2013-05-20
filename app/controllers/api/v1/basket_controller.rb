@@ -15,11 +15,16 @@ class Api::V1::BasketController < Api::V1::BaseController
   #put /api/v1/basket
   def put
     handle_exceptions do
-        basket.put(params[:id].to_i, params[:count].to_i)
-        count = basket.summary_count
-        price = sprintf("%u р", basket.summary_price)
+      if params[:id] == nil || params[:count] == nil || !is_number?(params[:count].to_s) || params[:count].to_i < 0
+        head :bad_request
+        return
+      end
 
-        render json: {:count => count, :price => price}
+      basket.put(params[:id].to_i, params[:count].to_i)
+      count = basket.summary_count
+      price = sprintf("%u р", basket.summary_price)
+
+      render json: {:count => count, :price => price}
     end
   end
 
@@ -38,4 +43,7 @@ class Api::V1::BasketController < Api::V1::BaseController
   end
 
 
+  def is_number?(string)
+    true if Float(string) rescue false
+  end
 end
