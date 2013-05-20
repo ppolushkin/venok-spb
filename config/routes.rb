@@ -28,10 +28,11 @@ Obelisk::Application.routes.draw do
 
   resources :admins
 
-  match ":page_ref", :controller => "pages", :action => "show_by_page_ref"
-
   root :controller => "pages", :action => "show_by_page_ref", :page_ref => 'venok_main', :as => 'venok_main'
 
   get 'api/v1/basket', :controller => 'api/v1/basket', :action => 'index'
+  post 'api/v1/basket', :controller => 'api/v1/basket', :action => 'put'
+
+  match ":page_ref", :controller => "pages", :action => "show_by_page_ref"
 
 end

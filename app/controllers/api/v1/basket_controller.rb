@@ -12,6 +12,17 @@ class Api::V1::BasketController < Api::V1::BaseController
     end
   end
 
+  #put /api/v1/basket
+  def put
+    handle_exceptions do
+        basket.put(params[:id].to_i, params[:count].to_i)
+        count = basket.summary_count
+        price = sprintf("%u р", basket.summary_price)
+
+        render json: {:count => count, :price => price}
+    end
+  end
+
   private
 
   def handle_exceptions

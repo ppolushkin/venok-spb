@@ -3,12 +3,12 @@ class Basket < ActiveRecord::Base
 
   has_many :basket_items, :dependent => :destroy
 
-  def put(product, count)
-    current_item = basket_items.where(:product_id => product.id).first
+  def put(product_id, count)
+    current_item = basket_items.where(:product_id => product_id).first
     if current_item
       current_item.count = count
     else
-      current_item = BasketItem.new(:product_id=>product.id)
+      current_item = BasketItem.new(:product_id=>product_id)
       current_item.count = count
       basket_items << current_item
     end
@@ -27,16 +27,16 @@ class Basket < ActiveRecord::Base
 
   def summary_count()
     count = 0
-    for item in basket_items
-      price+=item.count
+    basket_items.each do |item|
+      count+=item.count
     end
     count
   end
 
   def summary_price()
     price = 0
-    for item in basket_items
-      price+=item.product.price * item.count
+    basket_items.each do |item|
+      price+=item.product.retail_price * item.count
     end
     price
   end

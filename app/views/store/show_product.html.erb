@@ -1,3 +1,5 @@
+<script src="/javascripts/basket.js"></script>
+
 <div class="text-block">
 
   <img src="<%= @product.medium_img %>"  height="400" width="300">
@@ -6,7 +8,7 @@
 
   <p>
     <% if @product.notes %>
-        <%= @product.notes %>
+        <%=raw @product.notes %>
     <% else %>
         Описание отсутствует
     <% end %>
@@ -22,12 +24,20 @@
       </p>
   <% end %>
 
+  <p>Количество на складе - неизвестно</p>
+
   <p>
     Стоимость: <%= sprintf("%u р", @product.retail_price) %>
   </p>
 
   <p>
-    <a href="/template.html">Корзина пуста</a>
+    <a href="/basket" class="basketInfo"></a>
   </p>
+
+  <div class="basket-form">
+    <input id="productId" type="number" value="<%= @product.id %>" hidden="true">
+    <input id="productCount" type="number" value="1" size="1">
+    <input id="buy" type="submit" value="В корзину">
+  </div>
 
 </div>

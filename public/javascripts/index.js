@@ -1,5 +1,22 @@
 (function () {
 
+    window['SYS'] = {
+        showMessage : function(text, interval) {
+            var $notice = $('<div id="ajax-notice">' + text + '</div>').prependTo($('#content'));
+            $notice.fadeOut(interval);
+        },
+
+        showBasket : function() {
+            $.ajax({url: '/api/v1/basket', method:'GET', success:function (msg) {
+                if(msg.count > 0) {
+                    $('.basketInfo').text('В корзине ' + msg.count + ' товар(а) на ' + msg.price);
+                } else {
+                    $('.basketInfo').text('Корзина пуста');
+                }
+            }});
+        }
+    };
+
     $(document).ready(function () {
         fixContentHeight();
         highlightAdminMenu();
@@ -8,7 +25,7 @@
         hideHtmlNotice();
         logout();
         setupAjax();
-        showBasketState();
+        SYS.showBasket();
     });
 
     function highlightAdminMenu() {
@@ -73,18 +90,5 @@
         $('#body-container').css('min-height', h);
     }
 
-    function showBasketState() {
-        $.ajax({url: 'api/v1/basket', method:'GET', success:function (msg) {
-            if(msg.count > 0) {
-                $('#basket a').text(msg.count + ' товара на ' + msg.price + ' ');
-            }
-        }});
-    }
-
 
 })();
-
-function showMessage(text, interval) {
-    var $notice = $('<div id="ajax-notice">' + text + '</div>').prependTo($('#content'));
-    $notice.fadeOut(interval);
-}

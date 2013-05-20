@@ -324,15 +324,18 @@ p {
 }
 
 #notice, #ajax-notice {
-    font-size: 1.2em;
-    letter-spacing: 1px;
-    background: #DDDDDD;
+    position: fixed;
+    margin: 0 250px;
+    padding: 15px 20px 0;
+    height: 30px;
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
-    height: 30px;
-    margin: 0 250px;
-    padding-top: 15px;
+
+    background: #DDDDDD;
+    font-size: 1.2em;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 #error_explanation {
