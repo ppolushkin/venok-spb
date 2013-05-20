@@ -16,10 +16,4 @@ module StoreHelper
     product.width + 'x' + product.height + " см"
   end
 
-  def show_link(product)
-    return '/venok/' + product.id.to_s if product.venok?
-    return '/korzina/' + product.id.to_s if product.korzina?
-    return '/izdelie/' + product.id.to_s if product.izdelie?
-  end
-
 end

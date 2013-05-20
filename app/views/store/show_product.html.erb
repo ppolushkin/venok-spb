@@ -1,14 +1,14 @@
-<script src="/javascripts/basket.js"></script>
+<script src="/javascripts/buy_button.js"></script>
 
 <div class="text-block">
 
-  <img src="<%= @product.medium_img %>"  height="400" width="300">
+  <img src="<%= @product.medium_img %>" height="400" width="300">
 
   <h3> <%= @product.name %></h3>
 
   <p>
     <% if @product.notes %>
-        <%=raw @product.notes %>
+        <%= raw @product.notes %>
     <% else %>
         Описание отсутствует
     <% end %>

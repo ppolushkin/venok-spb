@@ -7,8 +7,8 @@
       </a>
 
       <div class="details">
-        <a href="<%= show_link product %>">Купить</a>
-        <div class="price"><span><%= sprintf("%u р", product.retail_price) %></span></div>
+        <a href="<%=raw product.link %>">Купить</a>
+        <div class="price"><span><%= product.formatted_retail_price %></span></div>
         <div class="description"><%= product.name %></div>
         <div class="size"><%= product_size product %></div>
       </div>

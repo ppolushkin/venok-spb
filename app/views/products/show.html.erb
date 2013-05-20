@@ -5,7 +5,7 @@
 
   <div class="details">
     <a href="<%= @product.medium_img %>">Купить</a>
-    <div class="price"><span><%= sprintf("%u р", @product.retail_price) %></span></div>
+    <div class="price"><span><%= @product.formatted_retail_price %></span></div>
     <div class="description"><%= @product.name %></div>
     <div class="size"><%= product_size @product %></div>
   </div>
@@ -32,7 +32,7 @@
   <% end %>
 
   <p>
-    Стоимость: <%= sprintf("%u р", @product.retail_price) %>
+    Стоимость: <%= @product.formatted_retail_price %>
   </p>
 
   <p>

@@ -31,7 +31,10 @@ Obelisk::Application.routes.draw do
   root :controller => "pages", :action => "show_by_page_ref", :page_ref => 'venok_main', :as => 'venok_main'
 
   get 'api/v1/basket', :controller => 'api/v1/basket', :action => 'index'
-  post 'api/v1/basket', :controller => 'api/v1/basket', :action => 'put'
+  get 'api/v1/basket/:id', :controller => 'api/v1/basket', :action => 'item_details'
+  delete 'api/v1/basket/:id', :controller => 'api/v1/basket', :action => 'delete_item'
+  put 'api/v1/basket', :controller => 'api/v1/basket', :action => 'put'
+  get "basket", :controller => 'basket', :action=> 'index'
 
   match ":page_ref", :controller => "pages", :action => "show_by_page_ref"
 

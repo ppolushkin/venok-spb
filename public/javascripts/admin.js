@@ -10,7 +10,7 @@
             $(self).bind('click', function(e) {
                 e.preventDefault();
                 $.ajax({url: self.href, method:'DELETE', success:function (msg) {
-                    SYS.showMessage("Removed successfully", 3000);
+                    SYS.showMessage("Удалено");
                     $(self).parent().parent().hide();
                 }});
             });

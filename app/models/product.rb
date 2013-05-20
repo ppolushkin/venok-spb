@@ -33,4 +33,14 @@ class Product < ActiveRecord::Base
     article.force_encoding('UTF-8').include?("И")
   end
 
+  def formatted_retail_price
+    sprintf("%u р", self.retail_price)
+  end
+
+  def link
+    return '/venok/' + id.to_s if venok?
+    return '/korzina/' + id.to_s if korzina?
+    return '/izdelie/' + id.to_s if izdelie?
+  end
+
 end

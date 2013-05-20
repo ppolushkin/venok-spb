@@ -1,9 +1,9 @@
 (function () {
 
     window['SYS'] = {
-        showMessage : function(text, interval) {
+        showMessage : function(text) {
             var $notice = $('<div id="ajax-notice">' + text + '</div>').prependTo($('#content'));
-            $notice.fadeOut(interval);
+            $notice.fadeOut(3000);
         },
 
         showBasket : function() {
@@ -14,6 +14,14 @@
                     $('.basketInfo').text('Корзина пуста');
                 }
             }});
+        },
+
+        handleAjaxError:function (jqXHR, textStatus, errorThrown) {
+            if (jqXHR.status == 400) {
+                SYS.showMessage("Неверный параметр");
+            } else {
+                SYS.showMessage("Неизвестная ошибка");
+            }
         }
     };
 
