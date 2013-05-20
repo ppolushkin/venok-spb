@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
 
   validates :article, :name, :small_img, :medium_img, :price, :presence => true
   validates :article, :uniqueness => true
-  #Todo: remove repeats [ВКФ]\d+ from code if it's possible.
+
   validates :article, :format => {
       :with    => /[ВКФИ]\d+/,
       :message => "Артикль должен иметь формат В{номер} - для венка, К{номер} - для корзины или Ф{номер} - для фона, И{номер} - для изделия"
