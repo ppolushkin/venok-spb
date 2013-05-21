@@ -42,5 +42,9 @@ class Basket < ActiveRecord::Base
     price
   end
 
+  def formatted_summary_price
+    sprintf("%u р", summary_price)
+  end
+
 
 end

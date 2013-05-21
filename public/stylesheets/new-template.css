@@ -453,4 +453,46 @@ p {
     text-align: right;
 }
 
+.small-form {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.small-form label {
+    font-size: 1.0em;
+    font-weight: bold;
+    letter-spacing: 1.0px;
+}
+
+.small-form .field {
+    float: left;
+    width: 300px;
+    margin-bottom: 0;
+    margin-right: 15px;
+}
+
+.small-form input[type=text]  {
+    width: 295px;
+}
+
+.small-form textarea {
+    width: 605px;
+    height: 100px;
+}
+
+.small-form input[type=checkbox] {
+    margin-bottom: 15px;
+}
+
+.long-field {
+    width: 615px;
+}
+
+.long-field input[type=text]  {
+    width: 605px;
+}
+
+.mandatory label {
+
+}
 

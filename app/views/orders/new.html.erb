@@ -1,3 +1,67 @@
-<%= render 'form' %>
+<div class="text-block">
+  <h3>Представьтесь, пожалуйста</h3>
 
-<%= link_to 'Back', orders_path %>
+  <div class="small-form">
+  <%= form_for(@order) do |f| %>
+      <% if @order.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+            <ul>
+              <% @order.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+      <div class="field mandatory">
+        <%= f.label 'Полное имя:' %>
+        <%= f.text_field :full_name %>
+      </div>
+      <div class="field mandatory">
+        <%= f.label 'Телефон:'  %>
+        <%= f.text_field :phone %>
+      </div>
+
+      <div class="cleaner"></div>
+
+      <div class="field">
+        <%= f.label 'Почтовый адрес:' %>
+        <%= f.text_field :email %>
+      </div>
+
+      <div class="cleaner"></div>
+
+      <div class="field mandatory">
+        <%= f.label 'Доставка (400 р):' %>
+        <%= f.check_box :delivery %>
+      </div>
+
+      <div class="cleaner"></div>
+
+      <div class="long-field">
+        <%= f.label 'Адрес доставки:' %>
+        <%= f.text_field :address %>
+      </div>
+
+       <div class="cleaner"></div>
+
+      <div class="field">
+        <%= f.label 'Дополнительные пожелания:' %>
+        <%= f.text_area :notes %>
+      </div>
+      <div class="cleaner"></div>
+
+        <p class="big-text">
+          Сумма заказа состовляет: <%= @basket.formatted_summary_price %>
+        </p>
+
+      <div class="actions">
+        <%= f.submit 'Отправить заказ' %>
+      </div>
+  <% end %>
+  </div>
+
+</div>
+

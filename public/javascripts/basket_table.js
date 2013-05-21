@@ -2,7 +2,20 @@
     $(document).ready(function () {
         activateItemCountInput();
         activateRemoveLink();
+        setupFormAction();
     });
+
+    function setupFormAction() {
+        $.ajax({
+            url:'/api/v1/basket/',
+            method:'GET',
+            contentType:'application/json',
+            success:function (msg) {
+                $('#newOrderForm')[0].action='/order/new/' + msg.id;
+            },
+            error:SYS.handleAjaxError
+        });
+    }
 
     function populateCommonPrice(product_id) {
         $.ajax({

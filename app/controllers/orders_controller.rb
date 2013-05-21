@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+
+  skip_before_filter :authorize, :only => [:new]
+
   # GET /orders
   # GET /orders.json
   def index
@@ -21,14 +24,15 @@ class OrdersController < ApplicationController
     end
   end
 
-  # GET /orders/new
-  # GET /orders/new.json
+  # GET /orders/new/[:basket_id]
   def new
     @order = Order.new
+    basket_id = params[:basket_id].to_i
+    @order.basket_id = basket_id
+    @basket = Basket.find(basket_id)
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @order }
     end
   end
 
