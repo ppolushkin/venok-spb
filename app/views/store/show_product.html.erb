@@ -1,4 +1,4 @@
-<script src="/javascripts/buy_button.js"></script>
+<script src="/javascripts/show_product.js"></script>
 
 <div class="text-block">
 
@@ -30,14 +30,15 @@
     Стоимость: <%= sprintf("%u р", @product.retail_price) %>
   </p>
 
-  <p>
-    <a href="/basket" class="basketInfo"></a>
-  </p>
-
   <div class="basket-form">
+    <!--used in javascript-->
     <input id="productId" type="number" value="<%= @product.id %>" hidden="true">
     <input id="productCount" type="number" value="1" size="1">
-    <input id="buy" type="submit" value="В корзину">
+    <input id="buy" type="submit" value="">
   </div>
+
+  <p class="big-text">
+    Итого: <a href="/basket" class="basketInfo"></a>
+  </p>
 
 </div>

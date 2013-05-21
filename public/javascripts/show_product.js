@@ -2,7 +2,27 @@
     $(document).ready(function () {
         activateInputByEnterKey();
         activateBuyButton();
+        populateProductCount();
     });
+
+    function populateProductCount() {
+        var product_id = $('#productId').val();
+        $.ajax({
+            url:'/api/v1/basket/' + product_id,
+            method:'GET',
+            contentType:'application/json',
+            success:function (msg) {
+                $('#buy').val("В корзине");
+                $('#productCount').val(msg.count);
+            },
+            error:function (jqXHR, textStatus, errorThrown) {
+                if (jqXHR.status == 400) {
+                    $('#buy').val("Положить в корзину");
+                    $('#productCount').val(1);
+                }
+            }
+        });
+    }
 
     function activateInputByEnterKey() {
         $('#productCount').keypress(function (e) {
@@ -31,7 +51,8 @@
             dataType:'json',
             data:JSON.stringify({id:id, count:count}),
             success:function (msg) {
-                SYS.showMessage("Товар добавлен", 3000);
+                $('#buy').val("В корзине");
+                SYS.showMessage("Товар добавлен");
                 SYS.showBasket();
             },
             error:function (jqXHR, textStatus, errorThrown) {
