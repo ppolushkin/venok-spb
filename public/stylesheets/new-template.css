@@ -394,6 +394,14 @@ p {
     padding-left: 850px;
 }
 
+.big-table th.long {
+    width: 150px;
+}
+
+.text-block .right-button {
+    padding-left: 575px;
+}
+
 .wide-form {
     width: 940px;
     text-align: left;

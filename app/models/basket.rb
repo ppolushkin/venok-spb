@@ -2,6 +2,7 @@
 class Basket < ActiveRecord::Base
 
   has_many :basket_items, :dependent => :destroy
+  belongs_to :order
 
   def put(product_id, count)
     current_item = basket_items.where(:product_id => product_id).first

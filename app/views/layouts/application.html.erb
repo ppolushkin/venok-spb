@@ -26,6 +26,7 @@
         <ul>
           <% if session[:admin] %>
               <li><a href="/admins">Администраторы</a></li>
+              <li><a href="/orders">Заказы</a></li>
               <li><a href="/feedback_mails">Сообщения</a></li>
               <li><a href="/pages">Страницы</a></li>
               <li><a href="/products">Товары</a></li>
@@ -36,7 +37,9 @@
         </ul>
       </div>
 
-      <div id="basket"><a href="/basket" class="basketInfo"></a></div>
+      <% unless session[:admin] %>
+        <div id="basket"><a href="/basket" class="basketInfo"></a></div>
+      <% end %>
 
       <ul id="menu">
         <li><a href="/">О нас</a></li>

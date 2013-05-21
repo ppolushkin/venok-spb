@@ -28,6 +28,8 @@ Obelisk::Application.routes.draw do
 
   resources :admins
 
+  resources :orders
+
   root :controller => "pages", :action => "show_by_page_ref", :page_ref => 'venok_main', :as => 'venok_main'
 
   get 'api/v1/basket', :controller => 'api/v1/basket', :action => 'index'

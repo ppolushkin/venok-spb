@@ -1,0 +1,72 @@
+<div class="text-block" xmlns="http://www.w3.org/1999/html">
+
+<p>
+
+  <% basket = @order.basket %>
+  <% if basket && basket.basket_items.size > 0 %>
+      <table>
+        <tr>
+          <th>Артикль</th>
+          <th>Наименование</th>
+          <th>Количество</th>
+          <th>Цена за штуку</th>
+          <th>Стоимость</th>
+        </tr>
+        <% basket.basket_items.each() do |item| %>
+            <tr>
+              <td><%= item.product.article %></td>
+              <td><%= item.product.name %></td>
+              <td><%= item.count %></td>
+              <td><%= item.product.formatted_retail_price %></td>
+              <td><%= sprintf("%u р", item.count * item.product.retail_price)%></td>
+            </tr>
+        <% end %>
+      </table>
+
+  <% else %>
+      <p class="big-text">Корзина пуста</p>
+  <% end %>
+
+</b>
+
+
+<p>
+  <b>Имя:</b>
+  <%= @order.full_name %>
+</p>
+
+<p>
+  <b>Телефон:</b>
+  <%= @order.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @order.email %>
+</p>
+
+<p>
+  <b>Доставка:</b>
+  <%= @order.delivery %>
+</p>
+
+<p>
+  <b>Адрес доставки:</b>
+  <%= @order.address %>
+</p>
+
+<p>
+  <b>Дополнительно:</b>
+  <%= @order.notes %>
+</p>
+
+<p>
+  <b>Полная сумма заказа:</b>
+  <%= @order.formatted_full_order_price %>
+</p>
+
+
+</div>
+
+<%= link_to 'Редактировать', edit_order_path(@order) %> |
+<%= link_to 'Назад', orders_path %>

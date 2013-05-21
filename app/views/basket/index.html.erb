@@ -15,7 +15,7 @@
         <% @basket.basket_items.each() do |item| %>
             <tr class="<%= item.product.id.to_s %>">
               <td><%= item.product.article %></td>
-              <td><a href="<%= raw item.product.link%>"><%= item.product.name %></a></td>
+              <td><a href="<%= raw item.product.link %>"><%= item.product.name %></a></td>
               <td>
                 <input class="itemCount" type="number" value="<%= item.count %>" size="1" min="0" max="1000">
                 <a href="#" class="removeItemLink">Удалить</a>
@@ -26,12 +26,19 @@
         <% end %>
       </table>
 
-  <p class="big-text">
-    Итого: <strong class="basketInfo"></strong>
-  </p>
+      <p class="big-text">
+        Итого: <strong class="basketInfo"></strong>
+      </p>
+
+      <div class="right-button">
+        <!--#todo pass basket_id parameter -->
+        <form class="button_to" action="/orders/new" method="get">
+          <input type="submit" value="Оформить заказ">
+        </form>
+      </div>
 
   <% else %>
-  <p class="big-text">Пока пуста...</p>
+      <p class="big-text">Пока пуста...</p>
   <% end %>
 
 </div>
