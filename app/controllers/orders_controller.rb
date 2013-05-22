@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class OrdersController < ApplicationController
 
   skip_before_filter :authorize, :only => [:new, :create]
@@ -45,9 +47,15 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(params[:order])
     @basket = Basket.find(@order.basket_id)
+    if(@basket.order_id)
+      session[:basket_id] = -1
+      redirect_to '/', notice: 'Ваш заказ уже отправлен, не волнуйтесь'
+      return
+    end
     respond_to do |format|
       if @order.save
         session[:basket_id] = -1
+        Notifier.order_recieved(@order).deliver
         format.html { redirect_to '/order_submitted' }
       else
         format.html { render action: "new" }

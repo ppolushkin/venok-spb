@@ -1,0 +1,46 @@
+<b>Имя:</b> <%= @order.full_name %> <br/>
+
+<b>Телефон:</b> <%= @order.phone %> <br/><br/>
+
+<% if @order.email %>
+    <b>Email:</b> <%= @order.email %> <br/>
+<% end %>
+
+<b>Доставка:</b> <%= @order.delivery %> <br/><br/>
+
+<% if @order.address %>
+    <b>Адрес доставки:</b> <%= @order.address %> <br/><br/>
+<% end %>
+
+<% if @order.notes %>
+    <b>Дополнительно:</b> <%= @order.notes %> <br/><br/>
+<% end %>
+
+<% basket = @order.basket %>
+<% if basket && basket.basket_items.size > 0 %>
+    <table border="1">
+      <tr>
+        <th>Артикль</th>
+        <th>Наименование</th>
+        <th>Количество</th>
+        <th>Цена за штуку</th>
+        <th>Стоимость</th>
+      </tr>
+      <% basket.basket_items.each() do |item| %>
+          <tr>
+            <td><%= item.product.article %></td>
+            <td><%= item.product.name %></td>
+            <td><%= item.count %></td>
+            <td><%= item.product.formatted_retail_price %></td>
+            <td><%= sprintf("%u р", item.count * item.product.retail_price) %></td>
+          </tr>
+      <% end %>
+    </table>
+<% else %>
+    <p class="big-text">Корзина пуста. Такого быть не может - это ошибка в сайте.</p>
+<% end %>
+
+<b>Полная сумма заказа (с доставкой):</b> <%= @order.formatted_full_order_price %> <br/><br/>
+
+<b>Ссылка на сайт:</b>
+<a href="http://venki-spb.ru/orders/<%= @order.id%>">http://venki-spb.ru/orders/<%= @order.id%></a>
