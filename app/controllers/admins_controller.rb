@@ -46,6 +46,7 @@ class AdminsController < ApplicationController
 
     @admin.email=params[:admin][:email]
     @admin.password=params[:admin][:password]
+    @admin.receive_emails=params[:admin][:receive_emails]
     respond_to do |format|
       if @admin.save
         format.html { redirect_to(admins_url, :notice => 'Admin was successfully updated.') }

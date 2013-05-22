@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130521133951) do
+ActiveRecord::Schema.define(:version => 20130522153714) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
     t.string   "password_hash"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "receive_emails", :default => true, :null => false
   end
 
   create_table "basket_items", :force => true do |t|

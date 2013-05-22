@@ -21,6 +21,12 @@
         <%= f.label :password %>
         <input type="password" value="" size="20" name="admin[password]" id="admin_password">
       </div>
+
+      <div class="field">
+        <%= f.label 'Получать уведомления о заказах:' %>
+        <%= f.check_box :receive_emails %>
+      </div>
+
       <div class="actions">
         <%= f.submit %>
       </div>
