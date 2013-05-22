@@ -1,11 +1,11 @@
 class OrdersController < ApplicationController
 
-  skip_before_filter :authorize, :only => [:new]
+  skip_before_filter :authorize, :only => [:new, :create]
 
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @orders = Order.order("created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -42,17 +42,15 @@ class OrdersController < ApplicationController
   end
 
   # POST /orders
-  # POST /orders.json
   def create
     @order = Order.new(params[:order])
-
+    @basket = Basket.find(@order.basket_id)
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
-        format.json { render json: @order, status: :created, location: @order }
+        session[:basket_id] = -1
+        format.html { redirect_to '/order_submitted' }
       else
         format.html { render action: "new" }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
   end

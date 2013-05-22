@@ -2,6 +2,7 @@
 
     $(document).ready(function() {
         activateDeleteButtons();
+        effectFailedFields();
     });
 
     function activateDeleteButtons() {
@@ -17,4 +18,10 @@
         })
     }
 
+    function effectFailedFields() {
+        var $label = $('.field_with_errors').prev();
+        var $input = $('.field_with_errors').children();
+        SYS.blinkColor($label);
+        SYS.blinkBorder($input);
+    }
 })();

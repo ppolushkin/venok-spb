@@ -23,7 +23,7 @@
       </div>
 
       <div class="field">
-        <%= f.label "Имя страницы" %>
+        <%= f.label "Текст" %>
 
         <%= fields_for :revision do |r| %>
             <%= r.text_area :content, :cols => 125, :rows => 20, :id => "f_text" %>

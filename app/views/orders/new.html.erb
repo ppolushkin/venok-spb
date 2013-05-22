@@ -1,66 +1,70 @@
+<script src="/javascripts/new_order.js"></script>
+<script src="/javascripts/admin.js"></script>
+
 <div class="text-block">
-  <h3>Представьтесь, пожалуйста</h3>
+  <h3>Новый заказ</h3>
 
   <div class="small-form">
-  <%= form_for(@order) do |f| %>
-      <% if @order.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+    <%= form_for(@order) do |f| %>
+        <% if @order.errors.any? %>
+            <div id="notice">Заполните поля</div>
+        <% end %>
 
-            <ul>
-              <% @order.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-      <% end %>
+        <input id="basket_id" type="hidden" size="30" name="order[basket_id]" value="<%= @order.basket_id %>">
 
-      <div class="field mandatory">
-        <%= f.label 'Полное имя:' %>
-        <%= f.text_field :full_name %>
-      </div>
-      <div class="field mandatory">
-        <%= f.label 'Телефон:'  %>
-        <%= f.text_field :phone %>
-      </div>
+        <div class="field mandatory">
+          <%= f.label 'Имя:' %>
+          <%= f.text_field :full_name %>
+        </div>
 
-      <div class="cleaner"></div>
+        <div class="cleaner"></div>
 
-      <div class="field">
-        <%= f.label 'Почтовый адрес:' %>
-        <%= f.text_field :email %>
-      </div>
+        <div class="field mandatory">
+          <%= f.label 'Телефон:' %>
+          <%= f.text_field :phone %>
+        </div>
 
-      <div class="cleaner"></div>
+        <div class="cleaner"></div>
 
-      <div class="field mandatory">
-        <%= f.label 'Доставка (400 р):' %>
-        <%= f.check_box :delivery %>
-      </div>
+        <div class="field">
+          <%= f.check_box :delivery, :class => "deliveryCheckBox" %>
+          <%= f.label 'Нужна доставка (400 р):' %>
+        </div>
 
-      <div class="cleaner"></div>
+        <div class="cleaner hide deliveryAddress"></div>
 
-      <div class="long-field">
-        <%= f.label 'Адрес доставки:' %>
-        <%= f.text_field :address %>
-      </div>
+        <div class="long-field mandatory hide deliveryAddress">
+          <%= f.label 'Адрес доставки (достаточно указать район):' %>
+          <%= f.text_area :address %>
+        </div>
 
-       <div class="cleaner"></div>
+        <div class="cleaner"></div>
 
-      <div class="field">
-        <%= f.label 'Дополнительные пожелания:' %>
-        <%= f.text_area :notes %>
-      </div>
-      <div class="cleaner"></div>
+        <div class="field">
+          <%= f.label 'Email:' %>
+          <%= f.text_field :email %>
+        </div>
 
-        <p class="big-text">
+        <div class="cleaner"></div>
+
+        <div class="field">
+          <%= f.label 'Дополнительные пожелания:' %>
+          <%= f.text_area :notes %>
+        </div>
+        <div class="cleaner"></div>
+
+        <p class="big-text price hide">
           Сумма заказа состовляет: <%= @basket.formatted_summary_price %>
         </p>
 
-      <div class="actions">
-        <%= f.submit 'Отправить заказ' %>
-      </div>
-  <% end %>
+        <p class="big-text priceWithDelivery hide">
+          Сумма заказа вместе с доставкой состовляет: <%= sprintf("%u р", @basket.summary_price + 400) %>
+        </p>
+
+        <div class="actions">
+          <%= f.submit 'Отправить заказ' %>
+        </div>
+    <% end %>
   </div>
 
 </div>

@@ -420,6 +420,11 @@ p {
     font-size: 1.2em;
 }
 
+.wide-form textarea {
+    width: 900px;
+}
+
+
 .show-form {
     clear: both;
     background-color: #9acd32;
@@ -427,10 +432,6 @@ p {
 
 .buy-form img {
     float: left;
-}
-
-.errorField {
-    background-color: #ff0000;
 }
 
 .text-block table {
@@ -452,6 +453,8 @@ p {
 .basket_number {
     text-align: right;
 }
+
+/*Form*/
 
 .small-form {
     margin-left: 10px;
@@ -492,7 +495,16 @@ p {
     width: 605px;
 }
 
-.mandatory label {
-
+.mandatory label:after {
+    content: "*";
+    color: #ff0000;
+    font-size: 1.2em;
 }
 
+.hide {
+    display: none;
+}
+
+input[type=text], input[type=password]  {
+    width: 200px;
+}

@@ -1,14 +1,14 @@
 (function () {
 
     window['SYS'] = {
-        showMessage : function(text) {
+        showMessage:function (text) {
             var $notice = $('<div id="ajax-notice">' + text + '</div>').prependTo($('#content'));
             $notice.fadeOut(3000);
         },
 
-        showBasket : function() {
-            $.ajax({url: '/api/v1/basket', method:'GET', success:function (msg) {
-                if(msg.count > 0) {
+        showBasket:function () {
+            $.ajax({url:'/api/v1/basket', method:'GET', success:function (msg) {
+                if (msg.count > 0) {
                     $('.basketInfo').text('В корзине ' + msg.count + ' товар(а) на ' + msg.price);
                 } else {
                     $('.basketInfo').text('Корзина пуста');
@@ -22,6 +22,22 @@
             } else {
                 SYS.showMessage("Неизвестная ошибка");
             }
+        },
+
+        blinkColor:function ($obj) {
+            var color = $obj.css('color');
+            $obj.css("color", "red");
+            setInterval(function () {
+                $obj.css("color", color);
+            }, 3000);
+        },
+
+        blinkBorder:function ($obj) {
+            var color = $obj.css('border-color');
+            $obj.css("border-color", "red");
+            setInterval(function () {
+                $obj.css("border-color", color);
+            }, 3000);
         }
     };
 
@@ -87,14 +103,14 @@
 
     function setupAjax() {
         $.ajaxSetup({
-            headers: {
-                'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+            headers:{
+                'X-CSRF-Token':$('meta[name="csrf-token"]').attr('content')
             }
         });
     }
 
     function fixContentHeight() {
-        var h =$(document).height() - 173;
+        var h = $(document).height() - 173;
         $('#body-container').css('min-height', h);
     }
 

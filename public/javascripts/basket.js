@@ -2,16 +2,21 @@
     $(document).ready(function () {
         activateItemCountInput();
         activateRemoveLink();
-        setupFormAction();
+        setupButtonBehavior();
     });
 
-    function setupFormAction() {
+    function setupButtonBehavior() {
         $.ajax({
             url:'/api/v1/basket/',
             method:'GET',
             contentType:'application/json',
             success:function (msg) {
-                $('#newOrderForm')[0].action='/order/new/' + msg.id;
+                $('#newOrderForm').attr('action','/order/new/' + msg.id);
+                if(msg.count > 0) {
+                    $('#newOrderButton').attr("disabled", false);
+                } else {
+                    $('#newOrderButton').attr("disabled", "true");
+                }
             },
             error:SYS.handleAjaxError
         });
@@ -44,12 +49,14 @@
                     dataType:'json',
                     data:JSON.stringify({id:id, count:count}),
                     success:function (msg) {
+                        setupButtonBehavior();
                         populateCommonPrice(id);
                         SYS.showBasket();
                     },
                     error:function (jqXHR, textStatus, errorThrown) {
                         if (jqXHR.status == 400) {
-                            $(self).addClass("errorField");
+                            SYS.blinkColor($(self));
+                            SYS.blinkBorder($(self));
                         }
                         SYS.handleAjaxError(jqXHR, textStatus, errorThrown);
                     }
@@ -75,7 +82,7 @@
                     if($('td:visible').size() == 0) {
                         $('tr').hide();
                     }
-
+                    setupButtonBehavior();
                     SYS.showMessage("Товар удален из корзины");
                     SYS.showBasket();
                 },
