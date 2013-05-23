@@ -13,7 +13,7 @@
     <th>Наименование товара</th>
     <th>Количество на складе</th>
     <th>Зарезервировано</th>
-    <th colspan="3">Управление</th>
+    <th colspan="2">Управление</th>
   </tr>
 
 <% @depot_items.each do |depot_item| %>
@@ -21,7 +21,6 @@
     <td><%= depot_item.product.name %></td>
     <td><%= depot_item.count %></td>
     <td><%= depot_item.hold_count %></td>
-    <td><%= link_to 'Show', depot_item %></td>
     <td><%= link_to 'Edit', edit_depot_item_path(depot_item) %></td>
     <td><%= link_to 'Destroy', depot_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>

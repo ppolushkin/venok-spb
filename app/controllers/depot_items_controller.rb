@@ -2,11 +2,10 @@ class DepotItemsController < ApplicationController
   # GET /depot_items
   # GET /depot_items.json
   def index
-    @depot_items = DepotItem.all
+    @depot_items = DEPOT.depot_items.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @depot_items }
     end
   end
 
@@ -41,6 +40,7 @@ class DepotItemsController < ApplicationController
   # POST /depot_items.json
   def create
     @depot_item = DepotItem.new(params[:depot_item])
+    @depot_item.depot_id = DEPOT.id
 
     respond_to do |format|
       if @depot_item.save

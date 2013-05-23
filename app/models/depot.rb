@@ -5,18 +5,41 @@ class Depot < ActiveRecord::Base
   has_many :depot_items, :dependent => :destroy
 
   def put(product_id, count)
+    return current_depot_item(product_id).put(count)
+  end
+
+  def hold(product_id, count)
+    return current_depot_item(product_id).hold(count)
+  end
+
+  def unhold(product_id, count)
+    return current_depot_item(product_id).unhold(count)
+  end
+
+  def remove_from_holded(product_id, count)
+    return current_depot_item(product_id).remove_from_holded(count)
+  end
+
+  def remove(product_id, count)
+    return current_depot_item(product_id).remove(count)
+  end
+
+  def availiable(product_id)
+    return current_depot_item(product_id).availiable
+  end
+
+private
+
+  def current_depot_item(product_id)
     current_item = depot_items.where(:product_id => product_id).first
-    if current_item
-      current_item.count = count
-    else
-      current_item = DepotItem.new(:product_id=>product_id)
-      current_item.count = count
-      current_item.hold_count = 0
+    unless current_item
+      current_item = DepotItem.new(:product_id=>product_id, :count=>0, :hold_count=>0)
       depot_items << current_item
     end
     current_item.save
     save
-  end
 
+    return current_item
+  end
 
 end
