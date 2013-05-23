@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Product:</b>
+  <%= @depot_item.product_id %>
+</p>
+
+<p>
+  <b>Count:</b>
+  <%= @depot_item.count %>
+</p>
+
+<p>
+  <b>Hold count:</b>
+  <%= @depot_item.hold_count %>
+</p>
+
+
+<%= link_to 'Edit', edit_depot_item_path(@depot_item) %> |
+<%= link_to 'Back', depot_items_path %>
