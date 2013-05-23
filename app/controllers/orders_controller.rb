@@ -47,7 +47,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(params[:order])
     @basket = Basket.find(@order.basket_id)
-    if(@basket.order_id)
+    if @basket.order_id
       session[:basket_id] = -1
       redirect_to '/', notice: 'Ваш заказ уже отправлен, не волнуйтесь'
       return
