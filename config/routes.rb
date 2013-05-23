@@ -1,5 +1,11 @@
 Obelisk::Application.routes.draw do
 
+  resources :depots
+
+
+  resources :depot_items
+
+
   resources :feedback_mails
   get "feedback", :controller => "feedback_mails", :action => "new", :as => "feedback"
   post "send_feedback", :controller => "feedback", :action => "send_feedback", :as =>"send_feedback"

@@ -26,10 +26,11 @@
         <ul>
           <% if session[:admin] %>
               <li><a href="/admins">Администраторы</a></li>
-              <li><a href="/orders">Заказы</a></li>
-              <li><a href="/feedback_mails">Сообщения</a></li>
               <li><a href="/pages">Страницы</a></li>
+              <li><a href="/feedback_mails">Сообщения</a></li>
+              <li><a href="/depot_items">Склад</a></li>
               <li><a href="/products">Товары</a></li>
+              <li><a href="/orders">Заказы</a></li>
               <li><a href="/logout">Выйти</a></li>
           <% else %>
               <li><a href="/login">Войти</a></li>

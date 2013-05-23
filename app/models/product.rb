@@ -20,6 +20,7 @@ class Product < ActiveRecord::Base
   mount_uploader :big_img, FotoUploader
 
   has_many :basket_items, :dependent => :destroy
+  has_many :depot_items, :dependent => :destroy
 
   def venok?
     article.force_encoding('UTF-8').include?("В")
