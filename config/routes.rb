@@ -1,11 +1,5 @@
 Obelisk::Application.routes.draw do
 
-  resources :depots
-
-
-  resources :depot_items
-
-
   resources :feedback_mails
   get "feedback", :controller => "feedback_mails", :action => "new", :as => "feedback"
   post "send_feedback", :controller => "feedback", :action => "send_feedback", :as =>"send_feedback"
@@ -43,7 +37,19 @@ Obelisk::Application.routes.draw do
   get 'api/v1/basket/:id', :controller => 'api/v1/basket', :action => 'item_details'
   delete 'api/v1/basket/:id', :controller => 'api/v1/basket', :action => 'delete_item'
   put 'api/v1/basket', :controller => 'api/v1/basket', :action => 'put'
+
+  put "/api/v1/depot", :controller => 'api/v1/depot', :action => 'put_items'
+
+
   get "basket", :controller => 'basket', :action=> 'index'
+
+  get "depots", :controller => 'depots', :action=> 'index'
+  get "depot/:id/add_items", :controller => 'depots', :action=> 'add_items'
+  get "depots/:id/edit_items", :controller => 'depots', :action=> 'edit_items'
+
+
+  resources :depot_items
+
 
   match ":page_ref", :controller => "pages", :action => "show_by_page_ref"
 

@@ -8,7 +8,7 @@ class CreateDepots < ActiveRecord::Migration
       t.timestamps
     end
 
-    Depot.create(:name => 'Склад')
+    Depot.create(:name => 'Санкт-Петербург, ул. Грибакиных')
   end
 
   def down

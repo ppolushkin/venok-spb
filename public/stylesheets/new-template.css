@@ -52,6 +52,45 @@ body {
     content: ' ';
 }
 
+#notice, #ajax-notice {
+    position: fixed;
+    margin: 0 250px;
+    padding: 15px 20px 0;
+    height: 30px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+
+    background: #DDDDDD;
+    font-size: 1.2em;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#error_explanation {
+    background: #DDDDDD;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    margin: 0 250px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+#error_explanation h2 {
+    color: #666666;
+    padding-bottom: 5px;
+}
+
+.hide {
+    display: none;
+}
+
+input[type=text], input[type=password]  {
+    width: 200px;
+}
+
 /*Menu*/
 
 #menu {
@@ -135,6 +174,10 @@ ul#menu li a:hover {
     color: #ffffff;
 }
 
+/*
+ Navigation
+*/
+
 #navigation {
     float: left;
     margin-right: 11px;
@@ -181,11 +224,17 @@ ul#menu li a:hover {
 #delivery {
     background: url("../images/sidebar-clockface.png") no-repeat scroll left top transparent;
     height: 195px;
+    color: #ffffff;
+    font-size: 1.5em;
+    letter-spacing: -0.8px;
 }
 
 #delivery h3 {
     background: none;
     margin: 0;
+    font-size: 1.1em;
+    padding-top: 45px;
+    padding-bottom: 40px;
 }
 
 /*Text formatting */
@@ -209,6 +258,10 @@ p {
     font-size: 1.2em;
     margin: 0 0 0.4em;
 }
+
+/*
+    Text block
+*/
 
 .text-block {
     clear: both;
@@ -240,17 +293,34 @@ p {
 
 }
 
-#delivery {
-    color: #ffffff;
-    font-size: 1.5em;
-    letter-spacing: -0.8px;
+.text-block table {
+    width: 710px;
+    table-layout: fixed;
+    margin-left: 5px;
+    margin-bottom: 10px;
 }
 
-#delivery h3 {
-    font-size: 1.1em;
-    padding-top: 45px;
-    padding-bottom: 40px;
+.text-block table td, th {
+    padding: 10px;
 }
+
+.text-block td {
+    text-align: left;
+    border: 1px solid #000000;
+}
+
+.text-block .right-button {
+    padding-left: 575px;
+}
+
+.text-block div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*
+Product grid
+*/
 
 .product-grid {
     width: 100%;
@@ -323,36 +393,7 @@ p {
     background: url("../images/button-buynow.gif") no-repeat scroll 0 -26px transparent;
 }
 
-#notice, #ajax-notice {
-    position: fixed;
-    margin: 0 250px;
-    padding: 15px 20px 0;
-    height: 30px;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-
-    background: #DDDDDD;
-    font-size: 1.2em;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-#error_explanation {
-    background: #DDDDDD;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    margin: 0 250px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    text-align: center;
-}
-
-#error_explanation h2 {
-    color: #666666;
-    padding-bottom: 5px;
-}
+/*Login Form*/
 
 .login-form {
     clear: both;
@@ -376,30 +417,36 @@ p {
     height: 20px;
 }
 
-.big-table table {
+/*Admin area*/
+
+.admin-area .right-button {
+    text-align: right;
+}
+
+.admin-area .right-button form {
+    display: inline;
+}
+
+.admin-area {
+    width: 940px;
+}
+
+.admin-area table {
     table-layout: fixed;
     width: 940px;
 }
 
-#content table td, th {
-    padding: 10px;
+.admin-area th.long {
+    width: 150px;
 }
 
-#content td {
+.admin-area td {
     text-align: left;
     border: 1px solid #000000;
 }
 
-.big-table .right-button {
-    padding-left: 850px;
-}
-
-.big-table th.long {
-    width: 150px;
-}
-
-.text-block .right-button {
-    padding-left: 575px;
+.admin-area table td, th {
+    padding: 10px;
 }
 
 .wide-form {
@@ -424,35 +471,10 @@ p {
     width: 900px;
 }
 
-
-.show-form {
-    clear: both;
-    background-color: #9acd32;
-}
-
-.buy-form img {
-    float: left;
-}
-
-.text-block table {
-    width: 710px;
-    table-layout: fixed;
-    margin-left: 5px;
-    margin-bottom: 10px;
-}
-
-.text-block div {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
 .big-text {
     font-size: 1.2em;
 }
 
-.basket_number {
-    text-align: right;
-}
 
 /*Form*/
 
@@ -487,11 +509,11 @@ p {
     margin-bottom: 15px;
 }
 
-.long-field {
+.small-form .long-field {
     width: 615px;
 }
 
-.long-field input[type=text]  {
+.small-form .long-field input[type=text]  {
     width: 605px;
 }
 
@@ -501,10 +523,11 @@ p {
     font-size: 1.2em;
 }
 
-.hide {
-    display: none;
+
+/*Excel table */
+
+#dataTable {
+    width: 940px;
+    margin-top: 20px;
 }
 
-input[type=text], input[type=password]  {
-    width: 200px;
-}
