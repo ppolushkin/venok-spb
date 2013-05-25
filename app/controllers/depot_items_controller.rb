@@ -2,7 +2,10 @@ class DepotItemsController < ApplicationController
   # GET /depot_items
   # GET /depot_items.json
   def index
-    @depot_items = DEPOT.depot_items.all
+    all_items = DEPOT.depot_items.all
+    @depot_items = all_items.sort do |a,b|
+      a.product.name <=> b.product.name
+    end
 
     respond_to do |format|
       format.html # index.html.erb

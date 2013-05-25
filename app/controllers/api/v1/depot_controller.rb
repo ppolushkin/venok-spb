@@ -12,21 +12,17 @@ class Api::V1::DepotController < Api::V1::BaseController
 
       data = params[:data]
 
-      #рит/ венок "Аврора" 3.2.3
-
       data.each do |item|
-
-        name = item[:name].split('"')[1]
-        p = Product.find(:first, :conditions => [ "lower(name) = ?", name.downcase ])
-        if p
-          DEPOT.put(p.id, item[:number].to_i)
-          item[:index]=777
-        else
-          item[:index]=-1
+        if item[:status] != 'loaded'
+          p = DepotsHelper.find_product_by_name(item[:name])
+          if p
+            DEPOT.put(p.id, item[:number].to_i)
+            item[:status]='loaded'
+          else
+            item[:status]='failed'
+          end
         end
-
       end
-
 
       render json: {:data => data}
     end

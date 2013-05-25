@@ -531,6 +531,19 @@ Product grid
     margin-top: 20px;
 }
 
-.negative {
-    color: red;
+
+td.new {
+    color: #B6B6B6;
+    font-weight: bold;
 }
+
+td.loaded {
+    color: green;
+    font-weight: bold;
+}
+
+td.failed {
+    color: red;
+    font-weight: bold;
+}
+
