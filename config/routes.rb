@@ -45,7 +45,7 @@ Obelisk::Application.routes.draw do
 
   get "depots", :controller => 'depots', :action=> 'index'
   get "depot/:id/add_items", :controller => 'depots', :action=> 'add_items'
-  get "depots/:id/edit_items", :controller => 'depots', :action=> 'edit_items'
+  get "depot/:id/edit_items", :controller => 'depots', :action=> 'edit_items'
 
 
   resources :depot_items

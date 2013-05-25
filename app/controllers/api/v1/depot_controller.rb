@@ -16,10 +16,14 @@ class Api::V1::DepotController < Api::V1::BaseController
 
       data.each do |item|
 
-        DEPOT.put()
         name = item[:name].split('"')[1]
-        p = Product.find_by_name(name)
-        item[:number]
+        p = Product.find(:first, :conditions => [ "lower(name) = ?", name.downcase ])
+        if p
+          DEPOT.put(p.id, item[:number].to_i)
+          item[:index]=777
+        else
+          item[:index]=-1
+        end
 
       end
 
