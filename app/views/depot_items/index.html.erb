@@ -17,6 +17,7 @@
       <th>Наименование товара</th>
       <th>Количество на складе</th>
       <th>Зарезервировано</th>
+      <th>Доступно</th>
     </tr>
 
     <% @depot_items.each do |depot_item| %>
@@ -24,6 +25,7 @@
           <td><%= depot_item.product.name %></td>
           <td><%= depot_item.count %></td>
           <td><%= depot_item.hold_count %></td>
+          <td><%= depot_item.availiable %></td>
         </tr>
     <% end %>
   </table>

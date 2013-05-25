@@ -34,4 +34,9 @@ module DepotsHelper
     return name if attempt == 2;
   end
 
+  def self.find_product_by_article(article)
+      Product.where("lower(article) =?", article.downcase).first
+  end
+
+
 end

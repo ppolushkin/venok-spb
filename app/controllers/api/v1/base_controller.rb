@@ -1,6 +1,10 @@
 
 class Api::V1::BaseController < ActionController::Base
 
+  before_filter :authorize
+
+  protect_from_forgery
+
   respond_to :json
 
   before_filter :current_basket, :current_admin
@@ -29,5 +33,13 @@ class Api::V1::BaseController < ActionController::Base
       @admin = Admin.find_by_email(session[:admin_email])
     end
   end
+
+  def authorize
+    unless session[:admin]
+      head :forbidden
+      return
+    end
+  end
+
 
 end

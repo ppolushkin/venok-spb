@@ -28,6 +28,13 @@ class Depot < ActiveRecord::Base
     return current_depot_item(product_id).availiable
   end
 
+  def save_item(product_id, count, hold_count)
+    di = current_depot_item(product_id)
+    di.count = count
+    di.hold_count = hold_count
+    di.save
+  end
+
 private
 
   def current_depot_item(product_id)
