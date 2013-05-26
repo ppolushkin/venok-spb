@@ -23,7 +23,7 @@ class DepotItem < ActiveRecord::Base
       save
       return true
     else
-      return false
+      raise ActiveRecord::Rollback
     end
   end
 

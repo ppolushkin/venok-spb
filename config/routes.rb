@@ -29,6 +29,7 @@ Obelisk::Application.routes.draw do
   resources :admins
 
   get 'order/new/:basket_id', :controller=>"orders", :action => "new"
+  put 'orders/:id/verify', :controller=>"orders", :action => "verify"
   resources :orders
 
   root :controller => "pages", :action => "show_by_page_ref", :page_ref => 'venok_main', :as => 'venok_main'
