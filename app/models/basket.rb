@@ -46,5 +46,14 @@ class Basket < ActiveRecord::Base
     sprintf("%u р", summary_price)
   end
 
+  def is_items_availiable()
+    basket_items.each do |item|
+      if (DEPOT.availiable(item.product_id) < item.count)
+        return false
+      end
+    end
+    return true
+  end
+
 
 end

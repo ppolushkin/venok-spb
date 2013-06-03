@@ -6,25 +6,29 @@
   <% if @basket.basket_items.size > 0 %>
       <table>
         <tr>
-          <th>Артикль</th>
           <th>Наименование</th>
           <th>Количество</th>
+          <th>На складе</th>
           <th>Цена за штуку</th>
           <th>Стоимость</th>
         </tr>
         <% @basket.basket_items.each() do |item| %>
             <tr class="<%= item.product.id.to_s %>">
-              <td><%= item.product.article %></td>
               <td><a href="<%= raw item.product.link %>"><%= item.product.name %></a></td>
               <td>
                 <input class="itemCount" type="number" value="<%= item.count %>" size="1" min="0" max="1000">
                 <a href="#" class="removeItemLink">Удалить</a>
               </td>
+              <td><%= DEPOT.availiable item.product.id %></td>
               <td><%= item.product.formatted_retail_price %></td>
               <td class="common_price"><%= sprintf("%u р", item.count * item.product.retail_price) %></td>
             </tr>
         <% end %>
       </table>
+
+      <p class="big-text hide" id="depotIsLack">
+        Внимание: на складе недостаточно изделий. Пожалуйста, уточните сроки доставки.
+      </p>
 
       <p class="big-text">
         Итого: <strong class="basketInfo"></strong>

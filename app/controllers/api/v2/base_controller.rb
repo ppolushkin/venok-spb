@@ -1,12 +1,12 @@
 
-class Api::V1::BaseController < ActionController::Base
+class Api::V2::BaseController < ActionController::Base
 
   respond_to :json
 
   before_filter :current_basket, :current_admin
 
-  def basket
-    @basket
+  def current_basket
+    @current_basket
   end
 
   def admin
@@ -21,7 +21,7 @@ class Api::V1::BaseController < ActionController::Base
       basket = Basket.create
       session[:basket_id] = basket.id
     end
-    @basket = basket
+    @current_basket = basket
   end
 
   def current_admin
@@ -36,6 +36,19 @@ class Api::V1::BaseController < ActionController::Base
       return
     end
   end
+
+  def handle_exceptions
+    begin
+      return yield
+    rescue ArgumentError => e
+      Rails.logger.info("V2 API got incorrect request " + e.to_s)
+      head :bad_request
+    rescue IOError => e
+      Rails.logger.warn("V2 API could not get data " + e.to_s)
+      head :internal_server_error
+    end
+  end
+
 
 
 end

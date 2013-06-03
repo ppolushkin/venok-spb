@@ -2,6 +2,8 @@
 
 class Api::V1::DepotController < Api::V1::BaseController
 
+  before_filter :authorize, :except => [:get_availiable_count]
+
   #put /api/v1/depot
   def put_items
     handle_exceptions do

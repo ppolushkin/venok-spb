@@ -7,8 +7,9 @@ class Api::V1::BasketController < Api::V1::BaseController
     handle_exceptions do
       count = basket.summary_count
       price = sprintf("%u р", basket.summary_price)
+      availiable = basket.is_items_availiable
 
-      render json: {:id => basket.id, :count => count, :price => price}
+      render json: {:id => basket.id, :count => count, :price => price, :availiable => availiable}
     end
   end
 

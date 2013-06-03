@@ -43,6 +43,9 @@ Obelisk::Application.routes.draw do
   get "/api/v1/depot", :controller => 'api/v1/depot', :action => 'get_items'
   post "/api/v1/depot", :controller => 'api/v1/depot', :action => 'post_items'
 
+  #get '/api/v2/current_basket/summary', :controller => 'api/v2/basket', :action => 'get_current_basket_summary'
+  #get '/api/v2/current_basket', :controller => 'api/v2/basket', :action => 'get_current_basket'
+
 
   get "basket", :controller => 'basket', :action=> 'index'
 
