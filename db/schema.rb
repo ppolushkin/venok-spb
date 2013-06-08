@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130525225911) do
+ActiveRecord::Schema.define(:version => 20130608212102) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -82,8 +82,8 @@ ActiveRecord::Schema.define(:version => 20130525225911) do
   create_table "products", :force => true do |t|
     t.string   "article",          :limit => 6,                   :null => false
     t.string   "name",             :limit => 50,                  :null => false
-    t.string   "height",           :limit => 10
-    t.string   "width",            :limit => 10
+    t.integer  "height",           :limit => 10
+    t.integer  "width",            :limit => 10
     t.string   "notes"
     t.string   "small_image_name", :limit => 50
     t.string   "big_image_name",   :limit => 50

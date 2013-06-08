@@ -11,7 +11,6 @@
 
       <a class="thumb" href="<%= product.big_img.url %>">
         <img src="<%= product.small_img.url %>" alt="Траурный венок <%= product.name %>" width="135" height="180">
-        <!--<img src="images/foto/V181-s.jpg" alt="Траурный венок <%= product.name %>" width="135" height="180">-->
       </a>
 
       <div class="details">
@@ -30,6 +29,4 @@
 </div>
 
 <br class="clear" />
-
-<%= will_paginate @products, :previous_label=>"Назад", :next_label => "Вперед" %>
 

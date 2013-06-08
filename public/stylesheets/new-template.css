@@ -147,9 +147,15 @@ ul#menu li a:hover {
     padding-left: 30px;
 }
 
-#basket, #admin {
+#basket {
     position: absolute;
-    top: 5px;
+    top: 7px;
+    right: 55px;
+}
+
+#admin {
+    position: absolute;
+    top: 7px;
     right: 10px;
 }
 

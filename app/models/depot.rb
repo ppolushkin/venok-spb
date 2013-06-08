@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class Depot < ActiveRecord::Base
 
   attr_accessible :name
@@ -33,6 +35,17 @@ class Depot < ActiveRecord::Base
     di.count = count
     di.hold_count = hold_count
     di.save
+  end
+
+  def get_availiable_products(product_type)
+    products = []
+    self.depot_items.each do |di|
+        if(di.availiable > 0 && di.product.article.include?(product_type) )
+          products << di.product
+        end
+    end
+    products.sort! {|a,b| b.price<=>a.price}
+    return products
   end
 
 private
