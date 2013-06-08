@@ -328,6 +328,7 @@ Product grid
 }
 
 .product-item {
+    position: relative;
     float: left;
     height: 262px;
     margin: 0 11px 11px 0;
@@ -364,20 +365,66 @@ Product grid
     width: 63px;
 }
 
-.product-item .description, .product-item .size {
+.product-item .description {
+    position: absolute;
+    left: 5px;
+    top: 218px;
+    width: 120px;
+    color: #FFFFFF;
+    font-size: 0.9em;
+    line-height: 9pt;
+    padding: 1px 6px 0 3px;
+    text-align: center;
+}
+
+.product-item .size {
+    position: absolute;
+    left: 75px;
+    top: 203px;
     color: #FFFFFF;
     font-size: 0.85em;
     line-height: 9pt;
-    padding: 1px 6px 0 3px;
+
     text-align: right;
+    width: 60px;
 }
 
+.product-item .present {
+    position: absolute;
+    left: 120px;
+    top: 2px;
+    z-index: 100;
+    width: 15px;
+    height: 15px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    background: #79ff22;
+}
+
+.product-item .absent {
+    position: absolute;
+    left: 120px;
+    top: 2px;
+    z-index: 100;
+    width: 15px;
+    height: 15px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    background: #cc0000;
+}
+
+
 .product-item .price {
+    position: absolute;
+    left: 82px;
+    top: 188px;
     color: #FFFFFF;
     font-size: 1.2em;
-    padding: 6px 6px 0 0;
     text-align: right;
     letter-spacing: -0.8px;
+    width: 50px;
 }
 
 .product-item .price span {
