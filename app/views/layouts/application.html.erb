@@ -22,14 +22,17 @@
 <div id="body-container">
   <div id="main">
     <div id="header">
+      <a href="/"><img id="hearder_img" src="/images/pk_venok.jpg" alt="Производственная Компания Венок"></a>
+
       <div id="admin">
         <ul>
           <% if session[:admin] %>
               <li><a href="/admins">Администраторы</a></li>
-              <li><a href="/orders">Заказы</a></li>
-              <li><a href="/feedback_mails">Сообщения</a></li>
               <li><a href="/pages">Страницы</a></li>
+              <li><a href="/feedback_mails">Сообщения</a></li>
+              <li><a href="/depot_items">Склад</a></li>
               <li><a href="/products">Товары</a></li>
+              <li><a href="/orders">Заказы</a></li>
               <li><a href="/logout">Выйти</a></li>
           <% else %>
               <li><a href="/login">Войти</a></li>
@@ -38,50 +41,49 @@
       </div>
 
       <% unless session[:admin] %>
-        <div id="basket"><a href="/basket" class="basketInfo"></a></div>
+          <div id="basket"><a href="/basket" class="basketInfo"></a></div>
       <% end %>
 
       <ul id="menu">
-        <li><a href="/">О нас</a></li>
         <li><a href="/ritual_venki">Венки</a></li>
         <li><a href="/ritual_korsinu">Корзины</a></li>
-        <li><a href="/ritual_lentu">Ленточки</a></li>
+        <li><a href="/delivery">Доставка и оплата</a></li>
+        <li><a href="/wholesale">Опт</a></li>
+        <li><a href="/contacts">Контакты</a></li>
       </ul>
     </div>
 
     <% unless session[:admin] %>
         <div id="navigation">
-          <div id="delivery">
-            <h3>Доставка по Спб</h3>
+          <a href="/delivery">
+            <div id="delivery">
+              <h3>Доставка по Спб</h3>
 
-            <p>На следующий день</p>
+              <p>На следующий день</p>
 
-            <p>400 руб</p>
-          </div>
+              <p>400 руб</p>
+            </div>
+          </a>
 
           <h3>Венки</h3>
           <ul>
-            <li><a href="/ritual_venki?price=5000">от 5000р</a></li>
-            <li><a href="/ritual_venki?price=2500">от 2500р</a></li>
-            <li><a href="/ritual_venki?price=1000">от 1000р</a></li>
-            <li><a href="/ritual_venki?price=500">от 500р</a></li>
+            <li><a href="/ritual_venki?filter=new">Новинки</a></li>
+            <li><a href="/ritual_venki?filter=military">Защитникам Отечества</a></li>
+            <li><a href="/ritual_venki?filter=big">Большие (от 100 см)</a></li>
+            <li><a href="/ritual_venki?filter=middle">Средние (80-100см)</a></li>
+            <li><a href="/ritual_venki?filter=small">Маленькие (до 80 см)</a></li>
+            <li><a href="/ritual_venki?filter=in_store">В наличие на складе</a></li>
           </ul>
 
           <h3>Корзины</h3>
           <ul>
-            <li><a href="/ritual_korsinu?price=5000">от 5000р</a></li>
-            <li><a href="/ritual_korsinu?price=2500">от 2500р</a></li>
-            <li><a href="/ritual_korsinu?price=1000">от 1000р</a></li>
-            <li><a href="/ritual_korsinu?price=500">от 500р</a></li>
+            <li><a href="/ritual_korsinu?filter=new">Новинки</a></li>
+            <li><a href="/ritual_korsinu?filter=big">Большие (от 100 см)</a></li>
+            <li><a href="/ritual_korsinu?filter=middle">Средние (80-100см)</a></li>
+            <li><a href="/ritual_korsinu?filter=small">Маленькие (до 80 см)</a></li>
+            <li><a href="/ritual_korsinu?filter=in_store">В наличие на складе</a></li>
           </ul>
 
-          <h3>Ленточки</h3>
-          <ul>
-            <li><a href="/lentu?price=5000">от 5000р</a></li>
-            <li><a href="/lentu?price=2500">от 2500р</a></li>
-            <li><a href="/lentu?price=1000">от 1000р</a></li>
-            <li><a href="/lentu?price=500">от 500р</a></li>
-          </ul>
         </div>
     <% end %>
 

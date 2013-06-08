@@ -1,0 +1,33 @@
+<script src="/javascripts/admin.js"></script>
+
+<div class="admin-area">
+
+  <div class="right-button">
+    <form class="button_to" action="/depot/<%= DEPOT.id %>/add_items" method="get">
+      <input type="submit" value="Приход">
+    </form>
+
+    <form class="button_to" action="/depot/<%= DEPOT.id %>/edit_items" method="get">
+      <input type="submit" value="Редактирование">
+    </form>
+  </div>
+
+  <table>
+    <tr>
+      <th>Наименование товара</th>
+      <th>Количество на складе</th>
+      <th>Зарезервировано</th>
+      <th>Доступно</th>
+    </tr>
+
+    <% @depot_items.each do |depot_item| %>
+        <tr>
+          <td><%= depot_item.product.name %></td>
+          <td><%= depot_item.count %></td>
+          <td><%= depot_item.hold_count %></td>
+          <td><%= depot_item.availiable %></td>
+        </tr>
+    <% end %>
+  </table>
+
+</div>

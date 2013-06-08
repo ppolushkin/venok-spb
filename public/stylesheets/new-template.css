@@ -10,11 +10,18 @@ body {
 }
 
 #header {
-    background: url("../images/bg-header.jpg") no-repeat scroll 0 0 transparent;
+    /*background: url("../images/bg-header.jpg") no-repeat scroll 0 0 transparent;*/
+    position: relative;
     height: 135px;
     margin-top: 10px;
     position: relative;
     width: 940px;
+}
+
+#header_img {
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 #body-container {
@@ -52,13 +59,51 @@ body {
     content: ' ';
 }
 
+#notice, #ajax-notice {
+    position: fixed;
+    margin: 0 250px;
+    padding: 15px 20px 0;
+    height: 30px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+
+    background: #DDDDDD;
+    font-size: 1.2em;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#error_explanation {
+    background: #DDDDDD;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    margin: 0 250px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+#error_explanation h2 {
+    color: #666666;
+    padding-bottom: 5px;
+}
+
+.hide {
+    display: none;
+}
+
+input[type=text], input[type=password]  {
+    width: 200px;
+}
+
 /*Menu*/
 
 #menu {
-    clear: both;
-    float: right;
-    margin-top: 69px;
-    margin-right: 10px;
+    position: absolute;
+    right: 10px;
+    top: 99px;
 }
 
 ul#menu li {
@@ -81,6 +126,7 @@ ul#menu li a {
     height: 36px;
     line-height: 30px;
     padding: 0 11px;
+    letter-spacing: -0.5px;
 }
 
 ul#menu li.on a {
@@ -101,10 +147,16 @@ ul#menu li a:hover {
     padding-left: 30px;
 }
 
-#basket, #admin {
-    float: right;
-    margin-right: 10px;
-    margin-top: 10px;
+#basket {
+    position: absolute;
+    top: 7px;
+    right: 55px;
+}
+
+#admin {
+    position: absolute;
+    top: 7px;
+    right: 10px;
 }
 
 #basket a {
@@ -134,6 +186,10 @@ ul#menu li a:hover {
 #admin ul li.on a {
     color: #ffffff;
 }
+
+/*
+ Navigation
+*/
 
 #navigation {
     float: left;
@@ -181,11 +237,17 @@ ul#menu li a:hover {
 #delivery {
     background: url("../images/sidebar-clockface.png") no-repeat scroll left top transparent;
     height: 195px;
+    color: #ffffff;
+    font-size: 1.5em;
+    letter-spacing: -0.8px;
 }
 
 #delivery h3 {
     background: none;
     margin: 0;
+    font-size: 1.1em;
+    padding-top: 45px;
+    padding-bottom: 40px;
 }
 
 /*Text formatting */
@@ -209,6 +271,10 @@ p {
     font-size: 1.2em;
     margin: 0 0 0.4em;
 }
+
+/*
+    Text block
+*/
 
 .text-block {
     clear: both;
@@ -240,17 +306,34 @@ p {
 
 }
 
-#delivery {
-    color: #ffffff;
-    font-size: 1.5em;
-    letter-spacing: -0.8px;
+.text-block table {
+    width: 710px;
+    table-layout: fixed;
+    margin-left: 5px;
+    margin-bottom: 10px;
 }
 
-#delivery h3 {
-    font-size: 1.1em;
-    padding-top: 45px;
-    padding-bottom: 40px;
+.text-block table td, th {
+    padding: 10px;
 }
+
+.text-block td {
+    text-align: left;
+    border: 1px solid #000000;
+}
+
+.text-block .right-button {
+    padding-left: 575px;
+}
+
+.text-block div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*
+Product grid
+*/
 
 .product-grid {
     width: 100%;
@@ -258,6 +341,7 @@ p {
 }
 
 .product-item {
+    position: relative;
     float: left;
     height: 262px;
     margin: 0 11px 11px 0;
@@ -294,20 +378,66 @@ p {
     width: 63px;
 }
 
-.product-item .description, .product-item .size {
+.product-item .description {
+    position: absolute;
+    left: 5px;
+    top: 218px;
+    width: 120px;
+    color: #FFFFFF;
+    font-size: 0.9em;
+    line-height: 9pt;
+    padding: 1px 6px 0 3px;
+    text-align: center;
+}
+
+.product-item .size {
+    position: absolute;
+    left: 75px;
+    top: 203px;
     color: #FFFFFF;
     font-size: 0.85em;
     line-height: 9pt;
-    padding: 1px 6px 0 3px;
+
     text-align: right;
+    width: 60px;
 }
 
+.product-item .present {
+    position: absolute;
+    left: 120px;
+    top: 2px;
+    z-index: 100;
+    width: 15px;
+    height: 15px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    background: #79ff22;
+}
+
+.product-item .absent {
+    position: absolute;
+    left: 120px;
+    top: 2px;
+    z-index: 100;
+    width: 15px;
+    height: 15px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    background: #cc0000;
+}
+
+
 .product-item .price {
+    position: absolute;
+    left: 82px;
+    top: 188px;
     color: #FFFFFF;
     font-size: 1.2em;
-    padding: 6px 6px 0 0;
     text-align: right;
     letter-spacing: -0.8px;
+    width: 50px;
 }
 
 .product-item .price span {
@@ -323,36 +453,7 @@ p {
     background: url("../images/button-buynow.gif") no-repeat scroll 0 -26px transparent;
 }
 
-#notice, #ajax-notice {
-    position: fixed;
-    margin: 0 250px;
-    padding: 15px 20px 0;
-    height: 30px;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-
-    background: #DDDDDD;
-    font-size: 1.2em;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-#error_explanation {
-    background: #DDDDDD;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    margin: 0 250px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    text-align: center;
-}
-
-#error_explanation h2 {
-    color: #666666;
-    padding-bottom: 5px;
-}
+/*Login Form*/
 
 .login-form {
     clear: both;
@@ -376,30 +477,36 @@ p {
     height: 20px;
 }
 
-.big-table table {
+/*Admin area*/
+
+.admin-area .right-button {
+    text-align: right;
+}
+
+.admin-area .right-button form {
+    display: inline;
+}
+
+.admin-area {
+    width: 940px;
+}
+
+.admin-area table {
     table-layout: fixed;
     width: 940px;
 }
 
-#content table td, th {
-    padding: 10px;
+.admin-area th.long {
+    width: 150px;
 }
 
-#content td {
+.admin-area td {
     text-align: left;
     border: 1px solid #000000;
 }
 
-.big-table .right-button {
-    padding-left: 850px;
-}
-
-.big-table th.long {
-    width: 150px;
-}
-
-.text-block .right-button {
-    padding-left: 575px;
+.admin-area table td, th {
+    padding: 10px;
 }
 
 .wide-form {
@@ -424,35 +531,10 @@ p {
     width: 900px;
 }
 
-
-.show-form {
-    clear: both;
-    background-color: #9acd32;
-}
-
-.buy-form img {
-    float: left;
-}
-
-.text-block table {
-    width: 710px;
-    table-layout: fixed;
-    margin-left: 5px;
-    margin-bottom: 10px;
-}
-
-.text-block div {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
 .big-text {
     font-size: 1.2em;
 }
 
-.basket_number {
-    text-align: right;
-}
 
 /*Form*/
 
@@ -487,11 +569,11 @@ p {
     margin-bottom: 15px;
 }
 
-.long-field {
+.small-form .long-field {
     width: 615px;
 }
 
-.long-field input[type=text]  {
+.small-form .long-field input[type=text]  {
     width: 605px;
 }
 
@@ -501,10 +583,27 @@ p {
     font-size: 1.2em;
 }
 
-.hide {
-    display: none;
+
+/*Excel table */
+
+#dataTable {
+    width: 940px;
+    margin-top: 20px;
 }
 
-input[type=text], input[type=password]  {
-    width: 200px;
+
+td.new {
+    color: #B6B6B6;
+    font-weight: bold;
 }
+
+td.loaded {
+    color: green;
+    font-weight: bold;
+}
+
+td.failed {
+    color: red;
+    font-weight: bold;
+}
+

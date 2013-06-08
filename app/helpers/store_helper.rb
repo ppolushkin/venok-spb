@@ -12,8 +12,36 @@ module StoreHelper
     product.name + ' (' + product.article + ')'
   end
 
+  #todo: fix_obelisk
   def product_size(product)
-    product.width + 'x' + product.height + " см"
+    product.width.to_s + 'x' + product.height.to_s + " см"
   end
+
+  def filter(param)
+    if (param == "new")
+      return " and created_at > '#{Date.today - 6.month}'"
+    end
+    if (param == "military")
+      return " and may9 <> '0'"
+    end
+    if (param == "small")
+      return " and height < 80"
+    end
+    if (param == "middle")
+      return " and height >= 80 and height < 100"
+    end
+    if (param == "big")
+      return " and height >= 100"
+    end
+  end
+
+  def sort(param)
+    if param == nil
+      return "price desc"
+    else
+      return "created_at desc"
+    end
+  end
+
 
 end

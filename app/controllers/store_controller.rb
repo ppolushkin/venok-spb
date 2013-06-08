@@ -6,25 +6,23 @@ class StoreController < ApplicationController
 
   skip_before_filter :authorize
 
+  #GET /ritual_venki
+  #GET /ritual_venki?filter=new
+  #GET /ritual_venki?filter=military&sort=price
+  #GET /ritual_venki?filter=big
+  #GET /ritual_venki?filter=middle
+  #GET /ritual_venki?filter=small
+  #GET /ritual_venki?filter=in_store
   def show_venki
-    show_products "В", params[:sort]
+    get_products "В", params
   end
 
   def show_korsinu
-    show_products "К", params[:sort]
+    get_products "К", params
   end
 
   def show_goods
-    show_products "И", params[:sort]
-  end
-
-  def show_may_9
-    @products = Product.paginate :page=>params[:page], :per_page => 500, :conditions => "may9 <> '0'", :order => "price desc"
-  end
-
-  def show_novinki
-    dt = Date.today - 6.months
-    @products = Product.paginate :page=>params[:page], :per_page => 500, :conditions => "created_at > '#{dt}'", :order => "created_at desc"
+    get_products "И", params
   end
 
   def show_product
@@ -37,21 +35,19 @@ class StoreController < ApplicationController
 
   protect_from_forgery
 
-  def show_products(key, sort)
-    if sort == nil
-      order = "price desc"
+  def get_products(product_type, params)
+    if (params[:filter] == "in_store")
+      @products = DEPOT.get_availiable_products "В"
     else
-      order = "created_at desc"
+      conditions = "article like '#{product_type}%' "
+      conditions += filter(params[:filter]) if params[:filter]
+      @products = Product.all :conditions => conditions, :order => sort(params[:sort])
     end
-
-    @products = Product.paginate :page=>params[:page], :per_page => 500, :conditions => "article like '#{key}%'", :order => order
   end
 
   def show_all_products(key)
     Product.all :conditions => "article like '#{key}%'", :order => "price desc"
   end
 
-
-  private
 
 end

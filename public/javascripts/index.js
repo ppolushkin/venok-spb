@@ -13,6 +13,14 @@
                 } else {
                     $('.basketInfo').text('Корзина пуста');
                 }
+
+                var $warning = $('#depotIsLack');
+                if (msg.availiable == false) {
+                    $warning.show();
+                } else {
+                    $warning.hide();
+                }
+
             }});
         },
 

@@ -40,6 +40,21 @@ class Order < ActiveRecord::Base
     !self.email.empty?
   end
 
+  def new?
+    self.state == 'new'
+  end
+
+  def verify
+    ActiveRecord::Base.transaction do
+      self.basket.basket_items.each do |bi|
+        DEPOT.hold(bi.product.id, bi.count)
+      end
+      self.state = 'verified'
+      self.save
+    end
+  end
+
+
 private
 
   def assign_basket

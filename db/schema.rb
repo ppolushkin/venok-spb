@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130522153714) do
+ActiveRecord::Schema.define(:version => 20130608212102) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -33,6 +33,21 @@ ActiveRecord::Schema.define(:version => 20130522153714) do
     t.integer  "order_id"
   end
 
+  create_table "depot_items", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "depot_id"
+    t.integer  "count",      :null => false
+    t.integer  "hold_count", :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "depots", :force => true do |t|
+    t.string   "name",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "feedback_mails", :force => true do |t|
     t.string   "email"
     t.string   "name"
@@ -51,8 +66,9 @@ ActiveRecord::Schema.define(:version => 20130522153714) do
     t.string   "address"
     t.boolean  "delivery"
     t.text     "notes"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.string   "state",      :default => "new", :null => false
   end
 
   create_table "pages", :force => true do |t|
@@ -66,8 +82,8 @@ ActiveRecord::Schema.define(:version => 20130522153714) do
   create_table "products", :force => true do |t|
     t.string   "article",          :limit => 6,                   :null => false
     t.string   "name",             :limit => 50,                  :null => false
-    t.string   "height",           :limit => 10
-    t.string   "width",            :limit => 10
+    t.integer  "height",           :limit => 10
+    t.integer  "width",            :limit => 10
     t.string   "notes"
     t.string   "small_image_name", :limit => 50
     t.string   "big_image_name",   :limit => 50

@@ -67,7 +67,7 @@
     }
 
     function activateRemoveLink() {
-        $('a.removeItemLink').bind('click', function (e) {
+        $('a.removeItemLink').on('click', function (e) {
             var self = this;
             e.preventDefault();
             var $tr = $(self).parent().parent();

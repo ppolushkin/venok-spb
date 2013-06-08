@@ -2,22 +2,31 @@
 
 <% @products.each do |product| %>
     <div class="product-item">
+
+      <% if (DEPOT.availiable(product.id) > 0) %>
+        <div class="present"></div>
+      <% else %>
+        <div class="absent"></div>
+      <% end %>
+
       <a class="thumb" href="<%= product.big_img.url %>">
         <img src="<%= product.small_img.url %>" alt="Траурный венок <%= product.name %>" width="135" height="180">
       </a>
 
       <div class="details">
         <a href="<%=raw product.link %>">Купить</a>
-        <div class="price"><span><%= product.formatted_retail_price %></span></div>
-        <div class="description"><%= product.name %></div>
-        <div class="size"><%= product_size product %></div>
       </div>
+
+      <div class="price"><span><%= product.formatted_retail_price %></span></div>
+
+      <div class="description"><%= product.name %></div>
+
+      <div class="size"><%= product_size product %></div>
+
     </div>
 <% end %>
 
 </div>
 
 <br class="clear" />
-
-<%= will_paginate @products, :previous_label=>"Назад", :next_label => "Вперед" %>
 

@@ -79,6 +79,18 @@ class OrdersController < ApplicationController
     end
   end
 
+  # POST /orders/1/verify
+  def verify
+    @order = Order.find(params[:id])
+    #DEPOT.
+
+    if @order.verify
+      redirect_to '/orders', notice: 'Заказ подтвержден'
+    else
+      render action: "show", notice: 'Не могу подтвердить заказ'
+    end
+  end
+
   # DELETE /orders/1.json
   def destroy
     @order = Order.find(params[:id])

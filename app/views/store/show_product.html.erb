@@ -24,10 +24,16 @@
       </p>
   <% end %>
 
-  <p>Количество на складе - неизвестно</p>
+  <% depot_count = DEPOT.availiable @product.id %>
+
+  <p>Количество на складе - <%= depot_count %> </p>
 
   <p>
     Стоимость: <%= sprintf("%u р", @product.retail_price) %>
+  </p>
+
+  <p class="big-text hide" id="depotIsLack">
+  Внимание: на складе недостаточно изделий. Пожалуйста, уточните сроки доставки.
   </p>
 
   <div class="basket-form">

@@ -29,6 +29,7 @@ Obelisk::Application.routes.draw do
   resources :admins
 
   get 'order/new/:basket_id', :controller=>"orders", :action => "new"
+  put 'orders/:id/verify', :controller=>"orders", :action => "verify"
   resources :orders
 
   root :controller => "pages", :action => "show_by_page_ref", :page_ref => 'venok_main', :as => 'venok_main'
@@ -37,7 +38,24 @@ Obelisk::Application.routes.draw do
   get 'api/v1/basket/:id', :controller => 'api/v1/basket', :action => 'item_details'
   delete 'api/v1/basket/:id', :controller => 'api/v1/basket', :action => 'delete_item'
   put 'api/v1/basket', :controller => 'api/v1/basket', :action => 'put'
+
+  put "/api/v1/depot", :controller => 'api/v1/depot', :action => 'put_items'
+  get "/api/v1/depot", :controller => 'api/v1/depot', :action => 'get_items'
+  post "/api/v1/depot", :controller => 'api/v1/depot', :action => 'post_items'
+
+  #get '/api/v2/current_basket/summary', :controller => 'api/v2/basket', :action => 'get_current_basket_summary'
+  #get '/api/v2/current_basket', :controller => 'api/v2/basket', :action => 'get_current_basket'
+
+
   get "basket", :controller => 'basket', :action=> 'index'
+
+  get "depots", :controller => 'depots', :action=> 'index'
+  get "depot/:id/add_items", :controller => 'depots', :action=> 'add_items'
+  get "depot/:id/edit_items", :controller => 'depots', :action=> 'edit_items'
+
+
+  resources :depot_items
+
 
   match ":page_ref", :controller => "pages", :action => "show_by_page_ref"
 

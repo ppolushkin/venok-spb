@@ -1,0 +1,15 @@
+<div class="admin-area">
+
+<table>
+  <tr>
+    <th>Имя</th>
+  </tr>
+
+<% @depots.each do |depot| %>
+  <tr>
+    <td><%= depot.name %></td>
+  </tr>
+<% end %>
+</table>
+
+</div>
