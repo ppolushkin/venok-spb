@@ -10,11 +10,18 @@ body {
 }
 
 #header {
-    background: url("../images/bg-header.jpg") no-repeat scroll 0 0 transparent;
+    /*background: url("../images/bg-header.jpg") no-repeat scroll 0 0 transparent;*/
+    position: relative;
     height: 135px;
     margin-top: 10px;
     position: relative;
     width: 940px;
+}
+
+#header_img {
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 #body-container {
@@ -94,10 +101,9 @@ input[type=text], input[type=password]  {
 /*Menu*/
 
 #menu {
-    clear: both;
-    float: right;
-    margin-top: 69px;
-    margin-right: 10px;
+    position: absolute;
+    right: 10px;
+    top: 99px;
 }
 
 ul#menu li {
@@ -120,6 +126,7 @@ ul#menu li a {
     height: 36px;
     line-height: 30px;
     padding: 0 11px;
+    letter-spacing: -0.5px;
 }
 
 ul#menu li.on a {
@@ -141,9 +148,9 @@ ul#menu li a:hover {
 }
 
 #basket, #admin {
-    float: right;
-    margin-right: 10px;
-    margin-top: 10px;
+    position: absolute;
+    top: 5px;
+    right: 10px;
 }
 
 #basket a {
