@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130608212102) do
+ActiveRecord::Schema.define(:version => 20130609194342) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
     t.string   "password_hash"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.boolean  "receive_emails", :default => true, :null => false
   end
 
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(:version => 20130608212102) do
   end
 
   create_table "baskets", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.integer  "order_id"
   end
 
@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(:version => 20130608212102) do
     t.string   "name"
     t.string   "phone"
     t.text     "message"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.string   "application_name", :default => "obelisk", :null => false
   end
 
@@ -74,23 +74,23 @@ ActiveRecord::Schema.define(:version => 20130608212102) do
   create_table "pages", :force => true do |t|
     t.string   "reference"
     t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.string   "application_name", :default => "obelisk", :null => false
   end
 
   create_table "products", :force => true do |t|
     t.string   "article",          :limit => 6,                   :null => false
     t.string   "name",             :limit => 50,                  :null => false
-    t.integer  "height",           :limit => 10
-    t.integer  "width",            :limit => 10
+    t.string   "height",           :limit => 10
+    t.string   "width",            :limit => 10
     t.string   "notes"
-    t.string   "small_image_name", :limit => 50
-    t.string   "big_image_name",   :limit => 50
-    t.string   "extra_image_name", :limit => 50
+    t.string   "small_image_name"
+    t.string   "big_image_name"
+    t.string   "extra_image_name"
     t.decimal  "price",                                           :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
     t.string   "may9",                           :default => "0", :null => false
     t.string   "small_img"
     t.string   "medium_img"
@@ -101,14 +101,8 @@ ActiveRecord::Schema.define(:version => 20130608212102) do
   create_table "revisions", :force => true do |t|
     t.integer  "page_id"
     t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "users", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
