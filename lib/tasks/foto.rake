@@ -70,7 +70,13 @@ namespace :foto do
 
       small_img_file = ENV["FOTO_DIR"] + p.small_image_name
       medium_img_file = ENV["FOTO_DIR"] + p.big_image_name
-      big_img_file = ENV["FOTO_DIR"] + p.extra_image_name
+
+      if (p.extra_image_name)
+        big_img_file = ENV["FOTO_DIR"] + p.extra_image_name
+      else
+        big_img_file = 'zzz'
+      end  
+
 
       Product.transaction do
 
@@ -90,7 +96,7 @@ namespace :foto do
             print "-B"
           end
           p.save!
-        rescue
+        rescue 
           print "Error"
         end
       end
