@@ -29,9 +29,13 @@ class PagesController < ApplicationController
   # GET /pages/new
   # GET /pages/new.xml
   def new
+    puts "BEFORE LAST_ID"
     last_id = Page.last.id + 1000
+    puts "BEFORE Page.new"
     @page = Page.new
+    puts "BEFORE last_is assign"
     @page.id = last_id
+    puts "after last_is assign"
     if params!=nil && params[:page_ref]!=nil
       @page.reference=params[:page_ref]
     end
