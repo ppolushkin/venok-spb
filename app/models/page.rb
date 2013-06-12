@@ -19,7 +19,7 @@ private
 
   def verify_application_name()
     unless self.application_name == APPLICATION_NAME
-      #raise "Permission denied to page " + self.title
+      raise "Permission denied to page " + self.title
     end
   end
 
