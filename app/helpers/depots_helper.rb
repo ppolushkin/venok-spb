@@ -35,7 +35,7 @@ module DepotsHelper
   end
 
   def self.find_product_by_article(article)
-      Product.where("lower(article) =?", article.downcase).first
+      Product.find_by_article article
   end
 
 
