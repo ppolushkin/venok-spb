@@ -15,6 +15,8 @@ class Product < ActiveRecord::Base
   }
   validates_numericality_of :height, :width, :price, :greater_than => 0
 
+  validates :height, :width, :length => { :minimum => 3 }
+
   mount_uploader :small_img, SmallFotoUploader
   mount_uploader :medium_img, MediumFotoUploader
   mount_uploader :big_img, FotoUploader
