@@ -22,12 +22,12 @@
         <%= f.text_field :name, :size => 50, :maxlength => 50 %>
       </div>
       <div class="field">
-        <%= f.label "Высота" %>
-        <%= f.text_field :height, :size => 10, :maxlength => 10 %>
+        <%= f.label "Высота (3 цифры)" %>
+        <%= f.text_field :height, :size => 10, :minlength =>3, :maxlength => 10 %>
       </div>
       <div class="field">
-        <%= f.label "Ширина" %>
-        <%= f.text_field :width, :size => 10, :maxlength => 10 %>
+        <%= f.label "Ширина (3 цифры)" %>
+        <%= f.text_field :width, :size => 10, :minlength =>3, :maxlength => 10 %>
       </div>
       <div class="field">
         <%= f.label "Описание" %>
