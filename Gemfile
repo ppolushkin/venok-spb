@@ -21,3 +21,5 @@ gem 'carrierwave', '~> 0.6.2'
 gem "mini_magick"
 
 gem 'fog', '~> 1.6.0'
+
+gem 'newrelic_rpm'
