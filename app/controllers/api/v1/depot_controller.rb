@@ -39,15 +39,10 @@ class Api::V1::DepotController < Api::V1::BaseController
       end
 
       data = params[:data]
-      puts 'Loading data'
-
       data.each do |item|
         p = DepotsHelper.find_product_by_article(item[:article])
         if p
           DEPOT.save_item(p.id, item[:count].to_i, item[:hold_count].to_i)
-          puts 'set ' + item[:article] + '=' + item[:count]
-        else
-          puts 'item not found ' + item[:article]
         end
       end
       render json: {:result => 'true'}
