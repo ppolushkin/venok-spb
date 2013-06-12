@@ -63,6 +63,7 @@ GEM
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-ssh (2.6.6)
+    newrelic_rpm (3.5.7.59)
     nokogiri (1.5.9)
     pg (0.12.2)
     polyglot (0.3.3)
@@ -116,6 +117,7 @@ DEPENDENCIES
   email_validator
   fog (~> 1.6.0)
   mini_magick
+  newrelic_rpm
   pg (~> 0.12.2)
   rails (>= 3.0.3)
   unicode
