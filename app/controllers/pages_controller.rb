@@ -29,13 +29,13 @@ class PagesController < ApplicationController
   # GET /pages/new
   # GET /pages/new.xml
   def new
-    last_id = Page.last.id + 1
+    last_id = Page.last.id + 1000
     @page = Page.new
     @page.id = last_id
     if params!=nil && params[:page_ref]!=nil
       @page.reference=params[:page_ref]
     end
-    last_revision_id = Revision.last.id
+    last_revision_id = Revision.last.id + 1000
     @revision = Revision.new
     @revision.id = last_revision_id
 
