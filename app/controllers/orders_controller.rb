@@ -55,7 +55,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.save
         session[:basket_id] = -1
-        Notifier.order_recieved(@order).deliver
+        #Notifier.order_recieved(@order).deliver
         format.html { redirect_to '/order_submitted' }
       else
         format.html { render action: "new" }
