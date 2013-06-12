@@ -35,7 +35,10 @@ class PagesController < ApplicationController
     if params!=nil && params[:page_ref]!=nil
       @page.reference=params[:page_ref]
     end
+    last_revision_id = Revision.last.id
     @revision = Revision.new
+    @revision.id = last_revision_id
+
     respond_to do |format|
       format.html # new.html.erb
     end
