@@ -25,13 +25,13 @@ module StoreHelper
       return " and may9 <> '0'"
     end
     if (param == "small")
-      return " and height < 80"
+      return " and height < '80'"
     end
     if (param == "middle")
-      return " and height >= 80 and height < 100"
+      return " and height > '80' and height < '100'"
     end
     if (param == "big")
-      return " and height >= 100"
+      return " and height > '100'"
     end
   end
 
