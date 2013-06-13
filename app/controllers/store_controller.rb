@@ -37,7 +37,7 @@ class StoreController < ApplicationController
 
   def get_products(product_type, params)
     if (params[:filter] == "in_store")
-      @products = DEPOT.get_availiable_products params[:filter]
+      @products = DEPOT.get_availiable_products product_type
     else
       conditions = "article like '#{product_type}%' "
       conditions += filter(params[:filter]) if params[:filter]
