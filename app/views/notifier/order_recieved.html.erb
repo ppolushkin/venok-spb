@@ -4,7 +4,7 @@
 
 <h3>Телефон: <%= @order.phone %></h3>
 
-<% until @order.email && @order.email.empty? %>
+<% if @order.email && !@order.email.empty? %>
     <b>Email:</b> <%= @order.email %> <br/>
 <% end %>
 
@@ -15,11 +15,11 @@
 <% end %>
 
 
-<% until @order.address && @order.address.empty? %>
+<% if @order.address && !@order.address.empty? %>
     <b>Адрес доставки:</b> <%= @order.address %> <br/><br/>
 <% end %>
 
-<% until @order.notes && @order.notes.empty? %>
+<% if @order.notes && !@order.notes.empty? %>
     <b>Дополнительнительные пожелания:</b> <%= @order.notes %> <br/><br/>
 <% end %>
 
