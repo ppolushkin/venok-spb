@@ -17,6 +17,7 @@ class Order < ActiveRecord::Base
   #t.text     "notes"
 
   validates :full_name, :phone, :presence => true
+  validates :email, :email => true, :if => :email_exist?
   validates :address, :presence => true, :if => :delivery?
 
   def full_order_price
