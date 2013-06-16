@@ -1,5 +1,7 @@
 (function () {
     $(document).ready(function () {
+        $(".thumb img").lazyload();
+
         $('.product-item').each( function () {
             var $productItem = $(this);
             var name = $productItem.find('.description').text();
