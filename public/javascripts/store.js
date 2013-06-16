@@ -8,8 +8,6 @@
             var $thumb = $productItem.find('a.thumb');
             var info =  '<strong>'  + name + '</strong>&nbsp;&nbsp;(' + size + ')';
 
-            console.log("html = "  + "html");
-
             $thumb.colorbox({
                 initialHeight: "410px",
                 initialWidth: "300px",
