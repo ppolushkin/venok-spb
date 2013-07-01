@@ -6,12 +6,12 @@ class Product < ActiveRecord::Base
   validates :article, :uniqueness => true
 
   validates :article, :format => {
-      :with    => /[ВКФИ]\d+/,
-      :message => "Артикль должен иметь формат В{номер} - для венка, К{номер} - для корзины или Ф{номер} - для фона, И{номер} - для изделия"
+      :with    => /[ВКФИЦ]\d+/,
+      :message => "Артикль должен иметь формат В{номер} - для венка, К{номер} - для корзины или Ф{номер} - для фона, И{номер} - для изделия, Ц{номер} - для цветов"
   }
   validates :article, :format => {
-      :without => /(.+[ВКФИ]\d+)|([ВКФ]\d+\D+)/,
-      :message => "Артикль должен иметь формат В{номер} - для венка, К{номер} - для корзины или Ф{номер} - для фона, И{номер} - для изделия"
+      :without => /(.+[ВКФИЦ]\d+)|([ВКФ]\d+\D+)/,
+      :message => "Артикль должен иметь формат В{номер} - для венка, К{номер} - для корзины или Ф{номер} - для фона, И{номер} - для изделия, Ц{номер} - для цветов"
   }
   validates_numericality_of :height, :width, :price, :greater_than => 0
 
@@ -36,6 +36,11 @@ class Product < ActiveRecord::Base
     article.force_encoding('UTF-8').include?("И")
   end
 
+  def flower?
+    article.force_encoding('UTF-8').include?("Ц")
+  end
+
+
   def formatted_retail_price
     sprintf("%u р", self.retail_price)
   end
@@ -44,6 +49,7 @@ class Product < ActiveRecord::Base
     return '/venok/' + id.to_s if venok?
     return '/korzina/' + id.to_s if korzina?
     return '/izdelie/' + id.to_s if izdelie?
+    return '/flower/' + id.to_s if flower?
   end
 
 end

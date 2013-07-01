@@ -18,9 +18,13 @@ Obelisk::Application.routes.draw do
   get "novinki", :controller => "store", :action => "show_novinki", :as=>"novinki"
   get "buy", :controller => "store", :action => "buy", :as=>"buy"
   get "goods", :controller => "store", :action => "show_goods", :as=>"goods"
+  get "flowers", :controller => "store", :action => "show_flowers", :as=>"flowers"
+
+
   get "venok/:id", :controller => "store", :action => "show_product"
   get "korzina/:id", :controller => "store", :action => "show_product"
   get "izdelie/:id", :controller => "store", :action => "show_product"
+  get "flower/:id", :controller => "store", :action => "show_product"
 
   resources :products
 

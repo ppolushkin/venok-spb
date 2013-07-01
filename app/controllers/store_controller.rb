@@ -25,6 +25,10 @@ class StoreController < ApplicationController
     get_products "И", params
   end
 
+  def show_flowers
+    get_products "Ц", params
+  end
+
   def show_product
     @product = Product.find(params[:id])
 
