@@ -49,7 +49,7 @@
         },
 
         showLoadingDialog:function () {
-            $("#dialog").dialog('open').html("<p>Идет обработка</p>");
+            $('#dialog').dialog('open').html("<p>Идет обработка</p>");
         },
 
         hideLoadingDialog:function () {
