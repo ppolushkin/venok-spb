@@ -16,9 +16,13 @@
   <%= csrf_meta_tag %>
   <title>Траурные ритуальные венки и корзины Санкт-Петербург</title>
   <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.min.js"></script>
   <script type="text/javascript">
       if (!window.jQuery) {
           document.write('<script src="/javascripts/jquery-1.9.1.min.js"><\/script>');
+      }
+      if (typeof jQuery.ui == 'undefined') {
+          document.write('<script src="/javascripts/jquery-1.9.1-ui.min.js"><\/script>')
       }
   </script>
 </head>
