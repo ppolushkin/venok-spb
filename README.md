@@ -22,4 +22,11 @@ How to run rake console
 How to periodically clean basket:
 
  heroku run rake session_cleaner:clean --app venok
+ 
+How to fix precompile error during deploy
+ http://stackoverflow.com/questions/16432825/heroku-precompile-assets-failed-on-rail-4-app
+
+ https://devcenter.heroku.com/articles/labs-user-env-compile
+ 
+ 
 
