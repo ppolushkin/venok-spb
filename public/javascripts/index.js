@@ -133,6 +133,7 @@
 
     function prepareLoadingDialog() {
         $("#dialog").dialog({
+            dialogClass: "no-close",
             hide: 'clip',
             show: 'clip',
             modal: 'true',
