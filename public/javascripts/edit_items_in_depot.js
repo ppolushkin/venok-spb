@@ -11,6 +11,7 @@
             e.preventDefault();
             var self = this;
 
+            SYS.showLoadingDialog();
             $.ajax({
                 url:'/api/v1/depot',
                 method:'POST',
@@ -20,11 +21,16 @@
                 success:function (msg) {
                     if (msg.result == 'true') {
                         SYS.showMessage('Изменения сохранены');
+                        SYS.hideLoadingDialog();
                     } else {
                         SYS.showMessage('Ошибка сохранения');
+                        SYS.hideLoadingDialog();
                     }
                 },
-                error: SYS.handleAjaxError
+                error:function (msg) {
+                    SYS.hideLoadingDialog();
+                    SYS.handleAjaxError();
+                }
             });
         });
     }

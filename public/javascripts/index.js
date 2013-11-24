@@ -46,6 +46,14 @@
             setInterval(function () {
                 $obj.css("border-color", color);
             }, 3000);
+        },
+
+        showLoadingDialog:function () {
+            $("#dialog").dialog('open').html("<p>Идет обработка</p>");
+        },
+
+        hideLoadingDialog:function () {
+            $('#dialog').dialog('close');
         }
     };
 
@@ -57,6 +65,7 @@
         hideHtmlNotice();
         logout();
         setupAjax();
+        prepareLoadingDialog();
         SYS.showBasket();
     });
 
@@ -120,6 +129,15 @@
     function fixContentHeight() {
         var h = $(document).height() - 173;
         $('#body-container').css('min-height', h);
+    }
+
+    function prepareLoadingDialog() {
+        $("#dialog").dialog({
+            hide: 'clip',
+            show: 'clip',
+            modal: 'true',
+            autoOpen: false
+        });
     }
 
 
