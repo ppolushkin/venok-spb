@@ -41,6 +41,7 @@
     ];
 
     function loadData() {
+        SYS.showLoadingDialog();
         $.ajax({
             url:'/api/v1/depot',
             method:'GET',
@@ -58,8 +59,12 @@
                         });
                 }
                 $("#dataTable").handsontable('render');
+                SYS.hideLoadingDialog();
             },
-            error:SYS.handleAjaxError
+            error:function (msg) {
+                SYS.hideLoadingDialog();
+                SYS.handleAjaxError();
+            }
         });
 
     }
