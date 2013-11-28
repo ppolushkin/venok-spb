@@ -11,7 +11,11 @@
 <% @products.each do |product| %>
     <div class="product-item">
 
-      <div class="absent"></div>
+      <% if (DEPOT.availiable(product.id) > 0) %>
+        <div class="present"></div>
+      <% else %>
+        <div class="absent"></div>
+      <% end %>
 
       <a class="thumb" href="<%= product.medium_img.url %>">
         <img src="/images/grey.gif" data-original="<%= product.small_img.url %>" alt="Траурный венок <%= product.name %>" width="135" height="180">

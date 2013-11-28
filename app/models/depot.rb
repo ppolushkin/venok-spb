@@ -55,9 +55,9 @@ private
     unless current_item
       current_item = DepotItem.new(:product_id=>product_id, :count=>0, :hold_count=>0)
       depot_items << current_item
+      current_item.save
+      save
     end
-    current_item.save
-    save
 
     return current_item
   end
