@@ -8,8 +8,8 @@ namespace :session_cleaner do
         removed = removed + 1
         b.destroy
       end
-      puts "Removed: #{removed} old basket objects"
     end
+    puts "Removed: #{removed} old basket objects"
   end
 
 end
