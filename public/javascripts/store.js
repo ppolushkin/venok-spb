@@ -2,7 +2,7 @@
     $(document).ready(function () {
         $(".thumb img").lazyload();
         setupColorBox();
-
+        setupAvailable();
     });
 
 
@@ -22,5 +22,15 @@
         });
     }
 
+    function setupAvailable() {
+        $('.product-item').each( function () {
+            var $productItem = $(this);
+            var $id = $productItem.find('.id');
+
+            var classList = $id.className.split(/\s+/);
+            var product_id = classList[1];
+            alert(product_id);
+        });
+    }
 
 })();
