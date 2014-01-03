@@ -27,9 +27,21 @@
             var $productItem = $(this);
             var $id = $productItem.find('.id');
 
-            var classList = $id.className.split(/\s+/);
-            var product_id = classList[1];
-            alert(product_id);
+            var product_id = $id[0].classList[1];
+
+            $.ajax({
+                url:'/api/v1/depot/get_available_items' + product_id,
+                method:'GET',
+                contentType:'application/json',
+                success:function (msg) {
+                    alert(msg.available);
+                },
+                error:SYS.handleAjaxError
+            });
+
+
+
+
         });
     }
 
