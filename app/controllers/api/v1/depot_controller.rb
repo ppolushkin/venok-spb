@@ -2,7 +2,7 @@
 
 class Api::V1::DepotController < Api::V1::BaseController
 
-  before_filter :authorize, :except => [:get_availiable_count]
+  before_filter :authorize, :except => [:get_available_items]
 
   #get /api/v1/depot/get_available_items/:id
   def get_available_items
@@ -12,7 +12,12 @@ class Api::V1::DepotController < Api::V1::BaseController
         return
       end
 
-      render json: {:available => DEPOT.availiable(params[:id])}
+      if DEPOT.availiable(params[:id]) > 0
+        render json: {:available => true}
+      else
+        render json: {:available => false}
+      end
+
     end
   end
 
