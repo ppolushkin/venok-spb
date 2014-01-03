@@ -4,7 +4,7 @@ class Api::V1::DepotController < Api::V1::BaseController
 
   before_filter :authorize, :except => [:get_available_items]
 
-  #post /api/v1/depot/available_items
+  #post /api/v1/depot/get_available_items
   def get_available_items
     handle_exceptions do
       unless validate(params[:data])
@@ -22,7 +22,6 @@ class Api::V1::DepotController < Api::V1::BaseController
         end
       end
       render json: {:data => data}
-
     end
   end
 
@@ -91,10 +90,6 @@ def get_items
 end
 
 private
-
-def is_number?(string)
-  true if Float(string) rescue false
-end
 
 
 def handle_exceptions
