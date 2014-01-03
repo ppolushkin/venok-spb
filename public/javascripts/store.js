@@ -34,14 +34,13 @@
                 method:'GET',
                 contentType:'application/json',
                 success:function (msg) {
-                    alert(msg.available);
-                },
-                error:SYS.handleAjaxError
+                    if (msg.available) {
+                        $id.addClass('present')
+                    } else {
+                        $id.addClass('absent')
+                    }
+                }
             });
-
-
-
-
         });
     }
 
