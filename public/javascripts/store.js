@@ -40,7 +40,12 @@
 
             success:function (data) {
                 for(var i = 0; i < data.data.length; i++) {
-                    $('.' + data.data[i].id).addClass(data.data[i].available);
+                    if(data.data[i].available) {
+                        $('.' + data.data[i].id).addClass('present');
+                    } else {
+                        $('.' + data.data[i].id).addClass('absent');
+                    }
+
                 }
             }
         });
