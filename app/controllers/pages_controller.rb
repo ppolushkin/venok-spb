@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  skip_before_filter :authorize, :only => [:show_by_page_ref, :show_clean_page]
+  skip_before_filter :authorize, :only => [:show_by_page_ref]
 
   # GET /pages
   # GET /pages.xml
