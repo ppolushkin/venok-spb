@@ -39,7 +39,9 @@
             data:JSON.stringify({data:data}),
 
             success:function (data) {
-                console.log(data);
+                for(var i = 0; i < data.length; i++) {
+                    $('.' + data[i].id).addClass(data[i].available);
+                }
             }
         });
 
