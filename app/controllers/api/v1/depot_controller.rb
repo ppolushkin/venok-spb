@@ -4,19 +4,24 @@ class Api::V1::DepotController < Api::V1::BaseController
 
   before_filter :authorize, :except => [:get_available_items]
 
-  #get /api/v1/depot/get_available_items/:id
+  #post /api/v1/depot/available_items
   def get_available_items
     handle_exceptions do
-      if params[:id] == nil || !is_number?(params[:id].to_s)
+      unless validate(params[:data])
         head :bad_request
         return
       end
 
-      if DEPOT.availiable(params[:id]) > 0
-        render json: {:available => true}
-      else
-        render json: {:available => false}
+      data = params[:data]
+
+      data.each do |item|
+        if DEPOT.availiable(item[:id]) > 0
+          item[:available]=true
+        else
+          item[:available]=false
+        end
       end
+      render json: {:data => data}
 
     end
   end

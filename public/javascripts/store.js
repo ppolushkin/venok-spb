@@ -23,25 +23,26 @@
     }
 
     function setupAvailable() {
+        var data = [];
         $('.product-item').each( function () {
             var $productItem = $(this);
             var $id = $productItem.find('.id');
-
             var product_id = $id[0].classList[1];
-
-            $.ajax({
-                url:'/api/v1/depot/get_available_items/' + product_id,
-                method:'GET',
-                contentType:'application/json',
-                success:function (msg) {
-                    if (msg.available) {
-                        $id.addClass('present')
-                    } else {
-                        $id.addClass('absent')
-                    }
-                }
-            });
+            data.push({"id" : product_id});
         });
+
+        $.ajax({
+            url:'/api/v1/depot/get_available_items',
+            method:'POST',
+            contentType:'application/json',
+            dataType:'json',
+            data:JSON.stringify({data:data}),
+
+            success:function (msg) {
+                console.log(data);
+            }
+        });
+
     }
 
 })();
