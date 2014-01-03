@@ -62,6 +62,8 @@ Obelisk::Application.routes.draw do
   resources :depot_items
 
 
+  get "clean", :controller => "pages", :action => "show_clean_page"
+
   match ":page_ref", :controller => "pages", :action => "show_by_page_ref"
 
 end

@@ -26,6 +26,20 @@ class PagesController < ApplicationController
     end
   end
 
+  #get /clean
+  def show_clean_page
+    @removed_baskets = 0
+    Basket.all.each() do |b|
+      if b.order.nil? && (b.created_at < (DateTime.now - 1.day))
+        @removed_baskets = @removed_baskets + 1
+        b.destroy
+      end
+    end
+    respond_to do |format|
+      format.html # show_clean_page.html.erb
+    end
+  end
+
   # GET /pages/new
   # GET /pages/new.xml
   def new
