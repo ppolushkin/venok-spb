@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  skip_before_filter :authorize, :only => [:show_by_page_ref]
+  skip_before_filter :authorize, :only => [:show_by_page_ref, :show_clean_page]
 
   # GET /pages
   # GET /pages.xml
@@ -23,6 +23,20 @@ class PagesController < ApplicationController
       respond_to do |format|
         format.html # show.html.erb
       end
+    end
+  end
+
+  #get /clean
+  def show_clean_page
+    @removed_baskets = 0
+    Basket.all.each() do |b|
+      if b.created_at < (DateTime.now - 1.day)
+        @removed_baskets = @removed_baskets + 1
+        b.destroy
+      end
+    end
+    respond_to do |format|
+      format.html # show_clean_page.html.erb
     end
   end
 
