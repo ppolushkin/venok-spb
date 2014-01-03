@@ -26,7 +26,11 @@
 
   <% depot_count = DEPOT.availiable @product.id %>
 
-  <p>Количество на складе - <%= depot_count %> </p>
+  <% if depot_count > 0 %>
+        <p>Количество на складе - <%= depot_count %></p>
+  <% else %>
+        <p class="big-text">Нет на складе</p>
+  <% end %>
 
   <p>
     Стоимость: <%= sprintf("%u р", @product.retail_price) %>
@@ -40,7 +44,12 @@
     <!--used in javascript-->
     <input id="productId" type="number" value="<%= @product.id %>" hidden="true">
     <input id="productCount" type="number" value="1" size="1">
-    <input id="buy" type="submit" value="">
+    <% if depot_count > 0 %>
+        <input id="buy" type="submit" value="">
+    <% else %>
+        <input id="buy" type="submit" value="" disabled>
+    <% end %>
+
   </div>
 
   <p class="big-text">
