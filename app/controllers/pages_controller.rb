@@ -30,10 +30,10 @@ class PagesController < ApplicationController
   def show_clean_page
     @removed_baskets = 0
     Basket.all.each() do |b|
-      if b.created_at < (DateTime.now - 1.day)
+      #if b.created_at < (DateTime.now - 1.day)
         @removed_baskets = @removed_baskets + 1
         b.destroy
-      end
+      #end
     end
     respond_to do |format|
       format.html # show_clean_page.html.erb
