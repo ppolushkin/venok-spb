@@ -30,7 +30,7 @@
             var product_id = $id[0].classList[1];
 
             $.ajax({
-                url:'/api/v1/depot/get_available_items' + product_id,
+                url:'/api/v1/depot/get_available_items/' + product_id,
                 method:'GET',
                 contentType:'application/json',
                 success:function (msg) {
