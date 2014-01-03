@@ -4,10 +4,10 @@ class Api::V1::DepotController < Api::V1::BaseController
 
   before_filter :authorize, :except => [:get_availiable_count]
 
-  #get /api/v1/depot/get_available_items
+  #get /api/v1/depot/get_available_items/:id
   def get_available_items
     handle_exceptions do
-      unless params[:id]
+      if params[:id] == nil || !is_number?(params[:id].to_s)
         head :bad_request
         return
       end
