@@ -2,7 +2,29 @@
 
 class Api::V1::DepotController < Api::V1::BaseController
 
-  before_filter :authorize, :except => [:get_availiable_count]
+  before_filter :authorize, :except => [:get_available_items]
+
+  #post /api/v1/depot/get_available_items
+  def get_available_items
+    handle_exceptions do
+      unless validate(params[:data])
+        head :bad_request
+        return
+      end
+
+      data = params[:data]
+
+      data.each do |item|
+        if DEPOT.availiable(item[:id]) > 0
+          item[:available]=true
+        else
+          item[:available]=false
+        end
+      end
+      render json: {:data => data}
+    end
+  end
+
 
   #put /api/v1/depot
   def put_items
@@ -68,6 +90,7 @@ def get_items
 end
 
 private
+
 
 def handle_exceptions
   begin
