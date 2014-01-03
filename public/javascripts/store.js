@@ -1,11 +1,15 @@
 (function () {
     $(document).ready(function () {
         $(".thumb img").lazyload();
+        setupColorBox();
 
+    });
+
+
+    function setupColorBox() {
         $('.product-item').each( function () {
             var $productItem = $(this);
             var name = $productItem.find('.description').text();
-//            var price = $productItem.find('.price span').text();
             var size = $productItem.find('.size').text();
             var $thumb = $productItem.find('a.thumb');
             var info =  '<strong>'  + name + '</strong>&nbsp;&nbsp;(' + size + ')';
@@ -16,5 +20,7 @@
                 title: info
             });
         });
-    });
+    }
+
+
 })();
