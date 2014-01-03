@@ -38,7 +38,7 @@
             dataType:'json',
             data:JSON.stringify({data:data}),
 
-            success:function (msg) {
+            success:function (data) {
                 console.log(data);
             }
         });
