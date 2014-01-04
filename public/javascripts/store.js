@@ -44,6 +44,7 @@
                         $('.' + data.data[i].id).addClass('present');
                     } else {
                         $('.' + data.data[i].id).addClass('absent');
+                        $('.buyButton' + data.data[i].id).hide();
                     }
 
                 }
