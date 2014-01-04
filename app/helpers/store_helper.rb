@@ -28,10 +28,10 @@ module StoreHelper
       return " and height < '080'"
     end
     if (param == "middle")
-      return " and height > '080' and height < '100'"
+      return " and height >= '080' and height < '100'"
     end
     if (param == "big")
-      return " and height > '100'"
+      return " and height >= '100'"
     end
   end
 
