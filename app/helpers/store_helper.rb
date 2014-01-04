@@ -14,7 +14,7 @@ module StoreHelper
 
   #todo: fix_obelisk
   def product_size(product)
-    product.width.to_s + 'x' + product.height.to_s + " см"
+    product.height.to_s + 'x' + product.width.to_s + " см"
   end
 
   def filter(param)
@@ -28,10 +28,10 @@ module StoreHelper
       return " and height < '080'"
     end
     if (param == "middle")
-      return " and height > '080' and height < '100'"
+      return " and height >= '080' and height < '100'"
     end
     if (param == "big")
-      return " and height > '100'"
+      return " and height >= '100'"
     end
   end
 
