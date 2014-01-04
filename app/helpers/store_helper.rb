@@ -14,7 +14,7 @@ module StoreHelper
 
   #todo: fix_obelisk
   def product_size(product)
-    product.width.to_s + 'x' + product.height.to_s + " см"
+    product.height.to_s + 'x' + product.width.to_s + " см"
   end
 
   def filter(param)
