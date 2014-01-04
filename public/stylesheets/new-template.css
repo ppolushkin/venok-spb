@@ -367,7 +367,7 @@ Product grid
     width: 137px;
 }
 
-.product-item .details a {
+.buy-button {
     background: url("../images/button-buynow.gif") no-repeat scroll 0 0 transparent;
     display: none;
     float: left;
