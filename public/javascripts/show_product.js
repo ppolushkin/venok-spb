@@ -1,5 +1,6 @@
 (function () {
     $(document).ready(function () {
+        putProductToBasket();
         activateInputByEnterKey();
         activateBuyButton();
         populateProductCount();
@@ -63,4 +64,12 @@
             }
         });
     }
+
+    function putProductToBasket() {
+        if($('#buy:enabled').size() == 1) {
+            processBuyButtonClick();
+        }
+    }
+
+
 })();
