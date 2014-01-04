@@ -378,6 +378,15 @@ Product grid
     width: 63px;
 }
 
+.product-item .absent-text {
+    display: block;
+    float: left;
+    height: 26px;
+    margin: 7px 0 0 6px;
+    width: 63px;
+    color: #FFFFFF;
+}
+
 .product-item .description {
     position: absolute;
     left: 5px;
