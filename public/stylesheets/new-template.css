@@ -386,6 +386,7 @@ Product grid
     width: 70px;
     line-height: 7pt;
     color: #FFFFFF;
+    text-decoration: underline;
 }
 
 .product-item .description {
