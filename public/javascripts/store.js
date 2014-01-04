@@ -49,7 +49,24 @@
                 }
             }
         });
-
     }
 
 })();
+
+function processBuyClick(id, url) {
+    var count = 1;
+
+    $.ajax({
+        url:'/api/v1/basket',
+        method:'PUT',
+        contentType:'application/json',
+        dataType:'json',
+        data:JSON.stringify({id:id, count:count}),
+        success:function (msg) {
+            window.location.href = 'url';
+        },
+        error: SYS.handleAjaxError
+    });
+
+}
+
