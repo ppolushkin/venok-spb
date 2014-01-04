@@ -41,9 +41,9 @@
             success:function (data) {
                 for(var i = 0; i < data.data.length; i++) {
                     if(data.data[i].available) {
-                        $('.buyButton' + data.data[i].id).removeClass('hide');
+                        $('.buyButton' + data.data[i].id).css( "display", "block");
                     } else {
-                        $('.absentText' + data.data[i].id).removeClass('hide');
+                        $('.absentText' + data.data[i].id)..css( "display", "block");
                     }
 
                 }

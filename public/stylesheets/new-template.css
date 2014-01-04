@@ -369,7 +369,7 @@ Product grid
 
 .product-item .details a {
     background: url("../images/button-buynow.gif") no-repeat scroll 0 0 transparent;
-    display: block;
+    display: none;
     float: left;
     height: 26px;
     margin: 7px 0 0 6px;
@@ -379,7 +379,7 @@ Product grid
 }
 
 .product-item .absent-text {
-    display: block;
+    display: none;
     float: left;
     height: 26px;
     margin: 11px 0 0 6px;
