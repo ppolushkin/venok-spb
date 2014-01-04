@@ -18,8 +18,8 @@
       </a>
 
       <div class="details">
-        <a class="buyButton<%= product.id %>" href="<%=raw product.link %>">Купить</a>
-        <div class="absent-text">Нет на складе</div>
+        <a class="buyButton<%= product.id %> hide" href="<%=raw product.link %>">Купить</a>
+        <div class="absentText<%= product.id %> absent-text hide">Нет на складе</div>
       </div>
 
       <div class="price"><span><%= product.formatted_retail_price %></span></div>

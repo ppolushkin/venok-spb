@@ -41,10 +41,9 @@
             success:function (data) {
                 for(var i = 0; i < data.data.length; i++) {
                     if(data.data[i].available) {
-                        $('.' + data.data[i].id).addClass('present');
+                        $('.buyButton' + data.data[i].id).removeClass('hide');
                     } else {
-                        $('.' + data.data[i].id).addClass('absent');
-                        $('.buyButton' + data.data[i].id).hide();
+                        $('.absentText' + data.data[i].id).removeClass('hide');
                     }
 
                 }
