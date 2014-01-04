@@ -455,11 +455,11 @@ Product grid
     font-weight: bold;
 }
 
-.product-item .details a:hover {
+.buy-button:hover {
     background: url("../images/button-buynow.gif") no-repeat scroll 0 -52px transparent;
 }
 
-.product-item .details a:active {
+.buy-button:active {
     background: url("../images/button-buynow.gif") no-repeat scroll 0 -26px transparent;
 }
 
