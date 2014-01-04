@@ -44,7 +44,7 @@
                         var id = data.data[i].id;
                         var $a = $('.buyButton' + id);
                         $a.css( "display", "block");
-                        $a.on('click', {id: id, url: @a.attr('href')}, processBuyClick);
+                        $a.on('click', {id: id, url: $a.attr('href')}, processBuyClick);
                     } else {
                         $('.absentText' + data.data[i].id).css( "display", "block");
                     }
