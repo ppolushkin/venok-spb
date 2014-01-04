@@ -413,33 +413,6 @@ Product grid
     width: 60px;
 }
 
-.product-item .present {
-    position: absolute;
-    left: 120px;
-    top: 2px;
-    z-index: 100;
-    width: 15px;
-    height: 15px;
-    -moz-border-radius: 7px;
-    -webkit-border-radius: 7px;
-    border-radius: 7px;
-    background: #79ff22;
-}
-
-.product-item .absent {
-    position: absolute;
-    left: 120px;
-    top: 2px;
-    z-index: 100;
-    width: 15px;
-    height: 15px;
-    -moz-border-radius: 7px;
-    -webkit-border-radius: 7px;
-    border-radius: 7px;
-    background: #cc0000;
-}
-
-
 .product-item .price {
     position: absolute;
     left: 82px;
