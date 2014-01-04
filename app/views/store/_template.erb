@@ -18,7 +18,7 @@
       </a>
 
       <div class="details">
-        <a class="buyButton<%= product.id %>" onclick="processBuyClick(<%= product.id %>, '<%=raw product.link %>')">Купить</a>
+        <a class="buyButton<%= product.id %>" href="<%=raw product.link %>">Купить</a>
         <div class="absentText<%= product.id %> absent-text">Нет на складе</div>
       </div>
 
