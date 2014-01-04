@@ -43,7 +43,7 @@
                     if(data.data[i].available) {
                         $('.buyButton' + data.data[i].id).css( "display", "block");
                     } else {
-                        $('.absentText' + data.data[i].id)..css( "display", "block");
+                        $('.absentText' + data.data[i].id).css( "display", "block");
                     }
 
                 }
