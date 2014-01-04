@@ -41,15 +41,42 @@
             success:function (data) {
                 for(var i = 0; i < data.data.length; i++) {
                     if(data.data[i].available) {
-                        $('.' + data.data[i].id).addClass('present');
+                        var id = data.data[i].id;
+                        var $a = $('.buyButton' + id);
+                        $a.css( "display", "block");
+                        $a.on('click', {id: id, url: $a.attr('href')}, processBuyClick);
                     } else {
-                        $('.' + data.data[i].id).addClass('absent');
+                        $('.absentText' + data.data[i].id).css( "display", "block");
                     }
 
                 }
             }
         });
+    }
+
+    function processBuyClick(e) {
+        var id = e.data.id;
+        var url = e.data.url;
+        var count = 1;
+
+        e.preventDefault();
+
+        $.ajax({
+            url:'/api/v1/basket',
+            method:'PUT',
+            contentType:'application/json',
+            dataType:'json',
+            data:JSON.stringify({id:id, count:count}),
+            success:function (msg) {
+                document.location.href = url;
+            },
+            error: SYS.handleAjaxError
+        });
 
     }
 
+
+
 })();
+
+
