@@ -63,7 +63,7 @@ function processBuyClick(id, url) {
         dataType:'json',
         data:JSON.stringify({id:id, count:count}),
         success:function (msg) {
-            window.location.href = 'url';
+            window.location.href = url;
         },
         error: SYS.handleAjaxError
     });
