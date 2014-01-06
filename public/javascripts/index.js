@@ -144,16 +144,13 @@
 
     function setupMoveUpLink() {
         $(window).scroll(function () {
-            var ww = $(window).width();
-            console.log(ww);
-            console.log($(this).scrollTop());
-            if(ww < 960) {
+            if(ww < $(window).width()) {
                 return;
             }
+            var showAfter = ($('#header').height() + $('#navigator').height());
+            console.log(showAfter);
 
-
-
-            if ($(this).scrollTop() > 400) {
+            if ($(this).scrollTop() > showAfter) {
                 $('a#move_up').fadeIn(600);
             } else {
                 $('a#move_up').fadeOut(600);
