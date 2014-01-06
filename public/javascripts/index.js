@@ -58,6 +58,7 @@
     };
 
     $(document).ready(function () {
+        setupMoveUpLink();
         fixContentHeight();
         highlightAdminMenu();
         highlightMenu();
@@ -141,5 +142,27 @@
         });
     }
 
+    function setupMoveUpLink() {
+        $(window).scroll(function () {
+            if($(window).width() < 960) {
+                $('a#move_up').fadeOut(600);
+                return;
+            }
+            var showAfter = $('#header').height() + $('#navigation').height();
+            console.log(showAfter);
+
+            if ($(this).scrollTop() > showAfter) {
+                $('a#move_up').fadeIn(600);
+            } else {
+                $('a#move_up').fadeOut(600);
+            }
+        });
+        $('a#move_up').click(function () {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 0);
+            return false;
+        });
+    }
 
 })();
