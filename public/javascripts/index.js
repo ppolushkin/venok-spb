@@ -145,9 +145,10 @@
     function setupMoveUpLink() {
         $(window).scroll(function () {
             if($(window).width() < 960) {
+                $('a#move_up').fadeOut(600);
                 return;
             }
-            var showAfter = $('#header').height() + $('#navigator').height();
+            var showAfter = $('#header').height() + $('#navigation').height();
             console.log(showAfter);
 
             if ($(this).scrollTop() > showAfter) {
