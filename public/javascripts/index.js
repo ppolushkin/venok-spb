@@ -147,7 +147,7 @@
             if(ww < $(window).width()) {
                 return;
             }
-            var showAfter = ($('#header').height() + $('#navigator').height());
+            var showAfter = $('#header').height() + $('#navigator').height();
             console.log(showAfter);
 
             if ($(this).scrollTop() > showAfter) {
