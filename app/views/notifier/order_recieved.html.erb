@@ -1,4 +1,4 @@
-<h2>На сайте был создан <a href="http://venki-spb.ru/orders/<%= @order.id%>">заказ</a> <%= @order.created_at.getlocal.strftime("%Y-%m-%d %H:%M") %></h2>
+<h2>На сайте был создан <a href='http://www.venki-spb.ru/orders/<%=@order.id%>'>заказ</a> <%= @order.created_at.getlocal.strftime("%Y-%m-%d %H:%M") %></h2>
 
 <h3>Заказчик: <%= @order.full_name %> </h3>
 
