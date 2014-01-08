@@ -62,7 +62,7 @@
         e.preventDefault();
 
         $.ajax({
-            url:'/api/v1/basket',
+            url:'/api/v1/basket/product',
             method:'PUT',
             contentType:'application/json',
             dataType:'json',

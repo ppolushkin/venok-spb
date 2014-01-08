@@ -561,6 +561,11 @@ Product grid
     width: 605px;
 }
 
+.tapetext {
+    width: 400px;
+    height: 40px;
+}
+
 .mandatory label:after {
     content: "*";
     color: #ff0000;

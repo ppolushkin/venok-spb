@@ -27,9 +27,9 @@
   <% depot_count = DEPOT.availiable @product.id %>
 
   <% if depot_count > 0 %>
-        <p>Количество на складе - <%= depot_count %></p>
+      <p>Количество на складе - <%= depot_count %></p>
   <% else %>
-        <p class="big-text">Нет на складе</p>
+      <p class="big-text">Нет на складе</p>
   <% end %>
 
   <p>
@@ -37,7 +37,7 @@
   </p>
 
   <p class="big-text hide" id="depotIsLack">
-  Внимание: на складе недостаточно изделий. Пожалуйста, уточните сроки доставки.
+    Внимание: на складе недостаточно изделий. Пожалуйста, уточните сроки доставки.
   </p>
 
   <div class="basket-form">
@@ -53,7 +53,35 @@
   </div>
 
   <p class="big-text">
+  <div class="field">
+    <input id="buyTape" type="checkbox">
+    <label>Нужна траурная лента (стоимость 300 р)</label>
+  </div>
+
+  <div class="field hide tapeColor">
+    <label>Цвет ленты: &nbsp;</label>
+    <select class="tapeColorSelector">
+      <option value="Черный">Черная</option>
+      <option value="Бордо">Бордо</option>
+      <option value="Алый">Алая</option>
+      <option value="Голубой">Голубая</option>
+    </select>
+  </div>
+
+  <div class="field hide tapeTextField">
+    <label>Текст на траурной ленте</label>
+    <textarea class="tapetext tapeTextInput"></textarea>
+  </div>
+  </p>
+
+  <p class="big-text">
     Итого: <a href="/basket" class="basketInfo"></a>
   </p>
 
+  <br/>
+  <form action="/basket" method="link">
+    <input id="BasketButtonLink" type="submit" value="Перейти к оформлению заказа">
+  </form>
+
 </div>
+

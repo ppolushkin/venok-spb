@@ -43,9 +43,31 @@
           </tr>
       <% end %>
     </table><br/><br/>
-<% else %>
-    <p class="big-text">Корзина пуста. Такого быть не может - это ошибка в сайте.</p>
 <% end %>
+
+
+<% if basket && basket.tapes.size > 0 %>
+    <h3>Ленты:</h3>
+    <table border="1">
+      <tr>
+        <th>Текст</th>
+        <th>Цвет</th>
+        <th>Для</th>
+        <th>Количество</th>
+        <th>Стоимость</th>
+      </tr>
+      <% basket.tapes.each() do |tape| %>
+          <tr class="<%= tape.product_id.to_s %>">
+            <td><%= tape.text %></td>
+            <td><%= tape.color %></td>
+            <td><%= tape.product_article %></td>
+            <td><%= tape.count %></td>
+            <td><%= sprintf("%u р", tape.count * 300) %></td>
+          </tr>
+      <% end %>
+    </table>
+<% end %>
+
 
 <b>Полная сумма заказа:</b> <%= @order.basket.formatted_summary_price %> <br/>
 

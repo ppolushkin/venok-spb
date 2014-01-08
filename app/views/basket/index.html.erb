@@ -4,7 +4,11 @@
   <h3>Ваша корзина</h3>
 
   <% if @basket.basket_items.size > 0 %>
-      <table>
+   <div class="productDiv">
+
+      <h2>Венки / Корзины / Изделия:</h2>
+
+      <table class="productTable">
         <tr>
           <th>Наименование</th>
           <th>Количество</th>
@@ -30,6 +34,40 @@
         Внимание: на складе недостаточно изделий. Пожалуйста, уточните сроки доставки.
       </p>
 
+   </div>
+  <% end %>
+
+
+  <% if @basket.tapes.size > 0 %>
+      <div class="tapeDiv">
+        <p></p>
+        <h2>Ленты:</h2>
+        <table class="tapeTable">
+          <tr>
+            <th>Текст</th>
+            <th>Цвет</th>
+            <th>Количество</th>
+            <th>Цена за штуку</th>
+            <th>Стоимость</th>
+          </tr>
+          <% @basket.tapes.each() do |tape| %>
+              <tr class="<%= tape.product_id.to_s %>">
+                <td><%= tape.text %></td>
+                <td><%= tape.color %></td>
+                <td>
+                  <input class="tapeCount" type="number" value="<%= tape.count %>" size="1" min="0" max="1000">
+                  <a href="#" class="removeTapeLink">Удалить</a>
+                </td>
+                <td><%= sprintf("%u р", 300) %></td>
+                <td class="common_tape_price"><%= sprintf("%u р", tape.count * 300) %></td>
+              </tr>
+          <% end %>
+        </table>
+      </div>
+  <% end %>
+
+
+  <% if (@basket.basket_items.size > 0) || (@basket.tapes.size > 0) %>
       <p class="big-text">
         Итого: <strong class="basketInfo"></strong>
       </p>
@@ -39,7 +77,6 @@
           <input id="newOrderButton" type="submit" value="Оформить заказ">
         </form>
       </div>
-
   <% else %>
       <p class="big-text">Корзина пуста</p>
   <% end %>

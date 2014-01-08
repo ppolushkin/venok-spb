@@ -13,8 +13,8 @@
     function showAddress(effect) {
         var $checkBox = $('.deliveryCheckBox');
         var $field = $('.deliveryAddress');
-        var $price = $('.price')
-        var $priceWithDelivery = $('.priceWithDelivery')
+        var $price = $('.price');
+        var $priceWithDelivery = $('.priceWithDelivery');
 
         if ($checkBox.is(':checked')) {
             if(effect == true) {
