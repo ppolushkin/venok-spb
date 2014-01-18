@@ -15,7 +15,7 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.xml
   def show_by_page_ref
-    @page = Page.find_by_reference(params[:page_ref])
+    @page = Page.first(conditions: [ 'lower(reference) = ?', params[:page_ref].downcase ])
 
     if @page == nil
       redirect_to :action => "new", :page_ref => params[:page_ref]
