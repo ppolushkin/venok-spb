@@ -111,7 +111,9 @@
                 dataType: 'json',
                 data: JSON.stringify({product_id: product_id, color: color, text: text, count: count}),
                 success: function () {
-                    SYS.showMessage(hint);
+                    if(hint) {
+                        SYS.showMessage(hint);
+                    }
                     SYS.showBasket();
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -151,14 +153,14 @@
 
     function activateTapeTextInput() {
         $('.tapeTextInput').focusout(function() {
-                putTape('Лента обновлена');
+                putTape();
             }
         );
     }
 
     function activateTapeColorSelector() {
         $('.tapeColorSelector').change(function() {
-                putTape('Лента обновлена');
+                putTape();
             }
         );
     }
