@@ -69,8 +69,6 @@
 <% end %>
 
 
-<b>Полная сумма заказа:</b> <%= @order.basket.formatted_summary_price %> <br/>
-
-<b>Полная сумма заказа с доставкой:</b> <%= @order.formatted_full_order_price %> <br/><br/>
+<b>Сумма заказа (без учета доставки):</b> <%= @order.basket.formatted_summary_price %> <br/>
 
 С Уважением, <br/>Администратор сайта

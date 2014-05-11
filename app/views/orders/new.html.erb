@@ -28,7 +28,7 @@
 
         <div class="field">
           <%= f.check_box :delivery, :class => "deliveryCheckBox" %>
-          <%= f.label 'Нужна доставка (400 р):' %>
+          <%= f.label 'Нужна доставка (от 500 р):' %>
         </div>
 
         <div class="cleaner hide deliveryAddress"></div>
@@ -58,7 +58,7 @@
         </p>
 
         <p class="big-text priceWithDelivery hide">
-          Сумма заказа вместе с доставкой состовляет: <%= sprintf("%u р", @basket.summary_price + 400) %>
+          Сумма заказа состовляет: <%= sprintf("%u р", @basket.summary_price) %> + доставка <a href="/delivery">в зависимости от района</a>
         </p>
 
         <div class="actions">

@@ -20,19 +20,16 @@ class Order < ActiveRecord::Base
   validates :email, :email => true, :if => :email_exist?
   validates :address, :presence => true, :if => :delivery?
 
+  # Deprecated
   def full_order_price
     r = 0
     if basket
       r+=basket.summary_price
     end
     if delivery?
-      r+=400
+      r+=500
     end
     r
-  end
-
-  def formatted_full_order_price
-    sprintf("%u р", full_order_price)
   end
 
   def email_exist?
