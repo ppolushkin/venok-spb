@@ -343,9 +343,9 @@ Product grid
 .product-item {
     position: relative;
     float: left;
-    height: 262px;
+    height: 369px;
     margin: 0 11px 11px 0;
-    width: 175px;
+    width: 235px;
 }
 
 .product-item .thumb {
@@ -357,14 +357,15 @@ Product grid
     border-bottom: medium none -moz-use-text-color;
     border-image: none;
     display: block;
-    height: 180px;
-    width: 135px;
+    height: 311px;
+    width: 233px;
 }
 
 .product-item .details {
-    background: url("../images/bg-buynow.gif") no-repeat scroll left top transparent;
+    /*background: url("../images/bg-buynow.gif") no-repeat scroll left top transparent;*/
+    background-color: #332B33;
     height: 57px;
-    width: 137px;
+    width: 235px;
 }
 
 .buy-button {
@@ -391,20 +392,22 @@ Product grid
 
 .product-item .description {
     position: absolute;
-    left: 5px;
-    top: 218px;
-    width: 120px;
+    left: 72px;
+    top: 340px;
+    width: 150px;
     color: #FFFFFF;
-    font-size: 0.9em;
+    font-size: 1.1em;
+    font-weight: 300;
     line-height: 7pt;
     padding: 1px 6px 0 3px;
     text-align: center;
+    /*background-color: #0092ef;*/
 }
 
 .product-item .size {
     position: absolute;
-    left: 75px;
-    top: 203px;
+    left: 7px;
+    top: 350px;
     color: #FFFFFF;
     font-size: 0.85em;
     line-height: 9pt;
@@ -415,8 +418,8 @@ Product grid
 
 .product-item .price {
     position: absolute;
-    left: 82px;
-    top: 188px;
+    left: 179px;
+    top: 319px;
     color: #FFFFFF;
     font-size: 1.2em;
     text-align: right;
