@@ -16,7 +16,7 @@ How to push into staging:
  git push heroku staging:master  
 
 How to run rake console
- heroku run rails console --app [venok-spb-staging | venok]
+ q [venok-spb-staging | venok]
 
 
 How to periodically clean basket:
@@ -26,6 +26,8 @@ How to periodically clean basket:
 How to fix precompile error during deploy:  
 http://stackoverflow.com/questions/16432825/heroku-precompile-assets-failed-on-rail-4-app  
 https://devcenter.heroku.com/articles/labs-user-env-compile
- 
+
+How to read logs:
+  heroku logs -n 1500 --app venok | less
  
 

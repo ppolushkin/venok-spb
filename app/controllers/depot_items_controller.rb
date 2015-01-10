@@ -3,6 +3,14 @@ class DepotItemsController < ApplicationController
   # GET /depot_items.json
   def index
     all_items = DEPOT.depot_items.all
+
+    all_items.delete_if do |item|
+      if item.product == nil
+        item.delete
+        true
+      end
+    end
+
     @depot_items = all_items.sort do |a,b|
       a.product.name <=> b.product.name
     end
