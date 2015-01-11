@@ -362,8 +362,7 @@ Product grid
 }
 
 .product-item .details {
-    /*background: url("../images/bg-buynow.gif") no-repeat scroll left top transparent;*/
-    background-color: #332B33;
+    background: url("../images/bg-buynow.jpg") no-repeat scroll left top transparent;
     height: 57px;
     width: 235px;
 }

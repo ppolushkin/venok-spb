@@ -2,6 +2,6 @@
 
 class SmallFotoUploader < FotoUploader
 
-  process :resize_to_fit => [135, 180]
+  process :resize_to_fit => [233, 311]
 
 end
