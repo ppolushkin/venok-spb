@@ -31,3 +31,17 @@ How to read logs:
   heroku logs -n 1500 --app venok | less
  
 
+How db was migrated to paid plan:
+https://devcenter.heroku.com/articles/upgrading-heroku-postgres-databases#upgrade-with-pg-copy-default
+
+heroku maintenance:on --app venok
+
+heroku addons:add heroku-postgresql:hobby-basic --app venok
+
+heroku pg:copy HEROKU_POSTGRESQL_VIOLET HEROKU_POSTGRESQL_AQUA_URL --app venok
+
+heroku pg:promote HEROKU_POSTGRESQL_AQUA_URL --app venok
+
+heroku maintenance:off --app venok
+
+
