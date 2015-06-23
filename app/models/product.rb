@@ -54,7 +54,7 @@ class Product < ActiveRecord::Base
     return '/korzina/' + id.to_s if korzina?
     return '/izdelie/' + id.to_s if izdelie?
     return '/flower/' + id.to_s if flower?
-    return '/traurniy_venok' + id.to_s if traurniy_venok?
+    return '/traurniy_venok/' + id.to_s if traurniy_venok?
   end
 
 end
