@@ -6,12 +6,12 @@ class Product < ActiveRecord::Base
   validates :article, :uniqueness => true
 
   validates :article, :format => {
-      :with    => /[ВКФИЦ]\d+/,
-      :message => "Артикль должен иметь формат В{номер} - для венка, К{номер} - для корзины или Ф{номер} - для фона, И{номер} - для изделия, Ц{номер} - для цветов"
+      :with    => /[ВКФИЦЖ]\d+/,
+      :message => "Артикль должен иметь формат В{номер} - для венка, К{номер} - для корзины или Ф{номер} - для фона, И{номер} - для изделия, Ц{номер} - для цветов, Ж{номер} - для живых венков"
   }
   validates :article, :format => {
-      :without => /(.+[ВКФИЦ]\d+)|([ВКФ]\d+\D+)/,
-      :message => "Артикль должен иметь формат В{номер} - для венка, К{номер} - для корзины или Ф{номер} - для фона, И{номер} - для изделия, Ц{номер} - для цветов"
+      :without => /(.+[ВКФИЦЖ]\d+)|([ВКФ]\d+\D+)/,
+      :message => "Артикль должен иметь формат В{номер} - для венка, К{номер} - для корзины или Ф{номер} - для фона, И{номер} - для изделия, Ц{номер} - для цветов, Ж{номер} - для живых венков"
   }
   validates_numericality_of :height, :width, :price, :greater_than => 0
 
@@ -23,6 +23,10 @@ class Product < ActiveRecord::Base
 
   has_many :basket_items, :dependent => :destroy
   has_many :depot_items, :dependent => :destroy
+
+  def traurniy_venok?
+    article.force_encoding('UTF-8').include?("Ж")
+  end
 
   def venok?
     article.force_encoding('UTF-8').include?("В")
@@ -50,6 +54,7 @@ class Product < ActiveRecord::Base
     return '/korzina/' + id.to_s if korzina?
     return '/izdelie/' + id.to_s if izdelie?
     return '/flower/' + id.to_s if flower?
+    return '/traurniy_venok' + id.to_s if traurniy_venok?
   end
 
 end
