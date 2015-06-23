@@ -44,4 +44,11 @@ heroku pg:promote HEROKU_POSTGRESQL_AQUA_URL --app venok
 
 heroku maintenance:off --app venok
 
+== How to add heroku repo ==
+heroku login
+heroku git:remote -a obelisk-spb-staging -r staging
+
+https://devcenter.heroku.com/articles/git#creating-a-heroku-remote
+
+
 
