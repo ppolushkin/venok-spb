@@ -13,6 +13,7 @@ Obelisk::Application.routes.draw do
   end
 
   get "ritual_venki", :controller => "store", :action => "show_venki", :as=>"venki"
+  get "traurnie_venki", :controller => "store", :action => "show_natural_venki", :as=>"traurnie_venki"
   get "ritual_korsinu", :controller => "store", :action => "show_korsinu", :as=>"korsinu"
   get "may_9", :controller => "store", :action => "show_may_9", :as=>"may_9"
   get "novinki", :controller => "store", :action => "show_novinki", :as=>"novinki"

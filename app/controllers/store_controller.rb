@@ -17,6 +17,10 @@ class StoreController < ApplicationController
     get_products "В", params
   end
 
+  def show_natural_venki
+    get_products "Ж", params
+  end
+
   def show_korsinu
     get_products "К", params
   end
