@@ -60,4 +60,9 @@ Obelisk::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  # this allows WEBrick to handle special symbols in query parameters
+  URI::DEFAULT_PARSER =
+      URI::Parser.new(:UNRESERVED => URI::REGEXP::PATTERN::UNRESERVED + '[]{}')
+
 end
