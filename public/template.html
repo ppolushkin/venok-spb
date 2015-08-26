@@ -1,156 +1,143 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
     <meta name="Description"
           content="Продажа ритуальных траурных венков и корзин в Санкт-Петербурге"/>
     <meta name="Keywords" content="траурные,ритуальные,венки,спб,петербург"/>
     <meta name="robots" content="all,follow"/>
-    <meta http-equiv="Content-Script-Type" content="text/javascript"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
     <link href="/stylesheets/reset.css" media="screen" rel="stylesheet" type="text/css"/>
     <link href="/stylesheets/new-template.css" media="screen" rel="stylesheet" type="text/css"/>
     <!--[if lte IE 6]>
     <script type="text/javascript" src="/javascripts/IE/unitpngfix.js"></script>
     <![endif]-->
+    <meta content="authenticity_token" name="csrf-param" />
+    <meta content="Vgc0NVUZm/U6PataufV2C71oIfp/WgNkGNJtxkjgK9U=" name="csrf-token" />
     <title>Траурные ритуальные венки и корзины Санкт-Петербург</title>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="/javascripts/index.js"></script>
-</head>
+    <script type="text/javascript" src="/javascripts/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-1.9.1-ui.min.js"></script>
+    <script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script></head>
 <body>
-
-<a id="move_up" href="#">&#9650; Вверх</a>
-
+<a id="move_up" href="#">&#9650; Наверх</a>
+<script type="text/javascript" src="/javascripts/index.js"></script>
 <div id="body-container">
-
     <div id="main">
         <div id="header">
+            <a href="/"><img id="hearder_img" src="/images/pk_venok.jpg" alt="Производственная Компания Венок"></a>
 
             <div id="admin">
                 <ul>
-                    <li class="on"><a href="/about_us">Страницы</a></li>
-                    <li><a href="/about_us">Товары</a></li>
-                    <li><a href="/about_us">Сообщения</a></li>
-                    <li id="login"><a href="/about_us">Выход</a></li>
+                    <li><a href="/admins">Администраторы</a></li>
+                    <li><a href="/pages">Страницы</a></li>
+                    <li><a href="/feedback_mails">Сообщения</a></li>
+                    <li><a href="/depot_items">Склад</a></li>
+                    <li><a href="/products">Товары</a></li>
+                    <li><a href="/orders">Заказы</a></li>
+                    <li><a href="/logout">Выйти</a></li>
                 </ul>
             </div>
 
-            <div id="basket"><a href="/template.html">3 товара на 3940 р.</a></div>
 
             <ul id="menu">
-                <li class="on"><a href="/about_us">О нас</a></li>
-                <li><a href="/about_us">Венки</a></li>
-                <li><a href="/about_us">Корзины</a></li>
-                <li><a href="/about_us">Ленточки</a></li>
+                <li><a href="/ritual_venki">Венки</a></li>
+                <li><a href="/ritual_korsinu">Корзины</a></li>
+                <li><a href="/traurnie_venki">Живые Венки</a></li>
+                <li><a href="/goods">Кресты</a></li>
+                <li><a href="/funeral_tape">Ленты</a></li>
+                <li><a href="/delivery">Доставка и оплата</a></li>
+                <li><a href="/wholesale">Опт</a></li>
+                <li><a href="/spb_contacts">Контакты</a></li>
             </ul>
         </div>
 
-        <div id="navigation">
-            <div id="delivery">
-                <h3>Доставка по Спб</h3>
 
-                <p>На следующий день</p>
-
-                <p>400 руб</p>
-            </div>
-
-            <h3>Венки</h3>
-            <ul>
-                <li class="on"><a href="/about_us">от 5000р</a></li>
-                <li><a href="/about_us">от 2500р</a></li>
-                <li><a href="/about_us">от 1000р</a></li>
-                <li><a href="/about_us">от 500р</a></li>
-            </ul>
-
-            <h3>Корзины</h3>
-            <ul>
-                <li><a href="/about_us">от 5000р</a></li>
-                <li><a href="/about_us">от 2500р</a></li>
-                <li><a href="/about_us">от 1000р</a></li>
-                <li><a href="/about_us">от 500р</a></li>
-            </ul>
-
-            <h3>Ленточки</h3>
-            <ul>
-                <li><a href="/about_us">от 5000р</a></li>
-                <li><a href="/about_us">от 2500р</a></li>
-                <li><a href="/about_us">от 1000р</a></li>
-                <li><a href="/about_us">от 500р</a></li>
-            </ul>
-
-        </div>
 
         <div id="content">
 
-            <div id="notice">You are logged in</div>
-
-            <div class="buy-form">
-                <img src="images/foto/V181-b.jpg" alt="Траурный венок" height="400" width="300">
-                <table>
-                    <tr>
-                        <td>Артикль</td>
-                        <td>Наименование</td>
-                        <td>Количество</td>
-                        <td>Стоимость</td>
-                    </tr>
-                    <tr>
-                        <td>В111</td>
-                        <td>Венок название</td>
-                        <td>2</td>
-                        <td>2000 р.</td>
-                    </tr>
-                    <tr>
-                        <td>В111</td>
-                        <td>Венок название</td>
-                        <td>2</td>
-                        <td>2000 р.</td>
-                    </tr>
-                    <tr>
-                        <td>В111</td>
-                        <td>Венок название</td>
-                        <td>2</td>
-                        <td>2000 р.</td>
-                    </tr>
-                    <tr>
-                        <td>В111</td>
-                        <td>Венок название</td>
-                        <td>2</td>
-                        <td>2000 р.</td>
-                    </tr>
-
-                </table>
-
-            </div>
-
-
-
             <div class="text-block">
-                <h3>Уважаемые партнеры!</h3>
 
-                <p>Мы рады сообщить, что с 30 апреля открыто <a href="/about_us">новое представительство</a> в Санкт-Петербурге по адресу
-                    <strong>Санкт-Петербург</strong>, ул. Грибакиных, д. 25 корп. 3.
-                    (На территории предприятия НЕВОТОН). <img src="images/foto/V175-s.jpg" alt="венок"/>
-                    Удобный подъезд с кольцевой (5 мин.), представительство находится всего в 100 метрах от метро
-                    Обухово.</p>
 
-                <p>Данное представительство осуществляет как мелкооптовые продажи ритуальных венков и корзин ( от 5 000
-                    руб.), так и крупные поставки.
-                    Для вашего и нашего удобства, просьба уточнять наличие товара по телефону.</p>
-            </div>
 
-            <div class="product-grid">
+                <p><strong> Траурные ритуальные венки на похороны. От производителя. Без посредников.</strong></p>
+                <p>Как компания-производитель мы гарантируем высокое качество продукции, богатый ассортимент моделей по цене производителя. Без посредников.</p>
+                <p><strong>Наши преимущества:</strong></p>
+                <p><strong>Самые низкие цены в городе</strong>. Работа без посредников и переплат. Напрямую от производителя. Ритуальные траурные венки от 150 руб. до 4 000 руб.</p>
+                <p><strong>Самый большой ассортимент изделий.</strong> Более 250 моделей ритуальных венков, корзин и букетов из искусственных цветов в НАЛИЧИЕ по адресу ул.Грибакиных д.25 корп.3. Различных цветовых и дизайнерских решений.<a href="ritual_venki">Смотреть...</a></p>
+                <p>Изготовление <strong>траурных лент</strong> с любым текстом всего за 5 мин. в вашем присутствии<a href="funeral_tape">Подробнее...</a></p>
+                <p>Уникальная серия ритуальных венков <strong>для Защитников Отечества</strong> <a href="ritual_venki">Смотреть...</a></p>
+                <p>Траурные букеты </p></li>
+                <p><a href="delivery"><strong>Доставка</strong></a> по Санкт-Петербургу и пригороду в тот же день. <strong> Самовывоз.</strong>Всего 50 метров от метро, 5 мин. с КАД</p>
+                <p>Магазин <strong>прямо у МЕТРО</strong>. Приезжайте и выбирайте изделие прямо в магазине.<a href="spb_contacts">Смотреть карту</a></p>
+                <p><strong>Оплата при получении.</strong> Возможность оплаты как <strong>наличными</strong>, так и по <strong>безналичному расчету.</strong></p>
+                <p>Плотная упаковка при самовывозе</p>
 
-                <div class="product-item">
-                    <a class="thumb" href="images/foto/V181-b.jpg">
-                        <img src="images/foto/V181-s.jpg" alt="Венок1" title="Венок1" width="135" height="180">
-                    </a>
-                    <div class="details">
-                        <a href="images/foto/V175-s.jpg">Купить</a>
-                        <div class="price">Цена <span>3000руб</span></div>
-                        <div class="description">Орден Отечественной Войны</div>
-                        <div class="description">90x180 см</div>
-                    </div>
-                </div>
+                <strong>Звоните +7-965-748-54-09</strong> и мы ответим на интересующие Вас вопросы.
+
+                <p></p><p><strong>Вы можете приобрести:</strong>
+
+                <li><strong>Траурные <a href="ritual_venki">венки</a> и <a href="ritual_korsinu">корзины</a></strong> по ценам производителя</li>
+                <li>Траурные букеты</li>
+                <li>Ритуальные <a href="goods">изделия</a></li>
+                <li>Траурные <a href="Funeral_tape">ленты</a></li>
+                <li><strong>Ритуальные изделия</strong> для <a href="Design_of_the_grave"> оформления захоронения</a></li>
+                <li>Искусственные цветы </li>
+                <li>Деревянные и металлические кресты</li>
+                <li><strong>Ритуальные венки</strong> по Вашим эскизам (срок изготовления ~ 7 дней)</li>
+
+                <p></p>
+                <p>
+                    Обращаем Ваше внимание, что каждая модель выполняется в нескольких цветовых вариантах. О наличие можно узнать у наших специалистов по телефону +7-965-748-54-09.
+                </p>
+                <p>
+                    Уважаемые партнеры и клиенты! Обращаем Ваше внимание, что ООО "Производственная компания "Венок" оставляет за собой право видоизменять внешний вид изделий, так, что он может несколько отличаться от предложенного на сайте. Это связано как с активным совершенствованием моделей и невозможностью постоянного обновления информации на сайте,так и наличием цветов на складе.Мы гарантируем Вам качественное и своевременное исполнение заказа в короткие сроки.
+                </p>
+
+
+
+                <h3>О нас</h3>
+                <p>
+                    <strong>ООО "Производственная компания "Венок"</strong> – надежный производитель ритуальных изделий, который уже в течение 5 лет занимает достойное место на рынке ритуальной продукции.
+                </p>
+                <p>
+                    ”ПК “Венок” предлагает богатый ассортимент ритуальных венков и корзин из искусственных цветов. В нашем каталоге представлено более 250 моделей, отвечающих различным требованиям и характеристикам, таким как стиль исполнения, размер изделия, его форма, ценовая категория и т.д.
+                </p>
+                <p>
+                    Особое внимание заслуживает широкий выбор ритуальных венков для возложения Павшим Героям, представленных в серии “Защитникам Отечества”. Венки данной категории отличаются исключительностью и неповторимым подходом в исполнении, за основу отдельных моделей были взяты ордена: “Отечественная Война” 1 степени, орден Боевого Красного Знамени, геральдический знак Красной Звезды, флаг ВМФ Российской Федерации и т.д.
+                </p>
+                <p>
+                    Продукция “Производственной компании “Венок” изготовляется из ритуального ерша собственного производства, который значительно превосходит обычную искусственную хвою как по внешним данным, так и по качеству, а, следовательно, и долговечности ритуальных изделий. В не зависимости от погодных условий наша продукция сохраняет первоначальный внешний вид долгие годы. Созданием траурных венков и корзин занимается команда опытных дизайнеров, мы не стоим на месте и постоянно пополняем свой ассортимент новыми моделями.
+                </p>
+
+                <p>Статьи:</p>
+                <p><a href="how_to_make_an_order"> Как сделать заказ? Здесь мы отвечаем на все вопросы.</a></p>
+                <p><a href="who_and_how_order_a_wreath">Кто и как заказывает траурный венок на похороны? </a></p>
+                <p><a href="shipping_price"> Пара слов о доставке </a></p>
+                <p><a href="remote_order">Как заказать траурный венок, находясь в другом городе или стране? </a></p>
+                <p><a href="reviews"> Здесь Ваши отзывы.</a></p>
+                <p><a href="advantages"> Почему именно наша компания? </a></p>
+                <p><a href="forma_ritualnogo_venka">Значение формы ритуального венка в траурной флористике </a></p>
+                <p><a href="Vozlogenie_ritualnih_venkov">Традиция возложения ритуальных венков </a></p>
+                <p><a href="tapes">Траурные ленты. Тексты на траурных лентах. </a></p>
+                <p><a href="venki_1">Траурные ритуальные венки из искусственных цветов.</a></p>
+                <p><a href="what_to_do"> Умер близкий человек. Что делать?</a></p>
+                <p><a href="cemetery"> Когда следует и можно посещать кладбище?</a></p>
+                <p><a href="dictionary"> Словарь ритуальных терминов </a></p>
+                <p><a href="Orthodox_rite">Русский православный обряд. Действия, производимые над телом усопшего, и молитвы о его душе до отпевания </a></p>
+                <p><a href="condolences">Как стоит приносить соболезнования, что лучше говорить, а как этого не стоит делать. </a></p>
+
+
+
+
+
+
+
+
+
+
+
+
 
             </div>
 
@@ -158,12 +145,12 @@
     </div>
 </div>
 
+<div id="dialog" title="Подождите"></div>
 
 <div id="footer-container">
     <div id="footer">
-        Производственная Компания &laquo;Венок&raquo; 2009&mdash;2013
+        Производственная Компания &laquo;Венок&raquo; 2009&mdash;2014
     </div>
 </div>
-
 </body>
 </html>
