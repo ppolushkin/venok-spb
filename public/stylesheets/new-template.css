@@ -235,20 +235,17 @@ ul#menu li a:hover {
 }
 
 #delivery {
-    background: url("../images/sidebar-clockface.png") no-repeat scroll left top transparent;
+    background: url("../images/delivery.jpg") no-repeat scroll left top transparent;
     height: 195px;
     color: #ffffff;
-    font-size: 1.5em;
-    letter-spacing: -0.8px;
 }
 
-#delivery h3 {
-    background: none;
-    margin: 0;
-    font-size: 1.0em;
-    padding-top: 35px;
-    /*padding-bottom: 40px;*/
+#delivery2 {
+    background: url("../images/delivery2.jpg") no-repeat scroll left top transparent;
+    height: 195px;
+    color: #ffffff;
 }
+
 
 /*Text formatting */
 
