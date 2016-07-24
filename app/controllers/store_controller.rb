@@ -15,6 +15,11 @@ class StoreController < ApplicationController
   #GET /ritual_venki?filter=in_store
   def show_venki
     get_products "В", params
+    if params[:filter] == 'military'
+      render 'show_military_venki'
+    else
+      render 'show_venki'
+    end
   end
 
   def show_natural_venki
