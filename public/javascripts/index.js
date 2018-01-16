@@ -25,11 +25,9 @@
         },
 
         handleAjaxError:function (jqXHR, textStatus, errorThrown) {
-            if (jqXHR.status == 400) {
-                SYS.showMessage("Неверный параметр");
-            } else {
-                SYS.showMessage("Неизвестная ошибка");
-            }
+             console.log("REST error: " + textStatus);
+             console.log("incoming Text: " + jqXHR.responseText);
+             console.log("errorThrown: " + errorThrown);
         },
 
         blinkColor:function ($obj) {

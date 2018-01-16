@@ -50,7 +50,8 @@
                     }
 
                 }
-            }
+            },
+            error: SYS.handleAjaxError
         });
     }
 
