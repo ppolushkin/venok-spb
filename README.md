@@ -50,5 +50,33 @@ heroku git:remote -a obelisk-spb-staging -r staging
 
 https://devcenter.heroku.com/articles/git#creating-a-heroku-remote
 
+== Setup docker environment ==
+
+https://docs.docker.com/compose/rails/
+
+1. Install docker
+2. Install docker-compose
+3. Make sure project is located in ~/Workspace/venok
+4. run
+    sudo docker-compose up
+5. Create db via rake
+    sudo docker-compose run rails rake db:create
+6. Now you have to setup database. First restart it:
+    sudo docker-compose down
+    sudo rm ~/Workspace/venok/tmp/pids/server.pid
+    sudo docker-compose up
+7. Attach to db container and restore db
+a)  find and copy image id
+    sudo docker images
+b)  connect to it
+    sudo docker exec -it 665b4a1e17b6 bash
+c)  make restore
+    cd /home/venok
+    pg_restore --verbose --clean --no-acl --no-owner -h localhost -U postgres -d dev_venok venok_db_2018-01-20.dump
+8. Restart cluster again
+
+
+== Run docker container ==
+sudo docker run -it -p 3000:3000 -v ~/Workspace/venok:/home/venok venok_rails bash -l
 
 

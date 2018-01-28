@@ -1,0 +1,18 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - .:/home/venok
+  rails:
+    build: .
+    ports:
+    - "3000:3000"
+    volumes:
+    - ~/Workspace/venok:/home/venok
+    command: ["bash", "-l", "-c", "rails s"]
+    depends_on:
+    - db
+volumes:
+    pgdata:

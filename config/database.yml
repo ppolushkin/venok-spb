@@ -1,13 +1,11 @@
 
 development:
   adapter: postgresql
+  encoding: unicode
   database: dev_venok
-  pool: 5
-  timeout: 5000
-
-test:
-  adapter: postgresql
-  database: test_venok
+  host: db
+  username: postgres
+  password:
   pool: 5
   timeout: 5000
 
