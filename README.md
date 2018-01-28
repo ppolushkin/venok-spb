@@ -79,4 +79,5 @@ c)  make restore
 == Run docker container ==
 sudo docker run -it -p 3000:3000 -v ~/Workspace/venok:/home/venok venok_rails bash -l
 
-
+== Run environment ==
+sudo rm ~/Workspace/venok/tmp/pids/server.pid && sudo docker-compose up
