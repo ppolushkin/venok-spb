@@ -60,14 +60,14 @@ https://docs.docker.com/compose/rails/
 4. run
     sudo docker-compose up
 5. Create db via rake
-    sudo docker-compose run rails rake db:create
+    sudo docker-compose run rails bash -l -c "rake db:create"
 6. Now you have to setup database. First restart it:
     sudo docker-compose down
     sudo rm ~/Workspace/venok/tmp/pids/server.pid
     sudo docker-compose up
 7. Attach to db container and restore db
-a)  find and copy image id
-    sudo docker images
+a)  find and copy container id
+    sudo docker ps
 b)  connect to it
     sudo docker exec -it 665b4a1e17b6 bash
 c)  make restore
